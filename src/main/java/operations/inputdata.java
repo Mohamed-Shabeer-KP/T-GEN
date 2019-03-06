@@ -12,14 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.*;
-
 import elements.StudentGroup;
 import elements.Teacher;
-
-import java.io.FileInputStream;
-
-
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -158,6 +152,7 @@ if(flag==1)
     System.out.println("VALUES FETCHED");
 else
     System.out.println("VALUES DIDNT FETCHED");
+
 
                 daysperweek = 5;
                 hoursperday = 6;
