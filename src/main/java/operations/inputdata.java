@@ -1,8 +1,5 @@
 package operations;
 
-
-
-
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -106,7 +103,8 @@ public class inputdata {
 */
   
   // Fetch the service account key JSON file contents
-                FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+        
+ /* FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
 
 FirebaseOptions options = null;
             try {
@@ -153,7 +151,7 @@ if(flag==1)
 else
     System.out.println("VALUES DIDNT FETCHED");
 
-
+*/
                 daysperweek = 5;
                 hoursperday = 6;
                           
