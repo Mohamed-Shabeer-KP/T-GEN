@@ -17,11 +17,11 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	static int hours=inputdata.hoursperday,days=inputdata.daysperweek;
 	static int nostgrp=inputdata.nostudentgroup;
 	double fitness;
-	double point;
+	double tp;
 	public Gene[] gene;
-        double cp;
-        double post;
-        double neg;
+        double lp;
+        double lab_point;
+        double teacher_point;
 	
 	Chromosome(){
 		
@@ -56,8 +56,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 
 	public double getFitness(){
          
-		point=0;
-                cp=0;
+		tp=0;
+                lp=0;
 		for(int i=0;i<hours*days;i++){//i=30
 			
 			List<Integer> teacherlist=new ArrayList<Integer>();  
@@ -75,14 +75,16 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 
                                 if(slot!=null){
 					
-                                        if(teacherlist.contains(4))
+                                       /*  if(teacherlist.contains(1) )
                                         {
-                                            cp++;
+                                            lp++;
                                         }
-                                        else if(teacherlist.contains(slot.teacherid)){     
-                                            point++;
+                                         else*/ if(teacherlist.contains(slot.teacherid) && slot.teacherid!=4 ){     
+                                            tp++;
 					}
 					else teacherlist.add(slot.teacherid);
+                                        
+                                        
 				}
 			}	
 		}
@@ -99,35 +101,36 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                     
                                   //  prevsub=TimeTable.slot[gene[i].slotno[k+j*hours]].subject;
                                   
-                                 //   if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject=="LAB")
-                                //    labcount++;
+                                    if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject.equals("LAB"))
+                                    labcount++;
                                  }
                                 
 		}
-                            //    if(labcount!=3)
-                               //point++;
+                                if(labcount==3)
+                               lp++;
                                 
-                              //  labcount=0;
+                                labcount=0;
                         
                         }
                         
                        
               }
+                
               
-		//System.out.println(point);
-		
-                
-                
-               post =(cp/((nostgrp-1.0)*hours*days));
-               neg = (point/((nostgrp-1.0)*hours*days));//(point / 30 , h*d = 30)  
+                 lab_point =(lp/(days*(hours/3)))/2;
+               // lab_point =(lp/((nostgrp-1.0)*hours*days)/2);
+                teacher_point = (tp/((nostgrp-1.0)*hours*days));//.5
               //  System.out.println(post);
               //  System.out.println(neg);
                 //fitness = 1-(point/((nostgrp-1.0)*hours*days)); 
-            fitness = 1-neg;   
-            
-            //System.out.println(fitness);
-                point=0;
-     
+           // fitness = 1-(lab_point+teacher_point)/2;   
+             fitness = (1-teacher_point);
+             fitness=fitness/2;
+             fitness = fitness + lab_point;
+             
+           
+                tp=0;
+                lp=0;
 		return fitness;
 	}
 	
