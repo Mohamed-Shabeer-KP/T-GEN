@@ -6,8 +6,6 @@ import java.io.*;
 import java.util.*;
 
 import elements.Slot;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 //Chromosome represents array of genes as complete timetable (looks like gene[0]gene[1]gene[2]...)
 public class Chromosome implements Comparable<Chromosome>,Serializable{
@@ -17,11 +15,11 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	static int hours=inputdata.hoursperday,days=inputdata.daysperweek;
 	static int nostgrp=inputdata.nostudentgroup;
 	double fitness;
-	double tp;
+	double tr_p;
 	public Gene[] gene;
-        double lp;
-        double lab_point;
-        double teacher_point;
+        double tlp_lp,rlh_lp,st_lp;
+        double lab_point_1,lab_point_2,final_lab_point,final_teacher_point;
+        double teacher_point_1;
 	
 	Chromosome(){
 		
@@ -55,14 +53,17 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	}
 
 	public double getFitness(){
-         
-		tp=0;
-                lp=0;
+                
+		tr_p=0;
+                tlp_lp=0;
+                rlh_lp=0;
+                st_lp=0;
+             
 		for(int i=0;i<hours*days;i++){//i=30
 			
 			List<Integer> teacherlist=new ArrayList<Integer>();  
-                        
-			
+			teacherlist.isEmpty();
+                                      
  			for(int j=0;j<nostgrp;j++){ // j<2
 			
 				Slot slot;
@@ -75,31 +76,49 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 
                                 if(slot!=null){
 					
-                                       /*  if(teacherlist.contains(1) )
-                                        {
-                                            lp++;
-                                        }
-                                         else*/ if(teacherlist.contains(slot.teacherid) && slot.teacherid!=4 ){     
-                                            tp++;
-					}
-					else teacherlist.add(slot.teacherid);
+                                 /*     if(teacherlist.contains(4)&&slot.teacherid==4)
+                                         {
+                                         teacherlist.add(slot.teacherid);
+                                         st_lp++;
+                                         }
+                                      
+                                       
+                                         
+                                         else if(teacherlist.contains(slot.teacherid)&&slot.teacherid==4)
+                                         { 
+                                             
+                                         }
+                                         else */
+                                         
+                                         
+                                          if(teacherlist.contains(4)&&slot.teacherid!=4)
+                                          {
+                                              tr_p++;
+                                          }
+                                          else if(teacherlist.contains(slot.teacherid)&&slot.teacherid!=4)  
+                                          {
+                                              tr_p++;
+                                          }   
+                                          
+					 else teacherlist.add(slot.teacherid);
                                         
                                         
 				}
 			}	
 		}
                 //code for one day 3 lab cont:
-              for(int i=0;i<nostgrp;i++){
+         /*     for(int i=0;i<nostgrp;i++){
 			int labcount=0;
                          String prevsub = null;
 			for(int j=0;j<days;j++){
+                            prevsub=null;
 				for(int k=0;k<hours;k++){//hours = 6
 				if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null)
                                 {
-                                   // if(prevsub!="LAB" && TimeTable.slot[gene[i].slotno[k+j*hours]].subject!="LAB")
-                                    //     point++;
+                                    if(prevsub=="LAB" && TimeTable.slot[gene[i].slotno[k+j*hours]].subject=="LAB")
+                                         rlh_lp++;
                                     
-                                  //  prevsub=TimeTable.slot[gene[i].slotno[k+j*hours]].subject;
+                                    prevsub=TimeTable.slot[gene[i].slotno[k+j*hours]].subject;
                                   
                                     if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject.equals("LAB"))
                                     labcount++;
@@ -107,7 +126,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                 
 		}
                                 if(labcount==3)
-                               lp++;
+                               tlp_lp++;
                                 
                                 labcount=0;
                         
@@ -115,22 +134,21 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                         
                        
               }
-                
+                */
               
-                 lab_point =(lp/(days*(hours/3)))/2;
-               // lab_point =(lp/((nostgrp-1.0)*hours*days)/2);
-                teacher_point = (tp/((nostgrp-1.0)*hours*days));//.5
-              //  System.out.println(post);
-              //  System.out.println(neg);
-                //fitness = 1-(point/((nostgrp-1.0)*hours*days)); 
-           // fitness = 1-(lab_point+teacher_point)/2;   
-             fitness = (1-teacher_point);
-             fitness=fitness/2;
-             fitness = fitness + lab_point;
+                 //lab_point_1 =(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
+               //  lab_point_2 =(rlh_lp/25)/2;//rlh_lp m(25) , lab_point_2 - .5
+               //  lab_point_2 = (st_lp/15)/2;//st_lp m(15) lab_point_2 - .5
+                 final_lab_point = lab_point_2;//(lab_point_1 + lab_point_2)/2;//final_lab_point - .5
+          
+            
+            
+             teacher_point_1 = 1 - tr_p/((nostgrp-1.0)*hours*days);//ntr_p m(30) teacher_point_1 - 1
+             final_teacher_point = teacher_point_1 /2;//final_teacher_point - .5
              
-           
-                tp=0;
-                lp=0;
+             
+             fitness =final_teacher_point + .5;
+             
 		return fitness;
 	}
 	

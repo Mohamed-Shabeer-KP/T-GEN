@@ -18,12 +18,12 @@ public class SchedulerMain{
 	List<Chromosome> newlist;
 	double firstlistfitness;
 	double newlistfitness;
-	int populationsize=1000;
+	int populationsize=1000;//1000
 	int maxgenerations=100;
 	
 	public static Chromosome finalson;
 	
-	public SchedulerMain() throws InterruptedException {
+	public SchedulerMain() throws InterruptedException, Exception {
 		
 		//printing input data (on console for testing)
 		Utility.printInputData();
@@ -42,9 +42,15 @@ public class SchedulerMain{
 		
 	}
 	
-	
+	public void progress(int i) throws Exception{
+        String anim= "|/-\\";
+
+            String data = "\r" + anim.charAt(i % anim.length()) + " " + i;
+            System.out.write(data.getBytes());
+    }
+        
 	//Creating new Generations using crossovers and mutations
-	public void createNewGenerations(){
+	public void createNewGenerations() throws Exception{
 		
 		Chromosome father=null;
 		Chromosome mother=null;
@@ -63,6 +69,7 @@ public class SchedulerMain{
 			for(i=0;i<populationsize/10;i++){	
 				newlist.add(firstlist.get(i).deepClone());
 				newlistfitness+=firstlist.get(i).getFitness();
+                               // progress(i);
 			}
 			
 			//adding other members after performing crossover and mutation
@@ -242,10 +249,14 @@ public class SchedulerMain{
 	
 
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, Exception {
 	  
             new SchedulerMain();
 	}
         
+        public double getFitness()
+        {
+            return newlistfitness;
+        }
         
 }
