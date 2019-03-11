@@ -18,7 +18,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	double tr_p;
 	public Gene[] gene;
         double tlp_lp,rlh_lp,st_lp;
-        double lab_point_1,lab_point_2,final_lab_point,final_teacher_point;
+        double lab_point_1,lab_point_2,lab_point_3,final_lab_point,final_teacher_point;
         double teacher_point_1;
 	
 	Chromosome(){
@@ -91,9 +91,9 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                          else */
                                          
                                          
-                                          if(teacherlist.contains(4)&&slot.teacherid!=4)
+                                          if(teacherlist.contains(4)&&slot.teacherid==4)
                                           {
-                                              tr_p++;
+                                              tr_p=tr_p/2;
                                           }
                                           else if(teacherlist.contains(slot.teacherid)&&slot.teacherid!=4)  
                                           {
@@ -106,8 +106,28 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				}
 			}	
 		}
+                
+           
+		for(int i=0;i<hours*days;i++){//i=30	
+                         int count=0;
+                         
+ 			for(int j=0;j<nostgrp;j++){ // j<2
+			
+		          if(TimeTable.slot[gene[j].slotno[i]]!=null)
+                          {
+                              Slot slot = TimeTable.slot[gene[j].slotno[i]];
+                              if(slot.subject.equals("LAB"))
+                                 count++; 
+                          }
+                        }
+                           if(count/2==1)
+                              st_lp++;
+                }
+		
+                
+                
                 //code for one day 3 lab cont:
-         /*     for(int i=0;i<nostgrp;i++){
+            for(int i=0;i<nostgrp;i++){
 			int labcount=0;
                          String prevsub = null;
 			for(int j=0;j<days;j++){
@@ -119,6 +139,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                          rlh_lp++;
                                     
                                     prevsub=TimeTable.slot[gene[i].slotno[k+j*hours]].subject;
+                                  
                                   
                                     if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject.equals("LAB"))
                                     labcount++;
@@ -134,20 +155,20 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                         
                        
               }
-                */
+                
               
-                 //lab_point_1 =(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
-               //  lab_point_2 =(rlh_lp/25)/2;//rlh_lp m(25) , lab_point_2 - .5
-               //  lab_point_2 = (st_lp/15)/2;//st_lp m(15) lab_point_2 - .5
-                 final_lab_point = lab_point_2;//(lab_point_1 + lab_point_2)/2;//final_lab_point - .5
+                 lab_point_1 =.5;//(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
+                 lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
+                lab_point_3 = (st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
+                 final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
           
             
             
-             teacher_point_1 = 1 - tr_p/((nostgrp-1.0)*hours*days);//ntr_p m(30) teacher_point_1 - 1
+             teacher_point_1 = 1 - (tr_p)/((nostgrp-1.0)*hours*days);//ntr_p m(30) teacher_point_1 - 1
              final_teacher_point = teacher_point_1 /2;//final_teacher_point - .5
              
              
-             fitness =final_teacher_point + .5;
+             fitness =final_teacher_point + final_lab_point;
              
 		return fitness;
 	}
