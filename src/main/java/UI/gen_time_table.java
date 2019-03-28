@@ -4,13 +4,32 @@
  * and open the template in the editor.
  */
 package UI;
-import java.awt.Toolkit;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import operations.inputdata;
+
+
 /**
  *
  * @author khsci5mca16126
  */
 public class gen_time_table extends javax.swing.JFrame {
-
+   
+    int flag=0;
+    
     /**
      * Creates new form gen_time_table
      */
@@ -37,6 +56,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
+        b_submit = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -96,15 +116,28 @@ public class gen_time_table extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(102, 102, 102));
 
+        b_submit.setText("Submit");
+        b_submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_submitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(157, Short.MAX_VALUE)
+                .addComponent(b_submit)
+                .addGap(133, 133, 133))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(b_submit)
+                .addGap(67, 67, 67))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -134,7 +167,7 @@ public class gen_time_table extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(73, 73, 73)
                         .addComponent(jButton5)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 192, Short.MAX_VALUE))
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -279,6 +312,66 @@ public class gen_time_table extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void b_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submitActionPerformed
+       
+        FileInputStream serviceAccount=null;
+            try {
+                // Fetch the service account key JSON file contents
+            
+                serviceAccount = new FileInputStream("/home/v3n0m/NetBeansProjects/T-GEN/src/main/java/firebaseconfig/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FirebaseOptions options = null;
+                
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); 
+                FirebaseApp.initializeApp(options);
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                
+                DatabaseReference ref2 = database.getReference("test");
+                DatabaseReference usersRef = ref2.child("users");
+                
+                Map<String, String> users = new HashMap<>();
+                users.put("alanisawesome", "Alan Turing");
+                users.put("gracehop","Hello");
+                usersRef.setValueAsync(users);
+                
+                usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        System.out.println( dataSnapshot.child("gracehop").getValue());
+                        flag=1;
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+                TimeUnit.SECONDS.sleep(5);
+                if(flag==1)
+                    System.out.println("VALUES FETCHED");
+                else
+                    System.out.println("VALUES DIDNT FETCHED");
+                
+                
+} catch (FileNotFoundException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                serviceAccount.close();
+            } catch (IOException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
+    }//GEN-LAST:event_b_submitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -315,6 +408,7 @@ public class gen_time_table extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_submit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
