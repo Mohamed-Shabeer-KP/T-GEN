@@ -12,10 +12,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.util.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +33,7 @@ import operations.inputdata;
 public class gen_time_table extends javax.swing.JFrame {
    
     int flag=0;
+    boolean hasbeeninitialized=false;
     
     /**
      * Creates new form gen_time_table
@@ -270,7 +275,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 320, Short.MAX_VALUE)
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addComponent(add_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,7 +303,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -573,6 +578,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel12.setText("Days per week");
 
         jButton13.setText("Submit");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -611,6 +621,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel16.setText("Hours per Day");
 
         jButton14.setText("Submit");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -674,7 +689,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(update_studpanelLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(jButton15)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         update_studpanelLayout.setVerticalGroup(
             update_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -689,7 +704,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jButton15)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         update_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -798,7 +813,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -947,11 +962,14 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jLayeredPane1.setVisible(true);
-        hours_perdaypanel.setVisible(false);
-        days_perweekpanel.setVisible(true);
-        update_studpanel.setVisible(false);
-        update_teachpanel.setVisible(false);
+                                           
+                jLayeredPane1.setVisible(true);
+                hours_perdaypanel.setVisible(false);
+                days_perweekpanel.setVisible(true);
+                update_studpanel.setVisible(false);
+                update_teachpanel.setVisible(false); 
+         
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -977,6 +995,138 @@ public class gen_time_table extends javax.swing.JFrame {
         update_studpanel.setVisible(false);
         update_teachpanel.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        
+                try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("basic");
+                //DatabaseReference usersRef = ref.child("users");
+                
+              
+                
+                String s_days = jComboBox2.getSelectedItem().toString();
+                
+                ref.child("daysperweek").setValueAsync(s_days);                
+                
+              /*  ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        System.out.println( dataSnapshot.child("gracehop").getValue());
+                        flag=1;
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+*/                
+                
+                TimeUnit.SECONDS.sleep(2);
+                
+                
+                if(flag==1)
+                    System.out.println("VALUES FETCHED");
+                else
+                    System.out.println("VALUES DIDNT FETCHED");
+                
+                
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+              try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("basic");
+                //DatabaseReference usersRef = ref.child("users");
+                
+              
+                
+                String s_hours = jComboBox1.getSelectedItem().toString();
+                
+                ref.child("hoursperday").setValueAsync(s_hours);
+                
+                
+                
+              /*  ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        System.out.println( dataSnapshot.child("gracehop").getValue());
+                        flag=1;
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+*/                
+                
+                TimeUnit.SECONDS.sleep(2);
+                
+                
+                if(flag==1)
+                    System.out.println("VALUES FETCHED");
+                else
+                    System.out.println("VALUES DIDNT FETCHED");
+                
+                
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
