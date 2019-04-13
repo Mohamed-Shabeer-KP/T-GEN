@@ -115,7 +115,7 @@ FirebaseOptions options = null;
                 Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-FirebaseApp.initializeApp(options);
+FirebaseApp.initializeApp(options); 
                 
      
 final FirebaseDatabase database = FirebaseDatabase.getInstance();
