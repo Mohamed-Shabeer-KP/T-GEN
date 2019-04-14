@@ -13,11 +13,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import static java.awt.SystemColor.window;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
@@ -34,9 +36,11 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -61,7 +65,14 @@ public class gen_time_table extends javax.swing.JFrame {
      
      int stg_count=0,teacher_count=0;
      String stg_name="";
-    
+      JProgressBar pb;
+      JButton b1;
+      
+     
+     
+      
+     
+  
     /**
      * Creates new form gen_time_table
      */
@@ -722,6 +733,9 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+  
+          
+    
         jLayeredPane2.setVisible(true);
         jScrollPane1.setVisible(true);
         add_teachpanel.setVisible(false);
@@ -740,9 +754,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 jLayeredPane1.setVisible(true);
                 hours_perdaypanel.setVisible(false);
                 days_perweekpanel.setVisible(true);
-       
-         
-        
+
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -887,7 +899,7 @@ public class gen_time_table extends javax.swing.JFrame {
                         System.out.println("Error");// ...
                     }
                 });
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(5);
                 DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
 
                 Map<String, String> subject = new HashMap<>();
@@ -906,21 +918,6 @@ public class gen_time_table extends javax.swing.JFrame {
                 }
                 });      
                 
-                
-              /*  ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        System.out.println( dataSnapshot.child("gracehop").getValue());
-                        flag=1;
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                });
-*/                
-                
                 TimeUnit.SECONDS.sleep(5);
      
             } catch (InterruptedException ex) {
@@ -934,12 +931,6 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        
-                    
-                     // Clear panel
-                
-   
 
 //remove all components in panel.
 panel.removeAll(); 
@@ -1011,10 +1002,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
             indexer++;
             
          //   panel.removeAll();
-         
-   
-     
-         
 }
   
     GridBagConstraints submit_button_Constraints = new GridBagConstraints();
@@ -1066,9 +1053,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
             java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-   
-                
- 
+
              /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1105,6 +1090,8 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("studentgroup");
                 
+         
+              
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -1116,7 +1103,9 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                         System.out.println("Error");// ...
                     }
                 });
+
                 TimeUnit.SECONDS.sleep(5);
+            
                 DatabaseReference stdgrpref = ref.child("studentgroup:"+(stg_count+1));
                 DatabaseReference subjectref = stdgrpref.child("subjects");
                 
@@ -1135,7 +1124,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 subject.put("name",subject_name.get(i-1).getText());
                 subject.put("hours",String.valueOf(subject_hours.get(i-1).getSelectedItem()));
                 subref.setValueAsync(subject);
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(5);
                 }
                                
                 ref.child("count").setValue(String.valueOf(stg_count+1),new DatabaseReference.CompletionListener() {
@@ -1148,7 +1137,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 }
                 });              
                 
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(5);
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
@@ -1156,8 +1145,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-    
     }
   
 
