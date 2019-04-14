@@ -1,5 +1,6 @@
 package operations;
 
+import UI.gen_time_table;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -11,12 +12,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.*;
 import elements.StudentGroup;
 import elements.Teacher;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class inputdata {
@@ -27,6 +30,7 @@ public class inputdata {
 	public static int nostudentgroup, noteacher;
 	public static int hoursperday, daysperweek;
         int flag=0;
+        boolean hasbeeninitialized=false;
 
 	public inputdata() throws InterruptedException {
 		studentgroup = new StudentGroup[100];
@@ -104,56 +108,84 @@ public class inputdata {
   
   // Fetch the service account key JSON file contents
         
- /* FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
 
-FirebaseOptions options = null;
-            try {
-                options = new FirebaseOptions.Builder()
-                        .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                        .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                        .build(); } catch (IOException ex) {
-                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-FirebaseApp.initializeApp(options); 
+ 
+                    try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                       
+               
                 
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference basic_ref = database.getReference("basic");
+              
+                basic_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        daysperweek = Integer.parseInt((String) dataSnapshot.child("daysperweek").getValue());                  
+                        hoursperday = Integer.parseInt((String) dataSnapshot.child("hoursperday").getValue());
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+                
+                DatabaseReference sgsref = database.getReference("studentgroup");
+                sgsref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        nostudentgroup = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
+                        for(int i=0;i<nostudentgroup;i++)
+                        {
+
+                         studentgroup[i]=new StudentGroup();
+                         studentgroup[i].id = i;
+                         studentgroup[i].name = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue();
+                         studentgroup[i].nosubject = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());  
+                         
+                            for(int j=0;j<studentgroup[i].nosubject;j++)
+                            {
+                                studentgroup[i].subject[j] = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
+                                studentgroup[0].hours[1] = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
+                            }
+                        }
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+                
+                   
+                TimeUnit.SECONDS.sleep(3);
      
-final FirebaseDatabase database = FirebaseDatabase.getInstance();
-DatabaseReference ref2 = database.getReference("test");
-         DatabaseReference usersRef = ref2.child("users");
+            } catch (InterruptedException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-Map<String, String> users = new HashMap<>();
-users.put("alanisawesome", "Alan Turing");
-users.put("gracehop","Hello");
-
-usersRef.setValueAsync(users);
-
-
-usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-  @Override
-  public void onDataChange(DataSnapshot dataSnapshot) {
-    System.out.println( dataSnapshot.child("gracehop").getValue());
-    flag=1;
-  }
-
-  @Override
-  public void onCancelled(DatabaseError databaseError) {
-    System.out.println("Error");// ...
-  }
-});
-
-
-TimeUnit.SECONDS.sleep(5);
-
-     
-if(flag==1)
-    System.out.println("VALUES FETCHED");
-else
-    System.out.println("VALUES DIDNT FETCHED");
-
-*/
-                daysperweek = 5;
-                hoursperday = 6;
+  
+ /*
+               // daysperweek = 5;
+                //hoursperday = 6;
                           
                 nostudentgroup = 2;
                 noteacher = 5;
@@ -162,7 +194,7 @@ else
                 studentgroup[0].id = 0;
 		studentgroup[0].name = "INT MCA 6TH A BATCH";
                 studentgroup[0].nosubject = 5;
-		studentgroup[0].subject[0] = "AI";
+		
 		studentgroup[0].hours[0] = 4;
                 studentgroup[0].subject[1] = "CG";
 		studentgroup[0].hours[1] = 4;
@@ -188,6 +220,7 @@ else
                 studentgroup[1].subject[4] = "LAB";
 		studentgroup[1].hours[4] = 15;
                 
+                */
                 teacher[0] = new Teacher();
                 teacher[0].id = 0;
 		teacher[0].name = "SOUMYA MISS";

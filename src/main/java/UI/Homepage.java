@@ -60,6 +60,11 @@ public class Homepage extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         jButton1.setText("GENERATE TIME TABLE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(360, 200, 170, 40);
 
@@ -80,7 +85,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/pexels-photo-260607.jpeg"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 891, 500);
+        jLabel2.setBounds(0, 0, 0, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,6 +105,15 @@ public class Homepage extends javax.swing.JFrame {
     private void closebutton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closebutton
        dispose();
     }//GEN-LAST:event_closebutton
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+
+
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
