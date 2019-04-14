@@ -123,11 +123,21 @@ public class gen_time_table extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        remove_studpanel = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        remove_teachpanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -156,6 +166,8 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel2.setLayout(null);
         jTabbedPane1.addTab("         VIEW              ", jPanel2);
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+
         try{
             jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
         }catch(Exception e){System.out.println(e);}
@@ -166,12 +178,21 @@ public class gen_time_table extends javax.swing.JFrame {
 
         add_studpanel.setBackground(new java.awt.Color(102, 102, 102));
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Student Group name");
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("no of subjects");
+        t_std_grp_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_std_grp_nameActionPerformed(evt);
+            }
+        });
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("No of subjects");
+
+        jButton6.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton6.setText("Submit");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,43 +209,47 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(add_studpanelLayout.createSequentialGroup()
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(add_studpanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(t_std_grp_name, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                            .addComponent(cb_no_subjects, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel8)
+                        .addGap(41, 41, 41)
+                        .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(add_studpanelLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addComponent(jButton6)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addComponent(jButton6))
+                    .addGroup(add_studpanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         add_studpanelLayout.setVerticalGroup(
             add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_studpanelLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(119, 119, 119)
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79)
+                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(53, 53, 53)
                 .addComponent(jButton6)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
 
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Teacher Name");
 
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Subject");
 
+        jButton7.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton7.setText("Submit");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +275,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(add_teachpanelLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(jButton7)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         add_teachpanelLayout.setVerticalGroup(
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +290,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(t_sub_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jButton7)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(add_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -303,7 +328,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(jLayeredPane2)
                 .addContainerGap())
         );
 
@@ -333,6 +358,7 @@ public class gen_time_table extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel11);
 
+        jButton4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton4.setText("Add Student Group");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,6 +366,7 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton5.setText("Add Teachers");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -497,7 +524,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,7 +614,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,19 +627,164 @@ public class gen_time_table extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("             UPDATE                 ", jPanel5);
 
-        try{
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
-        }catch(Exception e){}
+        jPanel15.setBackground(new java.awt.Color(102, 102, 102));
+
+        jButton8.setText("Remove Student Group");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Remove Teacher");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jButton8)
+                .addGap(73, 73, 73)
+                .addComponent(jButton11)
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+
+        jLayeredPane3.setVisible(false);
+
+        remove_studpanel.setBackground(new java.awt.Color(102, 102, 102));
+        remove_studpanel.setPreferredSize(new java.awt.Dimension(575, 438));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Student Group Name");
+
+        jButton3.setText("Submit");
+
+        javax.swing.GroupLayout remove_studpanelLayout = new javax.swing.GroupLayout(remove_studpanel);
+        remove_studpanel.setLayout(remove_studpanelLayout);
+        remove_studpanelLayout.setHorizontalGroup(
+            remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(remove_studpanelLayout.createSequentialGroup()
+                .addGroup(remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(remove_studpanelLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel10)
+                        .addGap(74, 74, 74)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(remove_studpanelLayout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(jButton3)))
+                .addContainerGap(179, Short.MAX_VALUE))
+        );
+        remove_studpanelLayout.setVerticalGroup(
+            remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(remove_studpanelLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(jButton3)
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+
+        remove_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Teacher Name");
+
+        jButton12.setText("Submit");
+
+        javax.swing.GroupLayout remove_teachpanelLayout = new javax.swing.GroupLayout(remove_teachpanel);
+        remove_teachpanel.setLayout(remove_teachpanelLayout);
+        remove_teachpanelLayout.setHorizontalGroup(
+            remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(remove_teachpanelLayout.createSequentialGroup()
+                .addGroup(remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(remove_teachpanelLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel11)
+                        .addGap(97, 97, 97)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(remove_teachpanelLayout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(jButton12)))
+                .addContainerGap(182, Short.MAX_VALUE))
+        );
+        remove_teachpanelLayout.setVerticalGroup(
+            remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(remove_teachpanelLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addGroup(remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addComponent(jButton12)
+                .addContainerGap(185, Short.MAX_VALUE))
+        );
+
+        jLayeredPane3.setLayer(remove_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(remove_teachpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 575, Short.MAX_VALUE)
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(remove_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(remove_teachpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(remove_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(remove_teachpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane3))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLayeredPane3)
         );
 
         jTabbedPane1.addTab("          REMOVE                   ", jPanel6);
@@ -633,8 +805,6 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("[]");
-
         jLabel2.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("T GEN");
@@ -646,11 +816,9 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 776, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 819, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2))
         );
@@ -659,7 +827,6 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jButton1)
                 .addComponent(jButton2)
-                .addComponent(jButton3)
                 .addComponent(jLabel2))
         );
 
@@ -935,16 +1102,15 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
-                    
+                      panel.removeAll();
+                      //jPanel11.validate();
+                      //panel.revalidate();
+                      //^jScrollPane1.repaint();
                      // Clear panel
                 
    
 
-//remove all components in panel.
-panel.removeAll(); 
-// refresh the panel.
-panel.updateUI();
+//remove all components in panel
  
 
 for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toString());count++)
@@ -1030,13 +1196,31 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     public void actionPerformed(ActionEvent e)
     {
         addData();
+       
     }
     });
 
     panel.add(b_submit,submit_button_Constraints);
-    
 
+                    //  jPanel11.removeAll();
+                     //jPanel11.validate();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        jLayeredPane3.setVisible(true);
+        remove_teachpanel.setVisible(false);
+        remove_studpanel.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+           jLayeredPane3.setVisible(true);
+           remove_teachpanel.setVisible(true);
+            remove_studpanel.setVisible(false);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void t_std_grp_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_std_grp_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t_std_grp_nameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1169,6 +1353,8 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JPanel hours_perdaypanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
@@ -1177,10 +1363,12 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
@@ -1193,12 +1381,14 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1209,6 +1399,10 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel remove_studpanel;
+    private javax.swing.JPanel remove_teachpanel;
     private javax.swing.JTextField t_std_grp_name;
     private javax.swing.JTextField t_sub_name;
     private javax.swing.JTextField t_teacher_name;
