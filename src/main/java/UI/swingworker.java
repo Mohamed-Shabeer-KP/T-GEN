@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 import javax.swing.*; 
   
   
-public class NewClass  
+public class swingworker  
 { 
       
     private static JLabel statusLabel; 
