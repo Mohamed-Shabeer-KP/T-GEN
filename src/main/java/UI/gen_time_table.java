@@ -30,6 +30,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.SwingWorker;
 import javax.swing.border.LineBorder;
 import operations.inputdata;
 
@@ -115,6 +117,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
@@ -275,6 +278,9 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(add_teachpanelLayout.createSequentialGroup()
                 .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(add_teachpanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton7))
+                    .addGroup(add_teachpanelLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -282,10 +288,7 @@ public class gen_time_table extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(t_teacher_name, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(t_sub_name)))
-                    .addGroup(add_teachpanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jButton7)))
+                            .addComponent(t_sub_name))))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         add_teachpanelLayout.setVerticalGroup(
@@ -301,7 +304,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(t_sub_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jButton7)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(add_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -356,15 +359,23 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jLabel7.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel11);
@@ -900,9 +911,7 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-  
-          
-    
+
         jLayeredPane2.setVisible(true);
         jScrollPane1.setVisible(true);
         add_teachpanel.setVisible(false);
@@ -1033,75 +1042,13 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
        
-                    try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-                if(hasbeeninitialized==false)
-                {
-                    FirebaseApp.initializeApp(options);
-                    hasbeeninitialized=true;
-                }
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("teacher");
-                //DatabaseReference usersRef = ref.child("users");
-                   ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                });
-                TimeUnit.SECONDS.sleep(5);
-                DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
-
-                Map<String, String> subject = new HashMap<>();
-                subject.put("name",t_teacher_name.getText());
-                subject.put("subject",t_sub_name.getText());
-                teacherref.setValueAsync(subject);
-                TimeUnit.SECONDS.sleep(3);
-                            
-                ref.child("count").setValue(String.valueOf(teacher_count+1),new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });      
-                
-                TimeUnit.SECONDS.sleep(5);
-     
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-  
-        
+    threadTeacher();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
 //remove all components in panel
  
-
 for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toString());count++)
 {
     
@@ -1180,8 +1127,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        addData();
-       
+       threadStudentGroup();
     }
     });
 
@@ -1245,10 +1191,87 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         });
     }
     
-    public void addData()
+     public  void threadStudentGroup()  
+    { 
+  
+        SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               addStudentGroupData();
+               return null;
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                 CloseOptionpane.disp();
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+     
+       public  void threadTeacher()  
+    { 
+  
+        SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               addTeacherData();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+            
+                 CloseOptionpane.disp();
+ 
+                
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+     
+    
+    public void addStudentGroupData() throws InterruptedException
     {
        
-      
          try {         
                 File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
@@ -1271,23 +1294,23 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("studentgroup");
-                
-         
-              
+
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
+                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                      flag=1;
                     }
                     
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         System.out.println("Error");// ...
                     }
+                    
                 });
-
-                TimeUnit.SECONDS.sleep(5);
-            
+                time();
+                flag=0;
+                
                 DatabaseReference stdgrpref = ref.child("studentgroup:"+(stg_count+1));
                 DatabaseReference subjectref = stdgrpref.child("subjects");
                 
@@ -1299,35 +1322,117 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 
                 stdgrpref.setValueAsync(studentgroup);
                 
+                
                 for(int i = 1; i <= count ; i++)
                 {   
                 DatabaseReference subref = subjectref.child("subject:"+i);
                 Map<String, String> subject = new HashMap<>();
                 subject.put("name",subject_name.get(i-1).getText());
                 subject.put("hours",String.valueOf(subject_hours.get(i-1).getSelectedItem()));
-                subref.setValueAsync(subject);
-                TimeUnit.SECONDS.sleep(5);
-                }
-                               
+                subref.setValueAsync(subject); 
+               
+                if(i==count)
+                    flag=1;
+                }         
+                time();
+                flag=0;
+                
                 ref.child("count").setValue(String.valueOf(stg_count+1),new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError error, DatabaseReference ref) {
+                   
                 if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
+                {
+                JOptionPane.showMessageDialog(null, "Inserted Student Group Successfully");
+                }
                 else
                 JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
                 }
-                });              
+                });             
+           
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
                 
-                TimeUnit.SECONDS.sleep(5);
 
+    }
+    
+    public void addTeacherData()
+    {
+                try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("teacher");
+                //DatabaseReference usersRef = ref.child("users");
+                   ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
+                        flag=1;
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+                time();
+                flag=0;
+                DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
+
+                Map<String, String> subject = new HashMap<>();
+                subject.put("name",t_teacher_name.getText());
+                subject.put("subject",t_sub_name.getText());
+                teacherref.setValueAsync(subject);
+                TimeUnit.SECONDS.sleep(5);
+                            
+                ref.child("count").setValue(String.valueOf(teacher_count+1),new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                if(error==null)
+                {
+                JOptionPane.showMessageDialog(null, "Inserted Teacher Successfully");
+                }
+                    else
+                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
+                }
+                });      
+                
+          
+     
             } catch (InterruptedException ex) {
                 Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
+    
+     public void time() throws InterruptedException
+        {
+            if(flag==0)
+            {   
+                TimeUnit.SECONDS.sleep(6); 
+                time();
+            }
+        }
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1362,6 +1467,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
