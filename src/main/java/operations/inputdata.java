@@ -144,8 +144,9 @@ public class inputdata {
                     public void onCancelled(DatabaseError databaseError) {
                         System.out.println("Error");// ...
                     }
-                });
-                
+               });
+           
+                 
                 DatabaseReference sgsref = database.getReference("studentgroup");
                 sgsref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -153,31 +154,35 @@ public class inputdata {
                         nostudentgroup = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
                         for(int i=0;i<nostudentgroup;i++)
                         {
-
-                         studentgroup[i]=new StudentGroup();
-                         studentgroup[i].id = i;
-                         studentgroup[i].name = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue();
-                         studentgroup[i].nosubject = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());  
-                         
+                            studentgroup[i] = new StudentGroup();
+                            studentgroup[i].id = i;
+                            studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());
+                            studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue());
+                            // String sgname =      String.valueOf( dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue());
+                            // int subno=       Integer.parseInt((String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());
+                            
+                           
+                            
                             for(int j=0;j<studentgroup[i].nosubject;j++)
                             {
-                                studentgroup[i].subject[j] = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
-                                studentgroup[0].hours[1] = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
+                                studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
+                                //  String name       = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
+                                studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
+                                // int hour      = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
                             }
                         }
+                        flag=1;
                     }
-                    
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         System.out.println("Error");// ...
                     }
                 });
-                
+               
                    
-                TimeUnit.SECONDS.sleep(3);
+                
      
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -221,34 +226,36 @@ public class inputdata {
 		studentgroup[1].hours[4] = 15;
                 
                 */
+ noteacher = 3;
                 teacher[0] = new Teacher();
                 teacher[0].id = 0;
 		teacher[0].name = "SOUMYA MISS";
-		teacher[0].subject = "AI";
+		teacher[0].subject = "ai";
                 
                 teacher[1] = new Teacher();
                 teacher[1].id = 1;
 		teacher[1].name = "DEEPA MISS";
-		teacher[1].subject = "SC";
+		teacher[1].subject = "sc";
                 
                 teacher[2] = new Teacher();
                 teacher[2].id = 2;
 		teacher[2].name = "LEENA MISS";
-		teacher[2].subject = "CG";
+		teacher[2].subject = "cg";
                 
-                teacher[3] = new Teacher();
-                teacher[3].id = 3;
-		teacher[3].name = "RAJESH SIR";
-		teacher[3].subject = "LIB";
-                
-                teacher[4] = new Teacher();
-                teacher[4].id = 4;
-		teacher[4].name = "NITHIN SIR";
-		teacher[4].subject = "LAB";
-                
-		assignTeacher();
-
+            
+		time();
+                assignTeacher();
 	}
+        
+        public void time() throws InterruptedException
+        {
+            if(flag==0)
+            {   
+                TimeUnit.SECONDS.sleep(10); 
+                time();
+            }
+        }
+        
 
 	// assigning a teacher for each subject for every studentgroup
 	public void assignTeacher() {

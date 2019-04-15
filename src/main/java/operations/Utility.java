@@ -6,6 +6,7 @@ public class Utility {
 	
 	public static void printInputData() throws InterruptedException{
 		inputdata id = new inputdata();
+                
 		System.out.println("Nostgrp="+inputdata.nostudentgroup+" Noteachers="+inputdata.noteacher+" daysperweek="+inputdata.daysperweek+" hoursperday="+inputdata.hoursperday);
 		for(int i=0;i<inputdata.nostudentgroup;i++){
 			

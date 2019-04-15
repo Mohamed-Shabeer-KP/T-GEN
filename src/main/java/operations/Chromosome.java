@@ -159,7 +159,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
               
                  lab_point_1 =.5;//(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
                  lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
-                lab_point_3 = (st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
+                lab_point_3 = .5;//(st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
                  final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
           
             
