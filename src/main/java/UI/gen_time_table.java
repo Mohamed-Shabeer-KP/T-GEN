@@ -117,7 +117,6 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
@@ -276,19 +275,16 @@ public class gen_time_table extends javax.swing.JFrame {
         add_teachpanelLayout.setHorizontalGroup(
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_teachpanelLayout.createSequentialGroup()
-                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(add_teachpanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jButton7))
-                    .addGroup(add_teachpanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel9))
-                        .addGap(28, 28, 28)
-                        .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(t_teacher_name, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(t_sub_name))))
+                .addGap(38, 38, 38)
+                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton7)
+                    .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel9)))
+                .addGap(28, 28, 28)
+                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(t_teacher_name, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                    .addComponent(t_sub_name))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         add_teachpanelLayout.setVerticalGroup(
@@ -302,9 +298,9 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(t_sub_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(50, 50, 50)
                 .addComponent(jButton7)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(add_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -359,23 +355,15 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("jLabel7");
-
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
+            .addGap(0, 420, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(335, Short.MAX_VALUE))
+            .addGap(0, 425, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanel11);
@@ -695,6 +683,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel10.setText("Student Group Name");
 
         jButton3.setText("Submit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout remove_studpanelLayout = new javax.swing.GroupLayout(remove_studpanel);
         remove_studpanel.setLayout(remove_studpanelLayout);
@@ -942,102 +935,13 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-          try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-                if(hasbeeninitialized==false)
-                {
-                    FirebaseApp.initializeApp(options);
-                    hasbeeninitialized=true;
-                }
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("basic");
-                //DatabaseReference usersRef = ref.child("users");
- 
-                String s_days = jComboBox2.getSelectedItem().toString();
-                
-                ref.child("daysperweek").setValue(s_days,new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });               
-                
-                     
-                TimeUnit.SECONDS.sleep(5);
-                
-               
-      
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-             
-        
+     
+         
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-              try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-                if(hasbeeninitialized==false)
-                {
-                    FirebaseApp.initializeApp(options);
-                    hasbeeninitialized=true;
-                }
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("basic");
-                //DatabaseReference usersRef = ref.child("users");
-
-                String s_hours = jComboBox1.getSelectedItem().toString();
-                            
-                ref.child("hoursperday").setValue(s_hours,new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });      
-                
-                
-                TimeUnit.SECONDS.sleep(5);
-     
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
+    threadHoursPerDay();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1153,6 +1057,13 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         // TODO add your handling code here:
     }//GEN-LAST:event_t_std_grp_nameActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1191,7 +1102,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         });
     }
     
-     public  void threadStudentGroup()  
+    public  void threadStudentGroup()  
     { 
   
         SwingWorker sw1 = new SwingWorker()  
@@ -1228,7 +1139,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         sw1.execute();  
     }
      
-       public  void threadTeacher()  
+    public  void threadTeacher()  
     { 
   
         SwingWorker sw1 = new SwingWorker()  
@@ -1268,8 +1179,81 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         sw1.execute();  
     }
      
+    public void threadDaysPerWeek()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               updateDaysPerWeek();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp();
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+     
+    public void threadHoursPerDay()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               updateHoursPerDay();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp();
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
     
-    public void addStudentGroupData() throws InterruptedException
+    public void addStudentGroupData() 
     {
        
          try {         
@@ -1352,6 +1336,8 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
            
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
          
                 
@@ -1425,14 +1411,194 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         }
     }
     
-     public void time() throws InterruptedException
-        {
+     public void removeStudentGroupData() 
+    {
+       
+         try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("studentgroup");
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                 
+                  
+                        for(int i = 1; i <= stg_count ; i++)
+                {   
+                DatabaseReference stdgrpref = ref.child("studentgroup:"+(stg_count+i));
+                
+                Map<String, String> subject = new HashMap<>();
+                subject.put("name",subject_name.get(i-1).getText());
+                subject.put("hours",String.valueOf(subject_hours.get(i-1).getSelectedItem()));
+         
+                }         
+           
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                    
+                });
+                time();
+                flag=0;
+                
+               
+         
+          
+                
+                
+            
+                
+                ref.child("count").setValue(String.valueOf(stg_count+1),new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                   
+                if(error==null)
+                {
+                JOptionPane.showMessageDialog(null, "Inserted Student Group Successfully");
+                }
+                else
+                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
+                }
+                });             
+           
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+                
+
+    }
+    
+    public void updateDaysPerWeek()
+    {
+         try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("basic");
+                //DatabaseReference usersRef = ref.child("users");
+ 
+                String s_days = jComboBox2.getSelectedItem().toString();
+                
+                ref.child("daysperweek").setValue(s_days,new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                if(error==null)
+                JOptionPane.showMessageDialog(null, "Updated Successfully");
+                else
+                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
+                }
+                });               
+                
+                     
+                TimeUnit.SECONDS.sleep(5);
+                
+               
+      
+            } catch (InterruptedException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateHoursPerDay()
+    {
+        try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("basic");
+                //DatabaseReference usersRef = ref.child("users");
+
+                String s_hours = jComboBox1.getSelectedItem().toString();
+                            
+                ref.child("hoursperday").setValue(s_hours,new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                if(error==null)
+                JOptionPane.showMessageDialog(null, "Updated Successfully");
+                else
+                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
+                }
+                });      
+                
+                
+                TimeUnit.SECONDS.sleep(5);
+     
+            } catch (InterruptedException ex) {
+                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void time() throws InterruptedException
+    {
             if(flag==0)
             {   
                 TimeUnit.SECONDS.sleep(6); 
                 time();
             }
-        }
+    }
+     
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1467,7 +1633,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
