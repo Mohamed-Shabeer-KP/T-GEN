@@ -57,13 +57,11 @@ public class gen_time_table extends javax.swing.JFrame {
    
     int flag=0;
     boolean hasbeeninitialized=false;
-     static JPanel panel;
-     static Integer indexer = 1;
-     static List<JLabel> subject_no_label = new ArrayList<JLabel>();
-     static List<JLabel> subject_name_label = new ArrayList<JLabel>();
-     static List<JLabel> subject_hours_label = new ArrayList<JLabel>();
-     static List<JTextField> subject_name = new ArrayList<JTextField>();
-     static List<JComboBox> subject_hours = new ArrayList<JComboBox>();
+  
+    List<JTextField> subject_name_list = new ArrayList<JTextField>();
+    List<JComboBox> subject_hours_list = new ArrayList<JComboBox>();
+ 
+     
      
      int stg_count=0,teacher_count=0;
      String stg_name="";
@@ -80,8 +78,7 @@ public class gen_time_table extends javax.swing.JFrame {
      */
     public gen_time_table() {
         initComponents();
-        gen_time_table.panel = jPanel11;
-        panel.setLayout(new GridBagLayout());
+       
         //panel.setBorder(LineBorder.createBlackLineBorder());
     }
 
@@ -126,8 +123,9 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         t_std_grp_name = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        b_submit_sg = new javax.swing.JButton();
         cb_no_subjects = new javax.swing.JComboBox<>();
+        b_reset_sg = new javax.swing.JButton();
         add_teachpanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -139,7 +137,6 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jPanel14 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -296,7 +293,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(viewstudent_panelLayout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(jButton19)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         viewstudent_panelLayout.setVerticalGroup(
             viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +304,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton19)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         viewteacher_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -334,7 +331,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(viewteacher_panelLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addComponent(jButton20)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         viewteacher_panelLayout.setVerticalGroup(
             viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +342,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jButton20)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         viewdaysperweek_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -365,7 +362,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(68, 68, 68)
                 .addComponent(jLabel15)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         viewdaysperweek_panelLayout.setVerticalGroup(
             viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +371,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         hoursperday_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -392,7 +389,7 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(hoursperday_panelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jLabel18)
                 .addGap(64, 64, 64))
         );
@@ -403,7 +400,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(hoursperday_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         jLayeredPane4.setLayer(viewstudent_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -495,15 +492,23 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("No of subjects");
 
-        jButton6.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jButton6.setText("Submit");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        b_submit_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        b_submit_sg.setText("Submit");
+        b_submit_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                b_submit_sgActionPerformed(evt);
             }
         });
 
         cb_no_subjects.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+
+        b_reset_sg.setText("reset");
+        b_reset_sg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_reset_sgActionPerformed(evt);
+            }
+        });
+        b_reset_sg.setVisible(false);
 
         javax.swing.GroupLayout add_studpanelLayout = new javax.swing.GroupLayout(add_studpanel);
         add_studpanel.setLayout(add_studpanelLayout);
@@ -512,18 +517,21 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(add_studpanelLayout.createSequentialGroup()
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(add_studpanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel8)
-                        .addGap(41, 41, 41)
-                        .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(add_studpanelLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jButton6))
-                    .addGroup(add_studpanelLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(add_studpanelLayout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(b_submit_sg)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(b_reset_sg))
+                        .addGroup(add_studpanelLayout.createSequentialGroup()
+                            .addGap(42, 42, 42)
+                            .addComponent(jLabel8)
+                            .addGap(41, 41, 41)
+                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         add_studpanelLayout.setVerticalGroup(
@@ -537,8 +545,10 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(53, 53, 53)
-                .addComponent(jButton6)
+                .addGap(67, 67, 67)
+                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_submit_sg)
+                    .addComponent(b_reset_sg))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
 
@@ -611,7 +621,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addComponent(add_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -644,17 +654,7 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
+        jPanel11.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel11);
 
         jButton4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -673,17 +673,6 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -695,17 +684,12 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addGap(67, 67, 67)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(318, 318, 318)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -714,20 +698,17 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(2, 2, 2))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jButton4)
                         .addGap(74, 74, 74)
                         .addComponent(jButton5))
-                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("               INSERT                 ", jPanel4);
@@ -1224,8 +1205,7 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-     
-         
+    threadDaysPerWeek();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -1238,105 +1218,18 @@ public class gen_time_table extends javax.swing.JFrame {
     threadTeacher();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
-//remove all components in panel
- 
-for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toString());count++)
-{
+    private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
     
-            // Create label and text field
-            subject_no_label.add(new JLabel("Subject no : " + indexer));
-            subject_name_label.add(new JLabel("Subject name :  "));
-            subject_hours_label.add(new JLabel("Subject hours :  "));
-            subject_name.add(new JTextField());
-            subject_hours.add(new JComboBox());
-            
-              for(int z = 1;z<25;z++)
-                subject_hours.get(count).addItem(z);
-            // Create constraints
-            GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_name_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_hours_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_name_textFieldConstraints = new GridBagConstraints();
-            GridBagConstraints sub_hours_comboBoxConstraints = new GridBagConstraints();
-            
-
-            // Add labels and text fields
-            for(int i = 0,j = 1,k = 0; i < indexer; i++,k=k+3)
-            {    
-                // Label constraints
-                sub_no_labelConstraints.gridx = j;
-                sub_no_labelConstraints.gridy = k;
-                
-                sub_name_labelConstraints.gridx = j+1;
-                sub_name_labelConstraints.gridy = k+1;
-
-                // Text field constraints
-                sub_name_textFieldConstraints.gridx = j+2;
-                sub_name_textFieldConstraints.gridy = k+1;
-  
-                sub_hours_labelConstraints.gridx = j+1;
-                sub_hours_labelConstraints.gridy = k+2;
-                
-                sub_hours_comboBoxConstraints.gridx = j+2;
-                sub_hours_comboBoxConstraints.gridy = k+2;
-           
-                subject_name.get(i).setColumns(5);
-                
-                
-                
-                // Add them to panel
-                panel.add(subject_no_label.get(i), sub_no_labelConstraints);
-                panel.add(subject_name_label.get(i), sub_name_labelConstraints);
-                panel.add(subject_name.get(i), sub_name_textFieldConstraints);
-                panel.add(subject_hours_label.get(i), sub_hours_labelConstraints);
-                panel.add(subject_hours.get(i), sub_hours_comboBoxConstraints);
-             
-            }
-
-            // Align components top-to-bottom
-            GridBagConstraints c = new GridBagConstraints();
-            c.gridx = 0;
-            c.gridy = 10;
-            c.weighty = 0;
-            panel.add(new JLabel(), c);
-
-            // Increment indexer
-            indexer++;
-            
-         //   panel.removeAll();
-}
-  
-    GridBagConstraints submit_button_Constraints = new GridBagConstraints();
-    submit_button_Constraints.gridx=2;
-    submit_button_Constraints.gridy=10000;
-    
-    JButton b_submit = new JButton("Submit");
-    b_submit.setPreferredSize(new Dimension(80, 40));
-  
-    b_submit.addActionListener(new ActionListener() {
-
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-       threadStudentGroup();
-    }
-    });
-
-    panel.add(b_submit,submit_button_Constraints);
-
-                    //  jPanel11.removeAll();
-                     //jPanel11.validate();
-    }//GEN-LAST:event_jButton6ActionPerformed
+     // sg_Validate();  //VALIDATION - UKSI
+        
+    genAddSGUI();//thread service not required
+    }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 
 
-        comboboxStudentGroupData() ;
-
-
-
+        threadgenRemoveSGUI() ;
+        
         jLayeredPane3.setVisible(true);
         remove_teachpanel.setVisible(false);
         remove_studpanel.setVisible(true);
@@ -1403,6 +1296,16 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         hoursperday_panel.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
 
+    private void b_reset_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_reset_sgActionPerformed
+        //Get the components in the panel
+       // jPanel11.remove(subject_no_label.get(0));
+   jPanel11.removeAll();
+   jPanel11.revalidate();
+   jPanel11.repaint();
+   b_reset_sg.setVisible(false);
+   b_submit_sg.setVisible(true);
+    }//GEN-LAST:event_b_reset_sgActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1462,7 +1365,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 // define what the event dispatch thread  
                 // will do with the intermediate results received 
                 // while the thread is executing 
-                 CloseOptionpane.disp();
+                 CloseOptionpane.disp("Inserting Student Group Details");
 
             } 
   
@@ -1501,7 +1404,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
             
-                 CloseOptionpane.disp();
+                 CloseOptionpane.disp("Inserting Teacher Details");
  
                 
             } 
@@ -1539,7 +1442,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp();
+                 CloseOptionpane.disp("Updating Days Per Week value");
 
             } 
   
@@ -1576,7 +1479,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp();
+                 CloseOptionpane.disp("Updating Hours Per Day value");
 
             } 
   
@@ -1590,6 +1493,203 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         }; 
         // executes the swingworker on worker thread 
         sw1.execute();  
+    }
+    
+       public void threadgenRemoveSGUI()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               genRemoveSGUI();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp("Fetching Student Group Details");
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    
+    public void genAddSGUI()
+    { 
+        
+      List<JTextField> subject_name = new ArrayList<JTextField>();
+      List<JComboBox> subject_hours = new ArrayList<JComboBox>();
+      List<JLabel> subject_no_label = new ArrayList<JLabel>();
+      List<JLabel> subject_name_label = new ArrayList<JLabel>();
+      List<JLabel> subject_hours_label = new ArrayList<JLabel>();
+    
+      JButton b_submit ;
+      
+      JPanel panel= jPanel11;
+ //panel.setLayout(new GridBagLayout());
+ 
+//remove all components in panel
+      Integer indexer = 1;
+for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toString());count++)
+{
+    
+            // Create label and text field
+            subject_no_label.add(new JLabel("Subject no : " + indexer));
+            subject_name_label.add(new JLabel("Subject name :  "));
+            subject_hours_label.add(new JLabel("Subject hours :  "));
+            subject_name.add(new JTextField());
+            subject_hours.add(new JComboBox());
+            
+              for(int z = 1;z<25;z++)
+                subject_hours.get(count).addItem(z);
+            // Create constraints
+            GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_name_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_hours_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_name_textFieldConstraints = new GridBagConstraints();
+            GridBagConstraints sub_hours_comboBoxConstraints = new GridBagConstraints();
+            
+
+            // Add labels and text fields
+            for(int i = 0,j = 1,k = 0; i < indexer; i++,k=k+3)
+            {    
+                // Label constraints
+                sub_no_labelConstraints.gridx = j;
+                sub_no_labelConstraints.gridy = k;
+                
+                sub_name_labelConstraints.gridx = j+1;
+                sub_name_labelConstraints.gridy = k+1;
+
+                // Text field constraints
+                sub_name_textFieldConstraints.gridx = j+2;
+                sub_name_textFieldConstraints.gridy = k+1;
+  
+                sub_hours_labelConstraints.gridx = j+1;
+                sub_hours_labelConstraints.gridy = k+2;
+                
+                sub_hours_comboBoxConstraints.gridx = j+2;
+                sub_hours_comboBoxConstraints.gridy = k+2;
+           
+                subject_name.get(i).setColumns(5);
+                
+                
+                
+                // Add them to panel
+                panel.add(subject_no_label.get(i), sub_no_labelConstraints);
+                panel.add(subject_name_label.get(i), sub_name_labelConstraints);
+                panel.add(subject_name.get(i), sub_name_textFieldConstraints);
+                panel.add(subject_hours_label.get(i), sub_hours_labelConstraints);
+                panel.add(subject_hours.get(i), sub_hours_comboBoxConstraints);
+             
+            }
+
+            // Align components top-to-bottom
+            GridBagConstraints c = new GridBagConstraints();
+            c.gridx = 0;
+            c.gridy = 10;
+            c.weighty = 0;
+            panel.add(new JLabel(), c);
+
+            // Increment indexer
+            indexer++;
+            
+        
+}
+  
+    GridBagConstraints submit_button_Constraints = new GridBagConstraints();
+    submit_button_Constraints.gridx=2;
+    submit_button_Constraints.gridy=10000;
+    
+    b_submit = new JButton("Submit");
+    b_submit.setPreferredSize(new Dimension(80, 40));
+  
+    b_submit.addActionListener(new ActionListener() {
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+       threadStudentGroup();
+    }
+    });
+
+    subject_name_list=subject_name;
+    subject_hours_list=subject_hours;
+    panel.add(b_submit,submit_button_Constraints);
+  
+    b_submit_sg.setVisible(false);
+    b_reset_sg.setVisible(true);
+    
+    }
+        
+    public void genRemoveSGUI() 
+    {
+      
+        jComboBox3.removeAllItems();
+         try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                
+                
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("studentgroup");
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                             
+                        for(int i = 1; i <= stg_count ; i++)             
+                {             
+                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
+                jComboBox3.addItem(sgname);   
+                }         
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                    
+                });
+
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
     
     public void addStudentGroupData() 
@@ -1650,8 +1750,8 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                 {   
                 DatabaseReference subref = subjectref.child("subject:"+i);
                 Map<String, String> subject = new HashMap<>();
-                subject.put("name",subject_name.get(i-1).getText());
-                subject.put("hours",String.valueOf(subject_hours.get(i-1).getSelectedItem()));
+                subject.put("name",subject_name_list.get(i-1).getText());
+                subject.put("hours",String.valueOf(subject_hours_list.get(i-1).getSelectedItem()));
                 subref.setValueAsync(subject); 
                
                 if(i==count)
@@ -1748,59 +1848,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-     public void comboboxStudentGroupData() 
-    {
-      
-        jComboBox3.removeAllItems();
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-                if(hasbeeninitialized==false)
-                {
-                    FirebaseApp.initializeApp(options);
-                    hasbeeninitialized=true;
-                }
-                
-                
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("studentgroup");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                             
-                        for(int i = 1; i <= stg_count ; i++)             
-                {             
-                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
-                jComboBox3.addItem(sgname);   
-                }         
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                    
-                });
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
     }
     
     public void updateDaysPerWeek()
@@ -1909,10 +1956,19 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     }
      
   
+    //public void sg_Validate()
+    //{
+
+
+    //}
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add_studpanel;
     private javax.swing.JPanel add_teachpanel;
+    private javax.swing.JButton b_reset_sg;
+    private javax.swing.JButton b_submit_sg;
     private javax.swing.JComboBox<String> cb_no_subjects;
     private javax.swing.JPanel days_perweekpanel;
     private javax.swing.JPanel hours_perdaypanel;
@@ -1933,7 +1989,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -1969,7 +2024,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
