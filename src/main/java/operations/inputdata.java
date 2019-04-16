@@ -189,8 +189,8 @@ public class inputdata {
 
   
  /*
-               // daysperweek = 5;
-                //hoursperday = 6;
+               daysperweek = 5;
+               hoursperday = 6;
                           
                 nostudentgroup = 2;
                 noteacher = 5;
@@ -199,7 +199,7 @@ public class inputdata {
                 studentgroup[0].id = 0;
 		studentgroup[0].name = "INT MCA 6TH A BATCH";
                 studentgroup[0].nosubject = 5;
-		
+		studentgroup[0].subject[0] = "AI";
 		studentgroup[0].hours[0] = 4;
                 studentgroup[0].subject[1] = "CG";
 		studentgroup[0].hours[1] = 4;
@@ -225,24 +225,34 @@ public class inputdata {
                 studentgroup[1].subject[4] = "LAB";
 		studentgroup[1].hours[4] = 15;
                 
-                */
- noteacher = 3;
+                
+
                 teacher[0] = new Teacher();
                 teacher[0].id = 0;
 		teacher[0].name = "SOUMYA MISS";
-		teacher[0].subject = "ai";
+		teacher[0].subject = "AI";
                 
                 teacher[1] = new Teacher();
                 teacher[1].id = 1;
 		teacher[1].name = "DEEPA MISS";
-		teacher[1].subject = "sc";
+		teacher[1].subject = "SC";
                 
                 teacher[2] = new Teacher();
                 teacher[2].id = 2;
 		teacher[2].name = "LEENA MISS";
-		teacher[2].subject = "cg";
+		teacher[2].subject = "CG";
                 
-            
+                teacher[3] = new Teacher();
+                teacher[3].id = 3;
+		teacher[3].name = "RAHUL";
+		teacher[3].subject = "LIB";
+               
+                teacher[4] = new Teacher();
+                teacher[4].id = 4;
+		teacher[4].name = "RAJESH";
+		teacher[4].subject = "LAB";
+                
+          */  
 		time();
                 assignTeacher();
 	}

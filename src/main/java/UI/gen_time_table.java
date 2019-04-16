@@ -143,7 +143,7 @@ public class gen_time_table extends javax.swing.JFrame {
         remove_studpanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jComboBox3 = new javax.swing.JComboBox<>();
         remove_teachpanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
@@ -698,12 +698,12 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(remove_studpanelLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel10)
-                        .addGap(74, 74, 74)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(remove_studpanelLayout.createSequentialGroup()
                         .addGap(204, 204, 204)
                         .addComponent(jButton3)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         remove_studpanelLayout.setVerticalGroup(
             remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -711,7 +711,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(146, 146, 146)
                 .addGroup(remove_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(jButton3)
                 .addContainerGap(180, Short.MAX_VALUE))
@@ -1042,6 +1042,12 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+
+        comboboxStudentGroupData() ;
+
+
+
         jLayeredPane3.setVisible(true);
         remove_teachpanel.setVisible(false);
         remove_studpanel.setVisible(true);
@@ -1059,7 +1065,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        
-        
+        // remve 
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1411,9 +1417,10 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         }
     }
     
-     public void removeStudentGroupData() 
+     public void comboboxStudentGroupData() 
     {
-       
+      
+        jComboBox3.removeAllItems();
          try {         
                 File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
@@ -1434,6 +1441,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                     hasbeeninitialized=true;
                 }
                 
+                
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("studentgroup");
 
@@ -1441,18 +1449,12 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                       stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                 
-                  
-                        for(int i = 1; i <= stg_count ; i++)
-                {   
-                DatabaseReference stdgrpref = ref.child("studentgroup:"+(stg_count+i));
-                
-                Map<String, String> subject = new HashMap<>();
-                subject.put("name",subject_name.get(i-1).getText());
-                subject.put("hours",String.valueOf(subject_hours.get(i-1).getSelectedItem()));
-         
+                             
+                        for(int i = 1; i <= stg_count ; i++)             
+                {             
+                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
+                jComboBox3.addItem(sgname);   
                 }         
-           
                     }
                     
                     @Override
@@ -1461,36 +1463,10 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
                     }
                     
                 });
-                time();
-                flag=0;
-                
-               
-         
-          
-                
-                
-            
-                
-                ref.child("count").setValue(String.valueOf(stg_count+1),new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                   
-                if(error==null)
-                {
-                JOptionPane.showMessageDialog(null, "Inserted Student Group Successfully");
-                }
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });             
-           
+
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-                
 
     }
     
@@ -1623,6 +1599,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1655,7 +1632,6 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel remove_studpanel;
     private javax.swing.JPanel remove_teachpanel;
