@@ -98,6 +98,26 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jLayeredPane4 = new javax.swing.JLayeredPane();
+        viewstudent_panel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton19 = new javax.swing.JButton();
+        viewteacher_panel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jButton20 = new javax.swing.JButton();
+        viewdaysperweek_panel = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        hoursperday_panel = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -170,6 +190,16 @@ public class gen_time_table extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jpanelmouse_dragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jpanelmouse_pressed(evt);
+            }
+        });
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -177,6 +207,264 @@ public class gen_time_table extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(null);
+
+        jPanel16.setBackground(new java.awt.Color(51, 51, 51));
+
+        jButton15.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton15.setText("View Student group");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton16.setText("View Teachers");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("View Days per Week ");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        jButton18.setText("View Hours per Day");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jButton15)
+                .addGap(43, 43, 43)
+                .addComponent(jButton16)
+                .addGap(74, 74, 74)
+                .addComponent(jButton17)
+                .addGap(52, 52, 52)
+                .addComponent(jButton18)
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel16);
+        jPanel16.setBounds(0, 0, 250, 440);
+
+        jLayeredPane4.setVisible(false);
+
+        viewstudent_panel.setBackground(new java.awt.Color(102, 102, 102));
+        viewstudent_panel.setPreferredSize(new java.awt.Dimension(280, 440));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Student Group name");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton19.setText("Submit");
+
+        javax.swing.GroupLayout viewstudent_panelLayout = new javax.swing.GroupLayout(viewstudent_panel);
+        viewstudent_panel.setLayout(viewstudent_panelLayout);
+        viewstudent_panelLayout.setHorizontalGroup(
+            viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewstudent_panelLayout.createSequentialGroup()
+                .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewstudent_panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewstudent_panelLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jButton19)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        viewstudent_panelLayout.setVerticalGroup(
+            viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewstudent_panelLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(jButton19)
+                .addContainerGap(197, Short.MAX_VALUE))
+        );
+
+        viewteacher_panel.setBackground(new java.awt.Color(102, 102, 102));
+        viewteacher_panel.setPreferredSize(new java.awt.Dimension(280, 440));
+
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("View Teacher");
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton20.setText("Submit");
+
+        javax.swing.GroupLayout viewteacher_panelLayout = new javax.swing.GroupLayout(viewteacher_panel);
+        viewteacher_panel.setLayout(viewteacher_panelLayout);
+        viewteacher_panelLayout.setHorizontalGroup(
+            viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewteacher_panelLayout.createSequentialGroup()
+                .addGroup(viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewteacher_panelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel13)
+                        .addGap(29, 29, 29)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewteacher_panelLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton20)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        viewteacher_panelLayout.setVerticalGroup(
+            viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewteacher_panelLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addGroup(viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addComponent(jButton20)
+                .addContainerGap(186, Short.MAX_VALUE))
+        );
+
+        viewdaysperweek_panel.setBackground(new java.awt.Color(102, 102, 102));
+        viewdaysperweek_panel.setPreferredSize(new java.awt.Dimension(280, 440));
+
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Days per Week");
+
+        jLabel15.setText("jLabel15");
+
+        javax.swing.GroupLayout viewdaysperweek_panelLayout = new javax.swing.GroupLayout(viewdaysperweek_panel);
+        viewdaysperweek_panel.setLayout(viewdaysperweek_panelLayout);
+        viewdaysperweek_panelLayout.setHorizontalGroup(
+            viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewdaysperweek_panelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel14)
+                .addGap(68, 68, 68)
+                .addComponent(jLabel15)
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        viewdaysperweek_panelLayout.setVerticalGroup(
+            viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewdaysperweek_panelLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addGroup(viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addContainerGap(253, Short.MAX_VALUE))
+        );
+
+        hoursperday_panel.setBackground(new java.awt.Color(102, 102, 102));
+        hoursperday_panel.setPreferredSize(new java.awt.Dimension(280, 440));
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Hours per Day");
+
+        jLabel18.setText("jLabel18");
+
+        javax.swing.GroupLayout hoursperday_panelLayout = new javax.swing.GroupLayout(hoursperday_panel);
+        hoursperday_panel.setLayout(hoursperday_panelLayout);
+        hoursperday_panelLayout.setHorizontalGroup(
+            hoursperday_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hoursperday_panelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jLabel18)
+                .addGap(64, 64, 64))
+        );
+        hoursperday_panelLayout.setVerticalGroup(
+            hoursperday_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hoursperday_panelLayout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addGroup(hoursperday_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addContainerGap(254, Short.MAX_VALUE))
+        );
+
+        jLayeredPane4.setLayer(viewstudent_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(viewteacher_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(viewdaysperweek_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(hoursperday_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
+        jLayeredPane4.setLayout(jLayeredPane4Layout);
+        jLayeredPane4Layout.setHorizontalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewstudent_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewteacher_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewdaysperweek_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(hoursperday_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jLayeredPane4Layout.setVerticalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewstudent_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewteacher_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(viewdaysperweek_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(hoursperday_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel2.add(jLayeredPane4);
+        jLayeredPane4.setBounds(250, 0, 280, 440);
+
         jTabbedPane1.addTab("         VIEW              ", jPanel2);
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
@@ -188,8 +476,10 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(153, 153, 153));
 
         jLayeredPane2.setVisible(false);
+        jLayeredPane2.setPreferredSize(new java.awt.Dimension(320, 436));
 
         add_studpanel.setBackground(new java.awt.Color(102, 102, 102));
+        add_studpanel.setPreferredSize(new java.awt.Dimension(320, 436));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,6 +543,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
+        add_teachpanel.setPreferredSize(new java.awt.Dimension(320, 436));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +591,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(t_sub_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(jButton7)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(add_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -337,9 +628,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLayeredPane2)
-                .addContainerGap())
+            .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel9.setBackground(new java.awt.Color(102, 102, 102));
@@ -363,7 +652,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanel11);
@@ -400,15 +689,15 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(53, 53, 53)
+                .addGap(54, 54, 54)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(67, 67, 67)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(328, 328, 328)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(318, 318, 318)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -422,17 +711,18 @@ public class gen_time_table extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jButton4)
-                .addGap(72, 72, 72)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(2, 2, 2))
-            .addComponent(jScrollPane1)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jButton4)
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton5))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -446,7 +736,7 @@ public class gen_time_table extends javax.swing.JFrame {
             jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
         }catch(Exception e){System.out.println(e); }
 
-        jPanel12.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel12.setBackground(new java.awt.Color(51, 51, 51));
         jPanel12.setForeground(new java.awt.Color(153, 153, 153));
 
         jButton9.setText("Days per week");
@@ -530,11 +820,11 @@ public class gen_time_table extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jLabel12)
                         .addGap(26, 26, 26)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -637,7 +927,7 @@ public class gen_time_table extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("             UPDATE                 ", jPanel5);
 
-        jPanel15.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel15.setBackground(new java.awt.Color(51, 51, 51));
 
         jButton8.setText("Remove Student Group");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -662,7 +952,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,7 +1081,6 @@ public class gen_time_table extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane3))
@@ -874,7 +1163,7 @@ public class gen_time_table extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1069,6 +1358,50 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+   int xx=0;
+   int yy=0;
+    private void jpanelmouse_pressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelmouse_pressed
+         xx=evt.getX();
+         yy=evt.getY(); 
+    }//GEN-LAST:event_jpanelmouse_pressed
+
+    private void jpanelmouse_dragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanelmouse_dragged
+         int x=evt.getXOnScreen();
+       int y=evt.getYOnScreen();
+       this.setLocation(x-xx, y-yy);
+    }//GEN-LAST:event_jpanelmouse_dragged
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        jLayeredPane4.setVisible(true);
+        viewstudent_panel.setVisible(true);
+        viewteacher_panel.setVisible(false);
+        viewdaysperweek_panel.setVisible(false);
+        hoursperday_panel.setVisible(false);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+       jLayeredPane4.setVisible(true);
+        viewstudent_panel.setVisible(false);
+        viewteacher_panel.setVisible(true);
+        viewdaysperweek_panel.setVisible(false);
+        hoursperday_panel.setVisible(false);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+       jLayeredPane4.setVisible(true);
+        viewstudent_panel.setVisible(false);
+        viewteacher_panel.setVisible(false);
+        viewdaysperweek_panel.setVisible(true);
+        hoursperday_panel.setVisible(false);
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        jLayeredPane4.setVisible(true);
+        viewstudent_panel.setVisible(false);
+        viewteacher_panel.setVisible(false);
+        viewdaysperweek_panel.setVisible(false);
+        hoursperday_panel.setVisible(true);
+    }//GEN-LAST:event_jButton18ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1583,13 +1916,20 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JComboBox<String> cb_no_subjects;
     private javax.swing.JPanel days_perweekpanel;
     private javax.swing.JPanel hours_perdaypanel;
+    private javax.swing.JPanel hoursperday_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1600,21 +1940,30 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1622,6 +1971,7 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1638,5 +1988,8 @@ for(int count = 0;count<Integer.parseInt(cb_no_subjects.getSelectedItem().toStri
     private javax.swing.JTextField t_std_grp_name;
     private javax.swing.JTextField t_sub_name;
     private javax.swing.JTextField t_teacher_name;
+    private javax.swing.JPanel viewdaysperweek_panel;
+    private javax.swing.JPanel viewstudent_panel;
+    private javax.swing.JPanel viewteacher_panel;
     // End of variables declaration//GEN-END:variables
 }
