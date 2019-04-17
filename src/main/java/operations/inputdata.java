@@ -109,7 +109,6 @@ public class inputdata {
   // Fetch the service account key JSON file contents
         
 
- 
                     try {         
                 File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
@@ -252,8 +251,9 @@ public class inputdata {
 		teacher[4].name = "RAJESH";
 		teacher[4].subject = "LAB";
                 
-          */  
+            */
 		time();
+                flag=0;
                 assignTeacher();
 	}
         

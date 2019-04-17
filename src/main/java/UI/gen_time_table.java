@@ -558,7 +558,7 @@ public class gen_time_table extends javax.swing.JFrame {
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
-        add_teachpanel.setPreferredSize(new java.awt.Dimension(320, 436));
+        add_teachpanel.setPreferredSize(new java.awt.Dimension(300, 436));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -622,7 +622,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(add_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(add_teachpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(add_teachpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1994,6 +1994,7 @@ for(int count = 0;count<sgcount;count++)
     
     public void removeSG() throws InterruptedException
     {
+       
         String sg_name=jComboBox3.getSelectedItem().toString();
         try {         
                 File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
@@ -2030,38 +2031,53 @@ for(int count = 0;count<sgcount;count++)
                     sgref.child("studentgroup:"+i).removeValueAsync();
                     f_count=1;
                 }
-                if(f_count==1)
+                
+                if(f_count==1 && i<stg_count)
                 {
-                //sgref.child("studentgroup:"+i).setValueAsync();
-               //     Map<String, Object> node = new HashMap<>();
-            //    node.put("name",sgref.child("studentgroup:"+i));
-                  //  sgref.updateChildrenAsync(node);
-                  //  sgref.u
-                 
+                sgref.child("studentgroup:"+i).child("demo").setValueAsync("demo");
+                DatabaseReference new_node_ref = sgref.child("studentgroup:"+i);
+                DatabaseReference next_node_ref = sgref.child("studentgroup:"+(i+1));
+                
+                 next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {                
+                        Map<String, String> sg = new HashMap<>();
+                        String na =dataSnapshot.child("name").getValue().toString() ;
+                        String sno =dataSnapshot.child("subjectno").getValue().toString();
+                        sg.put("name",na);
+                        sg.put("subjectno",sno);
+                        new_node_ref.setValueAsync(sg);
+                        for(int i = 1; i <= Integer.parseInt(dataSnapshot.child("subjectno").getValue().toString()) ; i++)
+                        {
+       Map<String, String> sub = new HashMap<>();
+                            String sub_name=dataSnapshot.child("subjects").child("subject:"+i).child("name").getValue().toString();
+                            String sub_hours=dataSnapshot.child("subjects").child("subject:"+i).child("hours").getValue().toString();
+                            sub.put("name",sub_name );
+                            sub.put("hours",sub_hours);
+                            
+                            new_node_ref.child("subjects").child("subject:"+i).setValueAsync(sub);
+       
+                        }
+                        next_node_ref.removeValueAsync();
+                        sgref.child("count").setValueAsync(String.valueOf(stg_count-1));
+                        flag=1;
+                }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                }
+                });
                 }
                 }
-                  flag=1;
                     }  
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                         System.out.println("Error");// ...
                     }
-                    
                 });
                 time();
                 flag=0;
-                sgref.child("count").setValue(String.valueOf(stg_count-1),new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                   
-                if(error==null)
-                {
-                JOptionPane.showMessageDialog(null, "Removed Student Group Successfully");
-                }
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });           
+                
 
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
