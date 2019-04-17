@@ -126,6 +126,7 @@ public class gen_time_table extends javax.swing.JFrame {
         b_submit_sg = new javax.swing.JButton();
         cb_no_subjects = new javax.swing.JComboBox<>();
         b_reset_sg = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         add_teachpanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -487,6 +488,12 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Student Group name");
 
+        t_std_grp_name.setToolTipText("Please Enter the Batch Name");
+        t_std_grp_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                focuslost(evt);
+            }
+        });
         t_std_grp_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_std_grp_nameActionPerformed(evt);
@@ -515,28 +522,34 @@ public class gen_time_table extends javax.swing.JFrame {
         });
         b_reset_sg.setVisible(false);
 
+        jLabel19.setForeground(new java.awt.Color(0, 0, 153));
+
         javax.swing.GroupLayout add_studpanelLayout = new javax.swing.GroupLayout(add_studpanel);
         add_studpanel.setLayout(add_studpanelLayout);
         add_studpanelLayout.setHorizontalGroup(
             add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_studpanelLayout.createSequentialGroup()
-                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(add_studpanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(add_studpanelLayout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(b_submit_sg)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(b_reset_sg))
-                        .addGroup(add_studpanelLayout.createSequentialGroup()
-                            .addGap(42, 42, 42)
-                            .addComponent(jLabel8)
-                            .addGap(41, 41, 41)
-                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(add_studpanelLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studpanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(b_submit_sg)
+                                    .addComponent(jLabel8))
+                                .addGap(52, 52, 52)))
+                        .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studpanelLayout.createSequentialGroup()
+                                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(b_reset_sg)
+                                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         add_studpanelLayout.setVerticalGroup(
@@ -546,15 +559,17 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(67, 67, 67)
+                    .addComponent(jLabel8)
+                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_submit_sg)
                     .addComponent(b_reset_sg))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -689,9 +704,9 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addGap(67, 67, 67)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(318, 318, 318)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(294, 294, 294)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -710,9 +725,7 @@ public class gen_time_table extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(jButton5))
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1109,9 +1122,9 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 819, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 827, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2))
         );
@@ -1228,9 +1241,9 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
     
-     // sg_Validate();  //VALIDATION - UKSI
-        
-    genAddSGUI();//thread service not required
+     sg_Validate();  //VALIDATION - UKSI
+            
+    //genAddSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -1311,6 +1324,16 @@ public class gen_time_table extends javax.swing.JFrame {
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void focuslost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focuslost
+       if(t_std_grp_name.getText().trim().isEmpty())
+       {
+           jLabel19.setText("Student Group name is empty");
+       }
+       else
+          jLabel19.setText(" "); 
+       
+    }//GEN-LAST:event_focuslost
 
     /**
      * @param args the command line arguments
@@ -2103,11 +2126,28 @@ for(int count = 0;count<sgcount;count++)
     }
      
   
-    //public void sg_Validate()
-    //{
+    public void sg_Validate()
+    {
+         String ch="[-_[a-z][A-Z]]";
+         if(t_std_grp_name.getText().trim().isEmpty())
+         {
+             jLabel19.setText("Student Group name is Invalid");
+           JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+         }
+         else if (!(t_std_grp_name.getText().trim().matches(ch.trim())))
+             
+            {
+                jLabel19.setText("Student Group name is Invalid");
+                JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+            }
+         else
+         {
+          jLabel19.setText(" ");
+          genAddSGUI();
+         }
+         
 
-
-    //}
+    }
     
     
 
@@ -2154,6 +2194,7 @@ for(int count = 0;count<sgcount;count++)
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
