@@ -18,7 +18,7 @@ public class CloseOptionpane {
       final JLabel l_timer = new JLabel();
       int timerDelay = 1000;
       new Timer(timerDelay , new ActionListener() {
-         int timeLeft = 5;
+         int timeLeft = 8;
 
          @Override
          public void actionPerformed(ActionEvent e) {

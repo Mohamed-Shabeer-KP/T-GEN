@@ -103,8 +103,9 @@ public class gen_time_table extends javax.swing.JFrame {
         jLayeredPane4 = new javax.swing.JLayeredPane();
         viewstudent_panel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton19 = new javax.swing.JButton();
+        cb_view_sg = new javax.swing.JComboBox<>();
+        b_submit_view_sg = new javax.swing.JButton();
+        b_reset_view_sg = new javax.swing.JButton();
         viewteacher_panel = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
@@ -115,6 +116,8 @@ public class gen_time_table extends javax.swing.JFrame {
         hoursperday_panel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        p_view_sg = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -133,7 +136,6 @@ public class gen_time_table extends javax.swing.JFrame {
         t_teacher_name = new javax.swing.JTextField();
         t_sub_name = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
@@ -165,7 +167,7 @@ public class gen_time_table extends javax.swing.JFrame {
         remove_teachpanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        cb_remove_teacher = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -204,7 +206,6 @@ public class gen_time_table extends javax.swing.JFrame {
         jTabbedPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setLayout(null);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -249,7 +250,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,11 +263,8 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jButton17)
                 .addGap(52, 52, 52)
                 .addComponent(jButton18)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
-
-        jPanel2.add(jPanel16);
-        jPanel16.setBounds(0, 0, 250, 440);
 
         jLayeredPane4.setVisible(false);
 
@@ -276,14 +274,20 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Student Group name");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton19.setText("Submit");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        b_submit_view_sg.setText("Submit");
+        b_submit_view_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                b_submit_view_sgActionPerformed(evt);
             }
         });
+
+        b_reset_view_sg.setText("Reset");
+        b_reset_view_sg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_reset_view_sgActionPerformed(evt);
+            }
+        });
+        b_reset_view_sg.setVisible(false);
 
         javax.swing.GroupLayout viewstudent_panelLayout = new javax.swing.GroupLayout(viewstudent_panel);
         viewstudent_panel.setLayout(viewstudent_panelLayout);
@@ -295,11 +299,13 @@ public class gen_time_table extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cb_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(viewstudent_panelLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton19)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGap(32, 32, 32)
+                        .addComponent(b_submit_view_sg)
+                        .addGap(52, 52, 52)
+                        .addComponent(b_reset_view_sg)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         viewstudent_panelLayout.setVerticalGroup(
             viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,10 +313,12 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(146, 146, 146)
                 .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(jButton19)
-                .addContainerGap(197, Short.MAX_VALUE))
+                    .addComponent(cb_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(88, 88, 88)
+                .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_submit_view_sg)
+                    .addComponent(b_reset_view_sg))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         viewteacher_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -319,25 +327,25 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("View Teacher");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton20.setText("Submit");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout viewteacher_panelLayout = new javax.swing.GroupLayout(viewteacher_panel);
         viewteacher_panel.setLayout(viewteacher_panelLayout);
         viewteacher_panelLayout.setHorizontalGroup(
             viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewteacher_panelLayout.createSequentialGroup()
-                .addGroup(viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(viewteacher_panelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel13)
-                        .addGap(29, 29, 29)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(viewteacher_panelLayout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jButton20)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton20)
+                    .addComponent(jLabel13))
+                .addGap(29, 29, 29)
+                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         viewteacher_panelLayout.setVerticalGroup(
             viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,9 +354,9 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(viewteacher_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(66, 66, 66)
                 .addComponent(jButton20)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         viewdaysperweek_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -368,7 +376,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addGap(68, 68, 68)
                 .addComponent(jLabel15)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         viewdaysperweek_panelLayout.setVerticalGroup(
             viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +385,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(viewdaysperweek_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         hoursperday_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -395,7 +403,7 @@ public class gen_time_table extends javax.swing.JFrame {
             .addGroup(hoursperday_panelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jLabel18)
                 .addGap(64, 64, 64))
         );
@@ -406,7 +414,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(hoursperday_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         jLayeredPane4.setLayer(viewstudent_panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -465,8 +473,33 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel2.add(jLayeredPane4);
-        jLayeredPane4.setBounds(250, 0, 280, 440);
+        p_view_sg.setLayout(new java.awt.GridBagLayout());
+        jScrollPane3.setViewportView(p_view_sg);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         jTabbedPane1.addTab("         VIEW              ", jPanel2);
 
@@ -661,19 +694,6 @@ public class gen_time_table extends javax.swing.JFrame {
             .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         jPanel11.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(jPanel11);
 
@@ -706,26 +726,23 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(294, 294, 294)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(713, 713, 713)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(2, 2, 2))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jButton4)
                         .addGap(74, 74, 74)
                         .addComponent(jButton5))
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -824,7 +841,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -835,7 +852,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(jButton13)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         hours_perdaypanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -1015,6 +1032,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel11.setText("Teacher Name");
 
         jButton12.setText("Submit");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout remove_teachpanelLayout = new javax.swing.GroupLayout(remove_teachpanel);
         remove_teachpanel.setLayout(remove_teachpanelLayout);
@@ -1025,12 +1047,12 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(remove_teachpanelLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jLabel11)
-                        .addGap(97, 97, 97)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(116, 116, 116)
+                        .addComponent(cb_remove_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(remove_teachpanelLayout.createSequentialGroup()
                         .addGap(223, 223, 223)
                         .addComponent(jButton12)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         remove_teachpanelLayout.setVerticalGroup(
             remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1038,7 +1060,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(148, 148, 148)
                 .addGroup(remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_remove_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addComponent(jButton12)
                 .addContainerGap(185, Short.MAX_VALUE))
@@ -1226,30 +1248,30 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-    threadDaysPerWeek();
+    threadUpdateDaysPerWeek();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-    threadHoursPerDay();
+    threadUpdateHoursPerDay();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
        
-    threadTeacher();
+    threadInsertTeacher();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
     
      sg_Validate();  //VALIDATION - UKSI
             
-    //genAddSGUI();//thread service not required
+    //genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 
 
-        threadgenRemoveSGUI() ;
+        threadGenRemoveSGUI();
         
         jLayeredPane3.setVisible(true);
         remove_teachpanel.setVisible(false);
@@ -1257,7 +1279,9 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-           jLayeredPane3.setVisible(true);
+
+        threadGenRemoveTeacherUI();
+        jLayeredPane3.setVisible(true);
            remove_teachpanel.setVisible(true);
             remove_studpanel.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
@@ -1284,6 +1308,8 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jpanelmouse_dragged
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+
+        threadGenViewSGUI();
         jLayeredPane4.setVisible(true);
         viewstudent_panel.setVisible(true);
         viewteacher_panel.setVisible(false);
@@ -1317,13 +1343,15 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void b_reset_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_reset_sgActionPerformed
 
-        clearSgPanel();     
+        clearSgPanel(0);     
 
     }//GEN-LAST:event_b_reset_sgActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    private void b_submit_view_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_view_sgActionPerformed
+        
+       threadViewSG();
+        
+    }//GEN-LAST:event_b_submit_view_sgActionPerformed
 
     private void focuslost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focuslost
        if(t_std_grp_name.getText().trim().isEmpty())
@@ -1334,6 +1362,20 @@ public class gen_time_table extends javax.swing.JFrame {
           jLabel19.setText(" "); 
        
     }//GEN-LAST:event_focuslost
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        
+        threadRemoveTeacher();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void b_reset_view_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_reset_view_sgActionPerformed
+       
+         clearSgPanel(1); 
+    }//GEN-LAST:event_b_reset_view_sgActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1373,7 +1415,7 @@ public class gen_time_table extends javax.swing.JFrame {
         });
     }
     
-    public  void threadStudentGroup()  
+    public  void threadInsertStudentGroup()  
     { 
   
         SwingWorker sw1 = new SwingWorker()  
@@ -1410,7 +1452,7 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
      
-    public  void threadTeacher()  
+    public  void threadInsertTeacher()  
     { 
   
         SwingWorker sw1 = new SwingWorker()  
@@ -1450,7 +1492,7 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
      
-    public void threadDaysPerWeek()
+    public void threadUpdateDaysPerWeek()
     {
      SwingWorker sw1 = new SwingWorker()  
         { 
@@ -1487,7 +1529,7 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
      
-    public void threadHoursPerDay()
+    public void threadUpdateHoursPerDay()
     {
      SwingWorker sw1 = new SwingWorker()  
         { 
@@ -1524,7 +1566,7 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
     
-    public void threadgenRemoveSGUI()
+    public void threadGenRemoveSGUI()
     {
      SwingWorker sw1 = new SwingWorker()  
         { 
@@ -1533,7 +1575,7 @@ public class gen_time_table extends javax.swing.JFrame {
             protected String doInBackground() throws Exception  
             { 
                publish(); 
-               genRemoveSGUI();
+               genCBRemoveSGUI();
                return null; 
             }    
              
@@ -1561,6 +1603,80 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
        
+    public void threadGenRemoveTeacherUI()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               genCBRemoveTeacherUI();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp("Fetching Student Group Details");
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    
+    public void threadGenViewSGUI()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               genCBViewSGUI();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp("Fetching Student Group Details");
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+        
     public void threadRemoveSG()
     {
      SwingWorker sw1 = new SwingWorker()  
@@ -1591,6 +1707,45 @@ public class gen_time_table extends javax.swing.JFrame {
             { 
                 // this method is called when the background
                 // thread finishes execution
+                   JOptionPane.showMessageDialog(null, "Removed Successfully");
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+
+    public void threadRemoveTeacher()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               removeTeacher();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp("Removing Student Group Details");
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+                   JOptionPane.showMessageDialog(null, "Removed Successfully");
                
             } 
         }; 
@@ -1598,7 +1753,47 @@ public class gen_time_table extends javax.swing.JFrame {
         sw1.execute();  
     }
     
-    public void genAddSGUI()
+    public void threadViewSG()
+    {
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               genViewSGUI();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            { 
+                // define what the event dispatch thread  
+                // will do with the intermediate results received 
+                // while the thread is executing 
+                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
+                 CloseOptionpane.disp("Removing Student Group Details");
+
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                // this method is called when the background
+                // thread finishes execution
+                   JOptionPane.showMessageDialog(null, "Removed Successfully");
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    
+    ////////////////////////////////////////////////////////////////////
+    
+    public void genInsertSGUI()
     { 
       int sgcount=Integer.parseInt(cb_no_subjects.getSelectedItem().toString());
       List<JTextField> subject_name = new ArrayList<JTextField>();
@@ -1692,7 +1887,7 @@ for(int count = 0;count<sgcount;count++)
     @Override
     public void actionPerformed(ActionEvent e)
     {
-       threadStudentGroup();   
+       threadInsertStudentGroup();   
     }
     });
 
@@ -1704,8 +1899,150 @@ for(int count = 0;count<sgcount;count++)
     b_reset_sg.setVisible(true);
     
     }
+    
+    public void genViewSGUI() throws InterruptedException
+    { 
+     
+
+      List<JTextField> subject_name = new ArrayList<JTextField>();
+      List<JTextField> subject_hours = new ArrayList<JTextField>();
+      List<JLabel> subject_no_label = new ArrayList<JLabel>();
+      List<JLabel> subject_name_label = new ArrayList<JLabel>();
+      List<JLabel> subject_hours_label = new ArrayList<JLabel>();
+    
+  
+       
+      JPanel panel= p_view_sg;
+
+  String sg_name=cb_view_sg.getSelectedItem().toString();
+      try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                
+                
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("studentgroup");
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+               Integer indexer = 1;              
+                for(int a = 1; a <= stg_count ; a++)             
+                {             
+                 if(dataSnapshot.child("studentgroup:"+a).child("name").getValue().equals(sg_name))
+                 {
+                 int sub_count = Integer.valueOf(dataSnapshot.child("studentgroup:"+a).child("subjectno").getValue().toString());
+ 
+
+   
+for(int count = 1;count<=sub_count;count++)
+{
+    
+            // Create label and text field
+            subject_no_label.add(new JLabel("Subject no : " + indexer));
+            subject_name_label.add(new JLabel("Subject name :  "));
+            subject_hours_label.add(new JLabel("Subject hours :  "));
+            
+
+            subject_name.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("hours").getValue()));
+            subject_hours.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("name").getValue()));
+            
         
-    public void genRemoveSGUI() 
+            // Create constraints
+            GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_name_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_hours_labelConstraints = new GridBagConstraints();
+            GridBagConstraints sub_name_textFieldConstraints = new GridBagConstraints();
+            GridBagConstraints sub_hours_comboBoxConstraints = new GridBagConstraints();
+            
+
+            // Add labels and text fields
+            for(int i = 0,j = 1,k = 0; i < indexer; i++,k=k+3)
+            {    
+                // Label constraints
+                sub_no_labelConstraints.gridx = j;
+                sub_no_labelConstraints.gridy = k;
+                
+                sub_name_labelConstraints.gridx = j+1;
+                sub_name_labelConstraints.gridy = k+1;
+
+              
+                sub_name_textFieldConstraints.gridx = j+2;
+                sub_name_textFieldConstraints.gridy = k+1;
+  
+                sub_hours_labelConstraints.gridx = j+1;
+                sub_hours_labelConstraints.gridy = k+2;
+                
+                sub_hours_comboBoxConstraints.gridx = j+2;
+                sub_hours_comboBoxConstraints.gridy = k+2;
+           
+                subject_name.get(i).setColumns(5);
+                subject_hours.get(i).setColumns(5);
+                         
+                subject_name.get(i).setEditable(false);
+                subject_hours.get(i).setEditable(false);
+                
+                // Add them to panel
+                panel.add(subject_no_label.get(i), sub_no_labelConstraints);
+                panel.add(subject_name_label.get(i), sub_name_labelConstraints);
+                panel.add(subject_name.get(i), sub_name_textFieldConstraints);
+                panel.add(subject_hours_label.get(i), sub_hours_labelConstraints);
+                panel.add(subject_hours.get(i), sub_hours_comboBoxConstraints);
+             
+            }
+
+            // Align components top-to-bottom
+            GridBagConstraints c = new GridBagConstraints();
+            c.gridx = 0;
+            c.gridy = 10;
+            c.weighty = 0;
+            panel.add(new JLabel(), c);
+
+            // Increment indexer
+            indexer++;
+            
+        
+}
+
+                 }
+                }         
+                flag=1;
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                    
+                });
+
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      time();
+      flag=0;
+    b_submit_view_sg.setVisible(false);
+    b_reset_view_sg.setVisible(true);
+    }
+        
+    public void genCBRemoveSGUI() 
     {
       
         jComboBox3.removeAllItems();
@@ -1757,6 +2094,114 @@ for(int count = 0;count<sgcount;count++)
         }
 
     }
+    
+    public void genCBRemoveTeacherUI() 
+    {
+      
+        cb_remove_teacher.removeAllItems();
+         try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                
+                
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("teacher");
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                             
+                        for(int i = 1; i <= teacher_count ; i++)             
+                {             
+                String teacher_name = (String) dataSnapshot.child("teacher:"+i).child("name").getValue();
+                cb_remove_teacher.addItem(teacher_name);   
+                }         
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                    
+                });
+
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void genCBViewSGUI() 
+    {
+      
+        cb_view_sg.removeAllItems();
+         try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+                
+                
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("studentgroup");
+
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                             
+                        for(int i = 1; i <= stg_count ; i++)             
+                {             
+                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
+                cb_view_sg.addItem(sgname);   
+                }         
+                    }
+                    
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                    
+                });
+
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    /////////////////////////////////////////////////////////////////////
     
     public void addStudentGroupData() 
     {
@@ -1833,7 +2278,7 @@ for(int count = 0;count<sgcount;count++)
                 if(error==null)
                 {
                 JOptionPane.showMessageDialog(null, "Inserted Student Group Successfully");
-                clearSgPanel();
+                clearSgPanel(0);
                 b_reset_sg.setVisible(false);
                 b_submit_sg.setVisible(true);
                 }
@@ -2106,16 +2551,110 @@ for(int count = 0;count<sgcount;count++)
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
- 
     
-    public void clearSgPanel()
+    public void removeTeacher() throws InterruptedException
     {
+       
+        String sg_name=cb_remove_teacher.getSelectedItem().toString();
+        try {         
+                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               
+                
+                if(hasbeeninitialized==false)
+                {
+                    FirebaseApp.initializeApp(options);
+                    hasbeeninitialized=true;
+                }
+              
+               final FirebaseDatabase database = FirebaseDatabase.getInstance();
+               DatabaseReference teacher_ref = database.getReference("teacher");
+
+                teacher_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+                    int f_count=0;
+                  for(int i = 1; i <= teacher_count ; i++)             
+                {             
+                if(dataSnapshot.child("teacher:"+i).child("name").getValue().equals(sg_name))         
+                {
+                    teacher_ref.child("teacher:"+i).removeValueAsync();
+                    f_count=1;
+                }
+                
+                if(f_count==1 && i<teacher_count)
+                {
+                teacher_ref.child("teacher:"+i).child("demo").setValueAsync("demo");
+                DatabaseReference new_node_ref = teacher_ref.child("teacher:"+i);
+                DatabaseReference next_node_ref = teacher_ref.child("teacher:"+(i+1));
+                
+                 next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {                
+                        Map<String, String> teacher = new HashMap<>();
+                        String na =dataSnapshot.child("name").getValue().toString() ;
+                        String sname =dataSnapshot.child("subject").getValue().toString();
+                        teacher.put("name",na);
+                        teacher.put("subject",sname);
+                        new_node_ref.setValueAsync(teacher);  
+                        next_node_ref.removeValueAsync();
+                        teacher_ref.child("count").setValueAsync(String.valueOf(teacher_count-1));
+                        flag=1;
+                }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                }
+                });
+                }
+                }
+                    }  
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        System.out.println("Error");// ...
+                    }
+                });
+                time();
+                flag=0;
+                
+
+            } catch (FileNotFoundException ex) {
+            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    
+    public void clearSgPanel(int f)
+    {
+        if(f==0)
+        {
    jPanel11.removeAll();
    jPanel11.revalidate();
    jPanel11.repaint();
    b_reset_sg.setVisible(false);
    b_submit_sg.setVisible(true);
-    }
+        }
+        else if(f==1)
+        {
+           p_view_sg.removeAll();
+           p_view_sg.revalidate();
+           p_view_sg.repaint();
+           b_reset_view_sg.setVisible(false);
+   b_submit_view_sg.setVisible(true);
+        }
+        }
+    
     public void time() throws InterruptedException
     {
             if(flag==0)
@@ -2143,7 +2682,7 @@ for(int count = 0;count<sgcount;count++)
          else
          {
           jLabel19.setText(" ");
-          genAddSGUI();
+          genInsertSGUI();
          }
          
 
@@ -2155,8 +2694,12 @@ for(int count = 0;count<sgcount;count++)
     private javax.swing.JPanel add_studpanel;
     private javax.swing.JPanel add_teachpanel;
     private javax.swing.JButton b_reset_sg;
+    private javax.swing.JButton b_reset_view_sg;
     private javax.swing.JButton b_submit_sg;
+    private javax.swing.JButton b_submit_view_sg;
     private javax.swing.JComboBox<String> cb_no_subjects;
+    private javax.swing.JComboBox<String> cb_remove_teacher;
+    private javax.swing.JComboBox<String> cb_view_sg;
     private javax.swing.JPanel days_perweekpanel;
     private javax.swing.JPanel hours_perdaypanel;
     private javax.swing.JPanel hoursperday_panel;
@@ -2170,7 +2713,6 @@ for(int count = 0;count<sgcount;count++)
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
@@ -2182,7 +2724,6 @@ for(int count = 0;count<sgcount;count++)
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2221,10 +2762,10 @@ for(int count = 0;count<sgcount;count++)
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel p_view_sg;
     private javax.swing.JPanel remove_studpanel;
     private javax.swing.JPanel remove_teachpanel;
     private javax.swing.JTextField t_std_grp_name;
