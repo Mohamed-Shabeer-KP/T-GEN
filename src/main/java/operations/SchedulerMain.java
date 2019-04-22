@@ -23,10 +23,10 @@ public class SchedulerMain{
 	
 	public static Chromosome finalson;
 	
-	public SchedulerMain() throws InterruptedException, Exception {
+	public SchedulerMain(int ip_type) throws InterruptedException, Exception {
 		
 		//printing input data (on console for testing)
-		Utility.printInputData();
+		Utility.printInputData(ip_type);
 		
 		//generating slots
 		new TimeTable();
@@ -41,13 +41,7 @@ public class SchedulerMain{
 		createNewGenerations();
 		
 	}
-	
-	public void progress(int i) throws Exception{
-        String anim= "|/-\\";
 
-            String data = "\r" + anim.charAt(i % anim.length()) + " " + i;
-            System.out.write(data.getBytes());
-    }
         
 	//Creating new Generations using crossovers and mutations
 	public void createNewGenerations() throws Exception{
@@ -69,7 +63,7 @@ public class SchedulerMain{
 			for(i=0;i<populationsize/10;i++){	
 				newlist.add(firstlist.get(i).deepClone());
 				newlistfitness+=firstlist.get(i).getFitness();
-                               // progress(i);
+                         
 			}
 			
 			//adding other members after performing crossover and mutation
@@ -249,9 +243,9 @@ public class SchedulerMain{
 	
 
 	
-	public static void main(String[] args) throws InterruptedException, Exception {
-	  
-            new SchedulerMain();
+	//public static void main(String[] args) throws InterruptedException, Exception {
+	  public static void gen(int ip_type) throws InterruptedException, Exception {
+            new SchedulerMain(ip_type);
 	}
         
         public double getFitness()

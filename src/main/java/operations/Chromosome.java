@@ -25,11 +25,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 		
 		gene=new Gene[nostgrp];
 		
-		for(int i=0;i<nostgrp;i++){
-			
-			gene[i]=new Gene(i);
-			
-			//System.out.println("");
+		for(int i=0;i<nostgrp;i++){			
+			gene[i]=new Gene(i);			
 		}
 		fitness=getFitness();
               
@@ -91,11 +88,11 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                          else */
                                          
                                          
-                                          if(teacherlist.contains(4)&&slot.teacherid==4)
+                                        /*  if(teacherlist.contains(4))//&&slot.subject!="LAB")
                                           {
                                               tr_p=tr_p/2;
-                                          }
-                                          else if(teacherlist.contains(slot.teacherid)&&slot.teacherid!=4)  
+                                          }*/
+                                           if(teacherlist.contains(slot.teacherid))//&&slot.subject!="LAB")  
                                           {
                                               tr_p++;
                                           }   
@@ -158,7 +155,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                 
               
                  lab_point_1 =(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
-                 lab_point_2 =(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
+                 lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
                 lab_point_3 = .5;//(st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
                  final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
           
@@ -189,7 +186,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				
 				//printing name of batch
 				if(TimeTable.slot[gene[i].slotno[l]]!=null){
-					System.out.println("Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable-");
+					
+                                    System.out.println("Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable-");
 					status=true;
 				}
 				l++;

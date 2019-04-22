@@ -1,5 +1,6 @@
 package operations;
 
+import UI.NewJFrame;
 import UI.gen_time_table;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
@@ -30,10 +31,14 @@ public class inputdata {
 	public static int nostudentgroup, noteacher;
 	public static int hoursperday, daysperweek;
         int flag=0;
+        int file_flag=0;
         boolean hasbeeninitialized=false;
+        int ip_type=0;
 
-	public inputdata() throws InterruptedException {
-		studentgroup = new StudentGroup[100];
+	public inputdata(int ip_type) throws InterruptedException {
+		
+                this.ip_type=ip_type;
+                studentgroup = new StudentGroup[100];
 		teacher =   new Teacher[100];
             try {
                 takeinput();
@@ -54,10 +59,13 @@ public class inputdata {
 	{
 		//this method of taking input through file is only for development purpose so hours and days are hard coded
 		
-		/*try {
-			File file = new File("c:\\test\\input.txt");
-			// File file = new File(System.getProperty("user.dir") +
-			// "/input.txt");
+                if(ip_type==0)
+                {
+               daysperweek = 5;
+               hoursperday = 6;
+		try {
+                   
+			File file = new File(NewJFrame.path);
 			
 			Scanner scanner = new Scanner(file);
 			
@@ -96,22 +104,28 @@ public class inputdata {
 
 						i++;
 					}
-					noteacher = i;
+                                        noteacher = i;
 				}
-
+                            file_flag = 1;
 			}
 			scanner.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-*/
+                
+                if(file_flag==1)
+                     JOptionPane.showMessageDialog(null, "Input Successfull");
+                else
+                     JOptionPane.showMessageDialog(null, "Please Select A Valid Input File (Make sure to check the format)");
+                
+        }
   
   // Fetch the service account key JSON file contents
         
-
+else if(ip_type==1)
+{
                     try {         
                 File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 FileInputStream serviceAccount = new FileInputStream(f);
                 FirebaseOptions options = null;
                 try {
@@ -124,12 +138,7 @@ public class inputdata {
                        
                
                 
-                if(hasbeeninitialized==false)
-                {
-                    FirebaseApp.initializeApp(options);
-                    hasbeeninitialized=true;
-                }
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                           final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference basic_ref = database.getReference("basic");
               
                 basic_ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -146,30 +155,35 @@ public class inputdata {
                });
            
                  
-                DatabaseReference sgsref = database.getReference("studentgroup");
+                DatabaseReference sgsref = database.getReference();
                 sgsref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        nostudentgroup = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
+                        nostudentgroup = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue()); 
+                        noteacher = Integer.parseInt((String) dataSnapshot.child("teacher").child("count").getValue()); 
+                       
                         for(int i=0;i<nostudentgroup;i++)
                         {
                             studentgroup[i] = new StudentGroup();
                             studentgroup[i].id = i;
-                            studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());
-                            studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue());
-                            // String sgname =      String.valueOf( dataSnapshot.child("studentgroup:"+(i+1)).child("name").getValue());
-                            // int subno=       Integer.parseInt((String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjectno").getValue());
-                            
-                           
-                            
+                            studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjectno").getValue());
+                            studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("name").getValue());
+    
                             for(int j=0;j<studentgroup[i].nosubject;j++)
                             {
-                                studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
-                                //  String name       = (String) dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
-                                studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
-                                // int hour      = Integer.parseInt((String)  dataSnapshot.child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
+                                studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
+                                studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
                             }
                         }
+                        
+                        for(int i=0;i<noteacher;i++)
+                        {
+                            teacher[i] = new Teacher();
+                            teacher[i].id = i;
+                            teacher[i].name = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("name").getValue();
+                            teacher[i].subject = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("subject").getValue();
+                        }
+                        
                         flag=1;
                     }
 
@@ -178,15 +192,13 @@ public class inputdata {
                         System.out.println("Error");// ...
                     }
                 });
-               
-                   
-                
-     
+  		time();
+                flag=0;
             } catch (FileNotFoundException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-  
+}
  /*
                daysperweek = 5;
                hoursperday = 6;
@@ -252,21 +264,11 @@ public class inputdata {
 		teacher[4].subject = "LAB";
                 
             */
-		time();
-                flag=0;
+
                 assignTeacher();
 	}
         
-        public void time() throws InterruptedException
-        {
-            if(flag==0)
-            {   
-                TimeUnit.SECONDS.sleep(10); 
-                time();
-            }
-        }
         
-
 	// assigning a teacher for each subject for every studentgroup
 	public void assignTeacher() {
 
@@ -308,5 +310,14 @@ public class inputdata {
 			}
 		}
 	}
+        
+                public void time() throws InterruptedException
+        {
+            if(flag==0)
+            {   
+                TimeUnit.SECONDS.sleep(10); 
+                time();
+            }
+        }
 }
 
