@@ -93,6 +93,9 @@
             <Property name="tabLayoutPolicy" type="int" value="1"/>
             <Property name="debugGraphicsOptions" type="int" value="-1"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jTabbedPane1StateChanged"/>
+          </Events>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
@@ -104,8 +107,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="         VIEW              ">
-                    <Property name="tabTitle" type="java.lang.String" value="         VIEW              "/>
+                  <JTabbedPaneConstraints tabName="         VIEW                      ">
+                    <Property name="tabTitle" type="java.lang.String" value="         VIEW                      "/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -555,12 +558,15 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Container class="javax.swing.JPanel" name="insert_panel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="insert_panelMouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="               INSERT                 ">
@@ -776,6 +782,7 @@
                                 <Property name="toolTipText" type="java.lang.String" value="Please Enter the Batch Name"/>
                               </Properties>
                               <Events>
+                                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="t_std_grp_nameFocusGained"/>
                                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="focuslost"/>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="t_std_grp_nameActionPerformed"/>
                               </Events>
@@ -890,7 +897,6 @@
                                                       <Component id="t_teacher_name" min="-2" pref="107" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="cb_add_subject" min="-2" pref="107" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                                   </Group>

@@ -117,7 +117,7 @@ public class gen_time_table extends javax.swing.JFrame {
         t_view_hpd = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         p_view_sg = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        insert_panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -204,6 +204,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -492,9 +497,14 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("         VIEW              ", jPanel2);
+        jTabbedPane1.addTab("         VIEW                      ", jPanel2);
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        insert_panel.setBackground(new java.awt.Color(51, 51, 51));
+        insert_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                insert_panelMouseClicked(evt);
+            }
+        });
 
         try{
             jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
@@ -514,6 +524,9 @@ public class gen_time_table extends javax.swing.JFrame {
 
         t_std_grp_name.setToolTipText("Please Enter the Batch Name");
         t_std_grp_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                t_std_grp_nameFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 focuslost(evt);
             }
@@ -646,7 +659,6 @@ public class gen_time_table extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachpanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1))))
                     .addGroup(add_teachpanelLayout.createSequentialGroup()
@@ -732,13 +744,13 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout insert_panelLayout = new javax.swing.GroupLayout(insert_panel);
+        insert_panel.setLayout(insert_panelLayout);
+        insert_panelLayout.setHorizontalGroup(
+            insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insert_panelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addGap(67, 67, 67)
@@ -748,24 +760,24 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(713, 713, 713)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        insert_panelLayout.setVerticalGroup(
+            insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(insert_panelLayout.createSequentialGroup()
+                .addGroup(insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(insert_panelLayout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jButton4)
                         .addGap(74, 74, 74)
                         .addComponent(jButton5))
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(insert_panelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("               INSERT                 ", jPanel4);
+        jTabbedPane1.addTab("               INSERT                 ", insert_panel);
 
         try{
             jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
@@ -1411,6 +1423,22 @@ threadGenViewTeacher();
           jLabel13.setText(" "); 
     }//GEN-LAST:event_t_teacher_nameFocusLost
 
+    private void insert_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_panelMouseClicked
+        
+    }//GEN-LAST:event_insert_panelMouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        t_std_grp_name.setText(" ");
+        t_teacher_name.setText(" ");
+        cb_no_subjects.setSelectedItem(null);
+        cb_add_subject.setSelectedItem(null);
+      
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
+       jLabel19.setText(" ");
+    }//GEN-LAST:event_t_std_grp_nameFocusGained
+  
     /**
      * @param args the command line arguments
      */
@@ -3052,6 +3080,11 @@ for(int count = 1;count<=sub_count;count++)
          
 
     }
+    //////////////////////////////////////////////////////////////////
+    ///CLEAR PANEL
+
+       
+   
     
     
 
@@ -3069,6 +3102,7 @@ for(int count = 1;count<=sub_count;count++)
     private javax.swing.JPanel days_perweekpanel;
     private javax.swing.JPanel hours_perdaypanel;
     private javax.swing.JPanel hoursperday_panel;
+    private javax.swing.JPanel insert_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -3119,7 +3153,6 @@ for(int count = 1;count<=sub_count;count++)
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
