@@ -3,6 +3,7 @@ package operations;
 
 
 import java.util.*;
+import javax.swing.JPanel;
 
 
 public class SchedulerMain{
@@ -20,11 +21,13 @@ public class SchedulerMain{
 	double newlistfitness;
 	int populationsize=1000;//1000
 	int maxgenerations=100;
+        JPanel disp_panel;
 	
 	public static Chromosome finalson;
 	
-	public SchedulerMain(int ip_type) throws InterruptedException, Exception {
+	public SchedulerMain(int ip_type,JPanel panel) throws InterruptedException, Exception {
 		
+                disp_panel=panel;
 		//printing input data (on console for testing)
 		Utility.printInputData(ip_type);
 		
@@ -100,7 +103,7 @@ public class SchedulerMain{
 				System.out.println("****************************************************************************************");
 				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
 				System.out.println("\nGenerated Timetable is:");
-				son.printTimeTable();
+				son.printTimeTable(disp_panel);
 				finalson=son;
 				break;
 				
@@ -244,8 +247,9 @@ public class SchedulerMain{
 
 	
 	//public static void main(String[] args) throws InterruptedException, Exception {
-	  public static void gen(int ip_type) throws InterruptedException, Exception {
-            new SchedulerMain(ip_type);
+	  public static void gen(int ip_type,JPanel p) throws InterruptedException, Exception {
+              
+              new SchedulerMain(ip_type,p);
 	}
         
         public double getFitness()

@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,13 +26,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import operations.Chromosome;
 import operations.inputdata;
 
 public class table_timetable extends JFrame{
 
     int flag=0;
-    int teacher_count=0;
-    String teacher_name;
     String sub_name;JTable table;
     boolean hasbeeninitialized=false;
     DefaultTableModel tableModel;
@@ -39,8 +39,10 @@ public class table_timetable extends JFrame{
 
     public  void createGUI(JPanel p) throws FileNotFoundException, InterruptedException {
     
-       
-        p.setLayout(new BorderLayout());
+        int h = Chromosome.hours;
+        int d = Chromosome.days;
+        ArrayList list = Chromosome.subject;
+        
         JScrollPane pane = new JScrollPane();
         table = new JTable();
         pane.setViewportView(table);
@@ -52,30 +54,36 @@ public class table_timetable extends JFrame{
         p.add(eastPanel, BorderLayout.EAST);
         p.add(pane,BorderLayout.CENTER);
         
-                
+        ArrayList period_col = new ArrayList();
+        for(int i=1;i<=h;i++)
+        period_col.add("Period "+i);
+        Object[] period_obj = period_col.toArray();
+
+
+        ArrayList[] sub_array = new ArrayList[d];
+  
+        int j=0;
+        int check;
+        for(int i=0;i<d;i++)
+        {
+            check = (h*i)+h;
+            for( ;j<check;j++)
+                sub_array[i].set(i,list.get(j));
+        }
         
-                    tableModel = new DefaultTableModel(new Object[]{"Period ","Subject"},0);
-                    table.setModel(tableModel);
-                    table.setEnabled(false);
-                      
-                for(int i = 1; i <= teacher_count ; i++)             
-                {    
-     
-                }
-                  
-                         
-           
-   
+        
+        tableModel = new DefaultTableModel(period_obj,0);
+        table.setModel(tableModel);
+        table.setEnabled(false);
+       
+        for(int i=0;i<d;i++)
+        {
+        Object[] sub_obj = sub_array[i].toArray();
+        tableModel.addRow(sub_obj);
+        }
         p.revalidate();
         p.repaint();
     }
-        public  void time() throws InterruptedException
-    {
-            if(flag==0)
-            {   
-                TimeUnit.SECONDS.sleep(6); 
-                time();
-            }
-    }
+
    
 } 

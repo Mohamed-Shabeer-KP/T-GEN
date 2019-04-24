@@ -39,8 +39,7 @@ public class table_teacher extends JFrame{
 
     public  void createGUI(JPanel p) throws FileNotFoundException, InterruptedException {
     
-       
-        p.setLayout(new BorderLayout());
+
         JScrollPane pane = new JScrollPane();
         table = new JTable();
         pane.setViewportView(table);
@@ -52,21 +51,8 @@ public class table_teacher extends JFrame{
         p.add(eastPanel, BorderLayout.EAST);
         p.add(pane,BorderLayout.CENTER);
         
-             File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-                
-               
+
+                            
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("teacher");
 

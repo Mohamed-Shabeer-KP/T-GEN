@@ -321,16 +321,7 @@ public class gen_time_table extends javax.swing.JFrame {
         viewteacher_panel.setBackground(new java.awt.Color(102, 102, 102));
         viewteacher_panel.setPreferredSize(new java.awt.Dimension(280, 440));
 
-        javax.swing.GroupLayout p_view_teacherLayout = new javax.swing.GroupLayout(p_view_teacher);
-        p_view_teacher.setLayout(p_view_teacherLayout);
-        p_view_teacherLayout.setHorizontalGroup(
-            p_view_teacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
-        );
-        p_view_teacherLayout.setVerticalGroup(
-            p_view_teacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 428, Short.MAX_VALUE)
-        );
+        p_view_teacher.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout viewteacher_panelLayout = new javax.swing.GroupLayout(viewteacher_panel);
         viewteacher_panel.setLayout(viewteacher_panelLayout);
@@ -1417,7 +1408,7 @@ threadGenViewTeacher();
         });
     }
     
-        public static void initfirebase() throws FileNotFoundException
+    public static void initfirebase() throws FileNotFoundException
     {
                    File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
@@ -1772,7 +1763,6 @@ threadGenViewTeacher();
         sw1.execute();  
     }    
     
-    
     public void threadGenViewDPWUI()
     {
      SwingWorker sw1 = new SwingWorker()  
@@ -1847,7 +1837,6 @@ threadGenViewTeacher();
         sw1.execute();  
     }    
         
-
     public void threadRemoveSG()
     {
      SwingWorker sw1 = new SwingWorker()  
@@ -1886,8 +1875,6 @@ threadGenViewTeacher();
         sw1.execute();  
     }
 
-    
- 
     public void threadRemoveTeacher()
     {
      SwingWorker sw1 = new SwingWorker()  
@@ -1964,7 +1951,7 @@ threadGenViewTeacher();
         sw1.execute();  
     }
     
-        public void threadViewTeacher()
+    public void threadViewTeacher()
     {
      SwingWorker sw1 = new SwingWorker()  
         { 
@@ -2139,9 +2126,7 @@ for(int count = 0;count<sgcount;count++)
     time();
     flag=0;
     }
-    
-
-              
+ 
     public void genViewSGUI() throws InterruptedException
     { 
      

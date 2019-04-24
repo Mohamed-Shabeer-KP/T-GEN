@@ -2,17 +2,22 @@ package operations;
 
 
 
+import UI.NewJFrame;
+import UI.table_timetable;
 import java.io.*;
 import java.util.*;
 
 import elements.Slot;
+import java.awt.PopupMenu;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 //Chromosome represents array of genes as complete timetable (looks like gene[0]gene[1]gene[2]...)
 public class Chromosome implements Comparable<Chromosome>,Serializable{
 	
 	static double crossoverrate=inputdata.crossoverrate;
 	static double mutationrate=inputdata.mutationrate;
-	static int hours=inputdata.hoursperday,days=inputdata.daysperweek;
+	public static int hours=inputdata.hoursperday,days=inputdata.daysperweek;
 	static int nostgrp=inputdata.nostudentgroup;
 	double fitness;
 	double tr_p;
@@ -20,6 +25,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
         double tlp_lp,rlh_lp,st_lp;
         double lab_point_1,lab_point_2,lab_point_3,final_lab_point,final_teacher_point;
         double teacher_point_1;
+        public static ArrayList subject;
+
 	
 	Chromosome(){
 		
@@ -88,11 +95,11 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                                          else */
                                          
                                          
-                                        /*  if(teacherlist.contains(4))//&&slot.subject!="LAB")
+                                         if(teacherlist.contains(4)&&slot.subject!="LAB")
                                           {
                                               tr_p=tr_p/2;
-                                          }*/
-                                           if(teacherlist.contains(slot.teacherid))//&&slot.subject!="LAB")  
+                                          }
+                                         else if(teacherlist.contains(slot.teacherid)&&slot.subject!="LAB")  
                                           {
                                               tr_p++;
                                           }   
@@ -173,8 +180,10 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	                
  
 	//printing final timetable
-	public void printTimeTable(){
-		
+	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException{
+            
+            
+            
             
 		//for each student group separate time table
 		for(int i=0;i<nostgrp;i++){
@@ -192,11 +201,10 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				}
 				l++;
 			}
-			/*
+			
                         
+                        subject = new ArrayList();
                         
-                        
-                        */
 			//looping for each day
 			for(int j=0;j<days;j++){
 				
@@ -204,21 +212,25 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				for(int k=0;k<hours;k++){
 				
 					//checking if this slot is free otherwise printing it
-					if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null)
-						
-						System.out.print(TimeTable.slot[gene[i].slotno[k+j*hours]].subject+" ");
-				
-					else System.out.print("*FREE* ");
+					if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null)						
+						//System.out.print(TimeTable.slot[gene[i].slotno[k+j*hours]].subject+" ");				    
+                                        {   
+                                            
+                                            subject.add(TimeTable.slot[gene[i].slotno[k+j*hours]].subject);
+                                        }
+					else subject.add("FREE");
 				
 				}
 				
-				System.out.println("");
+				//System.out.println("");
 			}
 			
-			System.out.println("\n\n\n");
+			//System.out.println("\n\n\n");
 		
 		}
 
+                
+//table_gui_obj.createGUI(p,hours,subject);
 	}
 	
 	
