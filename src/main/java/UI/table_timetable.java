@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,7 +22,9 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -37,11 +40,16 @@ public class table_timetable extends JFrame{
     DefaultTableModel tableModel;
    
 
-    public  void createGUI(JPanel p) throws FileNotFoundException, InterruptedException {
+    public  void createGUI(JPanel p,String sg_name ,ArrayList list) throws FileNotFoundException, InterruptedException {
     
+        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+        JPanel panel = new JPanel();
+        
+        JLabel l_sg = new JLabel();
+        l_sg.setText(sg_name);
+        
         int h = Chromosome.hours;
         int d = Chromosome.days;
-        ArrayList list = Chromosome.subject;
         
         JScrollPane pane = new JScrollPane();
         table = new JTable();
@@ -50,9 +58,9 @@ public class table_timetable extends JFrame{
 
         JPanel northPanel = new JPanel();
     
-        p.add(northPanel, BorderLayout.NORTH);
-        p.add(eastPanel, BorderLayout.EAST);
-        p.add(pane,BorderLayout.CENTER);
+        panel.add(northPanel, BorderLayout.NORTH);
+        panel.add(eastPanel, BorderLayout.EAST);
+        panel.add(pane,BorderLayout.CENTER);
         
         ArrayList period_col = new ArrayList();
         for(int i=1;i<=h;i++)
@@ -61,14 +69,18 @@ public class table_timetable extends JFrame{
 
 
         ArrayList[] sub_array = new ArrayList[d];
-  
+        Object[] sub_obj=new Object[d];
         int j=0;
         int check;
         for(int i=0;i<d;i++)
         {
+            sub_array[i]=new ArrayList();
             check = (h*i)+h;
             for( ;j<check;j++)
-                sub_array[i].set(i,list.get(j));
+            {  
+                sub_array[i].add(list.get(j));              
+            }       
+            sub_obj[i]=sub_array[i].toArray();
         }
         
         
@@ -78,9 +90,11 @@ public class table_timetable extends JFrame{
        
         for(int i=0;i<d;i++)
         {
-        Object[] sub_obj = sub_array[i].toArray();
-        tableModel.addRow(sub_obj);
+        tableModel.addRow((Object[]) sub_obj[i]);
         }
+      
+        p.add(l_sg);
+        p.add(panel);
         p.revalidate();
         p.repaint();
     }

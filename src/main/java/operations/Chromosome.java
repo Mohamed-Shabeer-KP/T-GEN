@@ -25,7 +25,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
         double tlp_lp,rlh_lp,st_lp;
         double lab_point_1,lab_point_2,lab_point_3,final_lab_point,final_teacher_point;
         double teacher_point_1;
-        public static ArrayList subject;
+        public ArrayList subject;
+        
 
 	
 	Chromosome(){
@@ -183,8 +184,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException{
             
             
-            
-            
+            table_timetable table_obj =new table_timetable();
+            String sg_name = null;
 		//for each student group separate time table
 		for(int i=0;i<nostgrp;i++){
 			
@@ -196,8 +197,8 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				//printing name of batch
 				if(TimeTable.slot[gene[i].slotno[l]]!=null){
 					
-                                    System.out.println("Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable-");
-					status=true;
+                                    sg_name ="Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable :-";
+                                    status=true;
 				}
 				l++;
 			}
@@ -226,11 +227,11 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 			}
 			
 			//System.out.println("\n\n\n");
-		
+	                
+table_obj.createGUI(p,sg_name,subject);	
 		}
 
-                
-//table_gui_obj.createGUI(p,hours,subject);
+
 	}
 	
 	
