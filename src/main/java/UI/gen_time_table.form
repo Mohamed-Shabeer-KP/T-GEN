@@ -118,7 +118,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jLayeredPane4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" pref="423" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" pref="435" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -204,6 +204,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton17">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Calibri" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="View Days per Week "/>
                       </Properties>
                       <Events>
@@ -212,6 +215,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton18">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Calibri" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="View Hours per Day"/>
                       </Properties>
                       <Events>
@@ -347,6 +353,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="jLabel7">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Calibri" size="12" style="1"/>
+                            </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
@@ -365,6 +374,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="b_submit_view_sg">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Calibri" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Submit"/>
                           </Properties>
                           <Events>
@@ -373,6 +385,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="b_reset_view_sg">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Calibri" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -680,10 +695,9 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel19" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -709,9 +723,14 @@
                                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
+                                              <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel19" min="-2" pref="164" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -723,9 +742,9 @@
                                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="t_std_grp_name" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" min="-2" pref="19" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="cb_no_subjects" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -831,6 +850,9 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel19">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Calibri" size="12" style="1"/>
+                                </Property>
                                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="99" green="0" red="0" type="rgb"/>
                                 </Property>
@@ -1165,7 +1187,7 @@
                                           <Component id="jButton13" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                                  <EmptySpace pref="74" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1179,7 +1201,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jButton13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="348" max="32767" attributes="0"/>
+                                  <EmptySpace pref="363" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>

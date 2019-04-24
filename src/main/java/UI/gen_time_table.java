@@ -47,6 +47,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 import javax.swing.border.LineBorder;
 import operations.inputdata;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -222,6 +224,7 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
+        jButton17.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton17.setText("View Days per Week ");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +232,7 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
+        jButton18.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton18.setText("View Hours per Day");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,9 +272,11 @@ public class gen_time_table extends javax.swing.JFrame {
         viewstudent_panel.setBackground(new java.awt.Color(102, 102, 102));
         viewstudent_panel.setPreferredSize(new java.awt.Dimension(280, 440));
 
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Student Group name");
 
+        b_submit_view_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         b_submit_view_sg.setText("Submit");
         b_submit_view_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +284,7 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
+        b_reset_view_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         b_reset_view_sg.setText("Reset");
         b_reset_view_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,7 +478,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -541,6 +548,7 @@ public class gen_time_table extends javax.swing.JFrame {
         });
         b_reset_sg.setVisible(false);
 
+        jLabel19.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout add_studpanelLayout = new javax.swing.GroupLayout(add_studpanel);
@@ -548,8 +556,7 @@ public class gen_time_table extends javax.swing.JFrame {
         add_studpanelLayout.setHorizontalGroup(
             add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_studpanelLayout.createSequentialGroup()
-                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(add_studpanelLayout.createSequentialGroup()
                         .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(add_studpanelLayout.createSequentialGroup()
@@ -568,8 +575,12 @@ public class gen_time_table extends javax.swing.JFrame {
                                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(b_reset_sg)
                                     .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                .addGap(28, 28, 28)))
+                        .addGap(0, 20, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studpanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         add_studpanelLayout.setVerticalGroup(
             add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,9 +589,9 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(add_studpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -827,7 +838,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -838,7 +849,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(jButton13)
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addContainerGap(363, Short.MAX_VALUE))
         );
 
         hours_perdaypanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -1251,9 +1262,9 @@ public class gen_time_table extends javax.swing.JFrame {
 
     private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
     
-     //sg_Validate();  //VALIDATION - UKSI
+     sg_Validate();  //VALIDATION - UKSI
             
-    genInsertSGUI();//thread service not required
+    //genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -2935,16 +2946,20 @@ for(int count = 1;count<=sub_count;count++)
             }
     }
      
-  
+  //////////////////////////////////////////////////////////////////////////
+    //(VALIDATION)
+    
     public void sg_Validate()
     {
-         String ch="[-_[a-z][A-Z]]";
+         Pattern pattern = Pattern.compile("[a-zA-Z0-9_-]*");
+         Matcher matcher = pattern.matcher(t_std_grp_name.getText());
+         
          if(t_std_grp_name.getText().trim().isEmpty())
          {
-             jLabel19.setText("Student Group name is Invalid");
+             jLabel19.setText("Student Group name is Empty");
            JOptionPane.showMessageDialog(null, "Please Enter valid Name");
          }
-         else if (!(t_std_grp_name.getText().trim().matches(ch.trim())))
+         else if ((!matcher.matches()))
              
             {
                 jLabel19.setText("Student Group name is Invalid");
