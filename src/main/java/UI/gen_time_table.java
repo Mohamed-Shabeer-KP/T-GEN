@@ -117,7 +117,7 @@ public class gen_time_table extends javax.swing.JFrame {
         t_view_hpd = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         p_view_sg = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        insert_panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -135,6 +135,7 @@ public class gen_time_table extends javax.swing.JFrame {
         t_teacher_name = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         cb_add_subject = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
@@ -203,6 +204,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -491,9 +497,14 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("         VIEW              ", jPanel2);
+        jTabbedPane1.addTab("         VIEW                      ", jPanel2);
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        insert_panel.setBackground(new java.awt.Color(51, 51, 51));
+        insert_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                insert_panelMouseClicked(evt);
+            }
+        });
 
         try{
             jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
@@ -513,6 +524,9 @@ public class gen_time_table extends javax.swing.JFrame {
 
         t_std_grp_name.setToolTipText("Please Enter the Batch Name");
         t_std_grp_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                t_std_grp_nameFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 focuslost(evt);
             }
@@ -602,13 +616,19 @@ public class gen_time_table extends javax.swing.JFrame {
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
         add_teachpanel.setPreferredSize(new java.awt.Dimension(300, 436));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Teacher Name");
 
-        jLabel9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Subject");
+
+        t_teacher_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                t_teacher_nameFocusLost(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton7.setText("Submit");
@@ -618,22 +638,37 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 204));
+
         javax.swing.GroupLayout add_teachpanelLayout = new javax.swing.GroupLayout(add_teachpanel);
         add_teachpanel.setLayout(add_teachpanelLayout);
         add_teachpanelLayout.setHorizontalGroup(
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_teachpanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7)
-                    .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel9)))
-                .addGap(28, 28, 28)
-                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(t_teacher_name, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addComponent(cb_add_subject, 0, 107, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(add_teachpanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(29, 29, 29)))
+                        .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(add_teachpanelLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachpanelLayout.createSequentialGroup()
+                                .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1))))
+                    .addGroup(add_teachpanelLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jButton7)))
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachpanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         add_teachpanelLayout.setVerticalGroup(
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,13 +677,15 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(43, 43, 43)
                 .addComponent(jButton7)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(add_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -707,13 +744,13 @@ public class gen_time_table extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout insert_panelLayout = new javax.swing.GroupLayout(insert_panel);
+        insert_panel.setLayout(insert_panelLayout);
+        insert_panelLayout.setHorizontalGroup(
+            insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insert_panelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addGap(67, 67, 67)
@@ -723,24 +760,24 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(713, 713, 713)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        insert_panelLayout.setVerticalGroup(
+            insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(insert_panelLayout.createSequentialGroup()
+                .addGroup(insert_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(insert_panelLayout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jButton4)
                         .addGap(74, 74, 74)
                         .addComponent(jButton5))
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(insert_panelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("               INSERT                 ", jPanel4);
+        jTabbedPane1.addTab("               INSERT                 ", insert_panel);
 
         try{
             jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/imgs/TIME.jpg"))); // NOI18N
@@ -985,7 +1022,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Student Group Name");
 
-        jButton3.setText("Submit");
+        jButton3.setText("Remove");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -1025,7 +1062,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Teacher Name");
 
-        jButton12.setText("Submit");
+        jButton12.setText("Remove");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -1253,8 +1290,8 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-       
-    threadInsertTeacher();
+           
+      tg_validate(); //VALIDATION
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
@@ -1377,6 +1414,31 @@ threadGenViewTeacher();
         // TODO add your handling code here:
     }//GEN-LAST:event_t_view_hpdActionPerformed
 
+    private void t_teacher_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_teacher_nameFocusLost
+        if(t_teacher_name.getText().trim().isEmpty())
+       {
+           jLabel13.setText("Student Group name is empty");
+       }
+       else
+          jLabel13.setText(" "); 
+    }//GEN-LAST:event_t_teacher_nameFocusLost
+
+    private void insert_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_panelMouseClicked
+        
+    }//GEN-LAST:event_insert_panelMouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        t_std_grp_name.setText(" ");
+        t_teacher_name.setText(" ");
+        cb_no_subjects.setSelectedItem(null);
+        cb_add_subject.setSelectedItem(null);
+      
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
+       jLabel19.setText(" ");
+    }//GEN-LAST:event_t_std_grp_nameFocusGained
+  
     /**
      * @param args the command line arguments
      */
@@ -2959,9 +3021,19 @@ for(int count = 1;count<=sub_count;count++)
          else if ((!matcher.matches()))
              
             {
-                jLabel19.setText("Student Group name is Invalid");
-                JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+                  if(t_std_grp_name.getText().contains(" "))
+                    {
+                         jLabel19.setText(" ");
+                         genInsertSGUI();
+                    }
+                  else
+                  {
+                        jLabel19.setText("Student Group name is Invalid");
+                        JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+                  }
+               
             }
+         
          else
          {
           jLabel19.setText(" ");
@@ -2970,6 +3042,49 @@ for(int count = 1;count<=sub_count;count++)
          
 
     }
+    
+    
+    public void tg_validate()
+    {
+     Pattern pattern = Pattern.compile("[a-zA-Z0-9_-]*");
+         Matcher matcher = pattern.matcher(t_teacher_name.getText());
+         
+         if(t_teacher_name.getText().trim().isEmpty())
+         {
+             jLabel13.setText("Student Group name is Empty");
+           JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+         }
+         else if ((!matcher.matches()))
+             
+            {
+                  if(t_teacher_name.getText().contains(" "))
+                    {
+                         jLabel13.setText(" ");
+                         threadInsertTeacher();
+                         
+                    }
+                  else
+                  {
+                        jLabel13.setText("Student Group name is Invalid");
+                        JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+                  }
+               
+            }
+         
+         else
+         {
+          jLabel13.setText(" ");
+          threadInsertTeacher();
+          
+         }
+         
+
+    }
+    //////////////////////////////////////////////////////////////////
+    ///CLEAR PANEL
+
+       
+   
     
     
 
@@ -2987,6 +3102,7 @@ for(int count = 1;count<=sub_count;count++)
     private javax.swing.JPanel days_perweekpanel;
     private javax.swing.JPanel hours_perdaypanel;
     private javax.swing.JPanel hoursperday_panel;
+    private javax.swing.JPanel insert_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -3011,6 +3127,7 @@ for(int count = 1;count<=sub_count;count++)
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -3036,7 +3153,6 @@ for(int count = 1;count<=sub_count;count++)
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
