@@ -28,6 +28,7 @@ public class SchedulerMain{
 	public SchedulerMain(int ip_type,JPanel panel) throws InterruptedException, Exception {
 		
                 disp_panel=panel;
+                
 		//printing input data (on console for testing)
 		Utility.printInputData(ip_type);
 		

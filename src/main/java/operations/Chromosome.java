@@ -81,26 +81,14 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 
                                 if(slot!=null){
 					
-                                 /*     if(teacherlist.contains(4)&&slot.teacherid==4)
-                                         {
-                                         teacherlist.add(slot.teacherid);
-                                         st_lp++;
-                                         }
-                                      
-                                       
-                                         
-                                         else if(teacherlist.contains(slot.teacherid)&&slot.teacherid==4)
-                                         { 
-                                             
-                                         }
-                                         else */
+                           
                                          
                                          
-                                         if(teacherlist.contains(4)&&slot.subject!="LAB")
+                                    /*     if(teacherlist.contains(3)&&slot.subject!="lab")
                                           {
                                               tr_p=tr_p/2;
                                           }
-                                         else if(teacherlist.contains(slot.teacherid)&&slot.subject!="LAB")  
+                                         else*/ if(teacherlist.contains(slot.teacherid))//&&slot.subject!="lab")  
                                           {
                                               tr_p++;
                                           }   
@@ -140,13 +128,13 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				for(int k=0;k<hours;k++){//hours = 6
 				if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null)
                                 {
-                                    if(prevsub=="LAB" && TimeTable.slot[gene[i].slotno[k+j*hours]].subject=="LAB")
+                                    if(prevsub=="lab" && TimeTable.slot[gene[i].slotno[k+j*hours]].subject=="lab")
                                          rlh_lp++;
                                     
                                     prevsub=TimeTable.slot[gene[i].slotno[k+j*hours]].subject;
                                   
                                   
-                                    if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject.equals("LAB"))
+                                    if(TimeTable.slot[gene[i].slotno[k+j*hours]].subject.equals("lab"))
                                     labcount++;
                                  }
                                 
