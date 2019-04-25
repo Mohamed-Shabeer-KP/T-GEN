@@ -27,7 +27,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import operations.inputdata;
 
-public class table_teacher extends JFrame{
+public class Teacher_Table extends JFrame{
 
     int flag=0;
     int teacher_count=0;

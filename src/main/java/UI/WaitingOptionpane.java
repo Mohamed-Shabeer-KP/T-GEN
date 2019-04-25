@@ -16,7 +16,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.*;
 
-public class CloseOptionpane {
+public class WaitingOptionpane {
 int  flag=1;
    @SuppressWarnings("serial")
    private  void createAndShowGui(String pro) {

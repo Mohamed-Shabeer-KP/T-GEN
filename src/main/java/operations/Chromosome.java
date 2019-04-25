@@ -2,8 +2,8 @@ package operations;
 
 
 
-import UI.NewJFrame;
-import UI.table_timetable;
+import UI.TimeTableDisplay;
+import UI.TimeTable_Table;
 import java.io.*;
 import java.util.*;
 
@@ -172,7 +172,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException{
             
             
-            table_timetable table_obj =new table_timetable();
+            TimeTable_Table table_obj =new TimeTable_Table();
             String sg_name = null;
 		//for each student group separate time table
 		for(int i=0;i<nostgrp;i++){

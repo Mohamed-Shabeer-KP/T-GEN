@@ -1,7 +1,7 @@
 package operations;
 
-import UI.NewJFrame;
-import UI.gen_time_table;
+import UI.TimeTableDisplay;
+import UI.DatabaseOp;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -65,7 +65,7 @@ public class inputdata {
                hoursperday = 6;
 		try {
                    
-			File file = new File(NewJFrame.path);
+			File file = new File(TimeTableDisplay.path);
 			
 			Scanner scanner = new Scanner(file);
 			
@@ -195,7 +195,7 @@ else if(ip_type==1)
   		time();
                 flag=0;
             } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseOp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 }

@@ -55,7 +55,7 @@ import java.util.regex.Pattern;
  *
  * @author khsci5mca16126
  */
-public class gen_time_table extends javax.swing.JFrame {
+public class DatabaseOp extends javax.swing.JFrame {
    
     int flag=0;
   
@@ -77,7 +77,7 @@ public class gen_time_table extends javax.swing.JFrame {
     /**
      * Creates new form gen_time_table
      */
-    public gen_time_table() {
+    public DatabaseOp() {
         initComponents();
        
         //panel.setBorder(LineBorder.createBlackLineBorder());
@@ -1467,20 +1467,23 @@ threadGenViewTeacher();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
       
              /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gen_time_table().setVisible(true);
+                new DatabaseOp().setVisible(true);
       
             }
         });
@@ -1489,7 +1492,7 @@ threadGenViewTeacher();
     public  void threadInsertStudentGroup()  
     {   
         
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
             int ret=-1;
@@ -1523,7 +1526,7 @@ threadGenViewTeacher();
      
     public  void threadInsertTeacher()  
     { 
-  CloseOptionpane obj=new CloseOptionpane();
+  WaitingOptionpane obj=new WaitingOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1562,7 +1565,7 @@ threadGenViewTeacher();
      
     public void threadUpdateDaysPerWeek()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1593,7 +1596,7 @@ threadGenViewTeacher();
      
     public void threadUpdateHoursPerDay()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1624,7 +1627,7 @@ threadGenViewTeacher();
     
     public void threadGenRemoveSGUI()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1654,7 +1657,7 @@ threadGenViewTeacher();
        
     public  void threadgenInsertTeacherUI()  
     { 
-  CloseOptionpane obj=new CloseOptionpane();
+  WaitingOptionpane obj=new WaitingOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1685,7 +1688,7 @@ threadGenViewTeacher();
         
     public void threadGenRemoveTeacherUI()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1725,7 +1728,7 @@ threadGenViewTeacher();
    
     public void threadGenViewSGUI()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1765,7 +1768,7 @@ threadGenViewTeacher();
    
     public void threadGenViewTeacher()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1804,7 +1807,7 @@ threadGenViewTeacher();
     
     public void threadGenViewDPWUI()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1843,7 +1846,7 @@ threadGenViewTeacher();
         
     public void threadGenViewHPDUI()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1882,7 +1885,7 @@ threadGenViewTeacher();
         
     public void threadRemoveSG()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1919,7 +1922,7 @@ threadGenViewTeacher();
 
     public void threadRemoveTeacher()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1957,7 +1960,7 @@ threadGenViewTeacher();
     
     public void threadViewSG()
     {
-        CloseOptionpane obj=new CloseOptionpane();
+        WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1988,7 +1991,7 @@ threadGenViewTeacher();
     
     public void threadViewTeacher()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -2307,7 +2310,7 @@ for(int count = 0;count<sgcount;count++)
         
     public void genViewTeacher() throws InterruptedException, FileNotFoundException
     {
-        table_teacher obj = new table_teacher();
+        Teacher_Table obj = new Teacher_Table();
         obj.createGUI(p_view_teacher);
     }
     
@@ -2498,7 +2501,7 @@ flag=0;
                 ref.child("count").setValueAsync(String.valueOf(stg_count+1)); 
            
             } catch (InterruptedException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DatabaseOp.class.getName()).log(Level.SEVERE, null, ex);
         }   
           return 0;      
     }

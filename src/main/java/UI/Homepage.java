@@ -139,7 +139,7 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_closebutton
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NewJFrame.init(network_flag);
+        TimeTableDisplay.init(network_flag);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -149,7 +149,7 @@ public class Homepage extends javax.swing.JFrame {
 
     private void b_data_opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_data_opActionPerformed
         try {
-            gen_time_table.init();
+            DatabaseOp.init();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -157,7 +157,7 @@ public class Homepage extends javax.swing.JFrame {
 
      public void threadCheckInternet()
     {
-     CloseOptionpane obj=new CloseOptionpane();
+     WaitingOptionpane obj=new WaitingOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   

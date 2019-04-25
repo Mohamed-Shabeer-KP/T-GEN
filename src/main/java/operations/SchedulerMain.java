@@ -2,7 +2,7 @@ package operations;
 
 
 
-import UI.NewJFrame;
+import UI.TimeTableDisplay;
 import UI.ProgressOptionpane;
 import java.util.*;
 import javax.swing.JOptionPane;

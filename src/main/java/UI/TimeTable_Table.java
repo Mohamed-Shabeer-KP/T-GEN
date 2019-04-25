@@ -37,7 +37,7 @@ import javax.swing.table.DefaultTableModel;
 import operations.Chromosome;
 import operations.inputdata;
 
-public class table_timetable extends JFrame{
+public class TimeTable_Table extends JFrame{
 
     int flag=0;
     String sub_name;JTable table;

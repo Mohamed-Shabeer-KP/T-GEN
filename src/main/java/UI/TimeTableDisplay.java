@@ -34,7 +34,7 @@ import operations.inputdata;
  *
  * @author MOHAMED SHABEER KP
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class TimeTableDisplay extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
@@ -45,7 +45,7 @@ public class NewJFrame extends javax.swing.JFrame {
    String choosertitle;
    ProgressOptionpane obj;
    int network_flag;
-    public NewJFrame() {
+    public TimeTableDisplay() {
         initComponents();
     }
 
@@ -240,7 +240,7 @@ public class NewJFrame extends javax.swing.JFrame {
             SchedulerMain.gen(0,p_display,obj);
             
         } catch (Exception ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TimeTableDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
     }
@@ -250,7 +250,7 @@ public class NewJFrame extends javax.swing.JFrame {
             SchedulerMain.gen(1,p_display,obj);
        
         } catch (Exception ex) {
-            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TimeTableDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -299,19 +299,19 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeTableDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeTableDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeTableDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeTableDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
     /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               NewJFrame obj = new NewJFrame();
+               TimeTableDisplay obj = new TimeTableDisplay();
                
                if(nf==0)
                obj.b_database.setVisible(true);
