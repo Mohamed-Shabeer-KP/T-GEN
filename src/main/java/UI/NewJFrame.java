@@ -17,6 +17,7 @@ import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -24,6 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import operations.Chromosome;
 import operations.SchedulerMain;
@@ -41,7 +43,8 @@ public class NewJFrame extends javax.swing.JFrame {
    String file_path;
    JFileChooser chooser;
    String choosertitle;
-
+   ProgressOptionpane obj;
+   int network_flag;
     public NewJFrame() {
         initComponents();
     }
@@ -58,7 +61,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         b_generate = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        b_database = new javax.swing.JButton();
         sp_display = new javax.swing.JScrollPane();
         p_display = new javax.swing.JPanel();
 
@@ -78,18 +81,19 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Database");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        b_database.setText("Database");
+        b_database.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                b_databaseActionPerformed(evt);
             }
         });
+        b_database.setVisible(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(b_database, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +107,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(174, 174, 174)
                 .addComponent(b_generate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b_database, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(336, Short.MAX_VALUE))
@@ -139,52 +143,118 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void b_generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_generateActionPerformed
         
-   
-        
     }//GEN-LAST:event_b_generateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        fileChooser();
+        threadGenFile();
+   
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void b_databaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_databaseActionPerformed
+
+         threadGenDatabase();
+    }//GEN-LAST:event_b_databaseActionPerformed
+
+    public void threadGenFile()
+    {
+ 
+     obj=new ProgressOptionpane();
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               fileChooser();
+               publish(); 
+               genFile(obj);
+                
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            {    
+                obj.disp();
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                
+                // this method is called when the background
+                // thread finishes execution
+                   JOptionPane.showMessageDialog(null, "Generated Successfully");
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    
+        public void threadGenDatabase()
+    {
+ 
+     obj=new ProgressOptionpane();
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               genDatabase(obj);
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            {    
+                obj.disp();
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                
+                // this method is called when the background
+                // thread finishes execution
+                   JOptionPane.showMessageDialog(null, "Generated Successfully");
+               
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    
+    
+    public void genFile(ProgressOptionpane obj)
+    {
+            
         if(file_path!=null)
         {
         try {
-            SchedulerMain.gen(0,p_display);
+            SchedulerMain.gen(0,p_display,obj);
             
         } catch (Exception ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-   
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }
+    public void genDatabase(ProgressOptionpane obj)
+    {
              try {
-            initfirebase();
-            SchedulerMain.gen(1,p_display);
+            SchedulerMain.gen(1,p_display,obj);
        
         } catch (Exception ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-        public static void initfirebase() throws FileNotFoundException
-    {
-                   File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               FirebaseApp.initializeApp(options);
     }
-        
+    
+
     public void fileChooser()
     {
     chooser = new JFileChooser(); 
@@ -215,7 +285,7 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) { 
+    public static void init(int nf) { 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -238,26 +308,26 @@ public class NewJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
+    /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+               NewJFrame obj = new NewJFrame();
+               
+               if(nf==0)
+               obj.b_database.setVisible(true);
+               
+               obj.setVisible(true);
             }
         });
-    }
-    
-    public JPanel get()
-    {
-    return p_display;
-    }
     
 
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_database;
     private javax.swing.JButton b_generate;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel p_display;
     private javax.swing.JScrollPane sp_display;

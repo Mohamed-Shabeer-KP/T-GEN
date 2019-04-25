@@ -114,9 +114,9 @@ public class inputdata {
 		}
                 
                 if(file_flag==1)
-                     JOptionPane.showMessageDialog(null, "Input Successfull");
+                    System.out.println("Input Successfull");
                 else
-                     JOptionPane.showMessageDialog(null, "Please Select A Valid Input File (Make sure to check the format)");
+                    System.out.println("Please Select A Valid Input File (Make sure to check the format)");
                 
         }
   

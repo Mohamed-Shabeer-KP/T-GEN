@@ -84,7 +84,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
                            
                                          
                                          
-                                    /*     if(teacherlist.contains(3)&&slot.subject!="lab")
+                                        /* if(teacherlist.contains(3)&&slot.subject!="lab")
                                           {
                                               tr_p=tr_p/2;
                                           }
@@ -150,7 +150,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
               }
                 
               
-                 lab_point_1 =(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
+                 lab_point_1 =.5;//(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
                  lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
                 lab_point_3 = .5;//(st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
                  final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
@@ -202,7 +202,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				
 					//checking if this slot is free otherwise printing it
 					if(TimeTable.slot[gene[i].slotno[k+j*hours]]!=null)						
-						//System.out.print(TimeTable.slot[gene[i].slotno[k+j*hours]].subject+" ");				    
+								    
                                         {   
                                             
                                             subject.add(TimeTable.slot[gene[i].slotno[k+j*hours]].subject);
@@ -211,10 +211,10 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				
 				}
 				
-				//System.out.println("");
+			
 			}
 			
-			//System.out.println("\n\n\n");
+			
 	                
 table_obj.createGUI(p,sg_name,subject);	
 		}

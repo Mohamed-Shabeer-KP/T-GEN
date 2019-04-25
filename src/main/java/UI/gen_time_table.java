@@ -59,8 +59,8 @@ public class gen_time_table extends javax.swing.JFrame {
    
     int flag=0;
   
-    List<JTextField> subject_name_list = new ArrayList<JTextField>();
-    List<JComboBox> subject_hours_list = new ArrayList<JComboBox>();
+    List<JTextField> subject_name_list = new ArrayList<>();
+    List<JComboBox> subject_hours_list = new ArrayList<>();
  
      
      
@@ -207,6 +207,11 @@ public class gen_time_table extends javax.swing.JFrame {
         jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPane1StateChanged(evt);
+            }
+        });
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
             }
         });
 
@@ -485,7 +490,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -872,7 +877,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -883,7 +888,7 @@ public class gen_time_table extends javax.swing.JFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(jButton13)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
 
         hours_perdaypanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -963,7 +968,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1011,7 +1016,7 @@ public class gen_time_table extends javax.swing.JFrame {
                 .addComponent(jButton8)
                 .addGap(73, 73, 73)
                 .addComponent(jButton11)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         jLayeredPane3.setVisible(false);
@@ -1104,7 +1109,7 @@ public class gen_time_table extends javax.swing.JFrame {
         jLayeredPane3.setLayout(jLayeredPane3Layout);
         jLayeredPane3Layout.setHorizontalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGap(0, 589, Short.MAX_VALUE)
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1265,7 +1270,6 @@ public class gen_time_table extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-                                           
                 jLayeredPane1.setVisible(true);
                 hours_perdaypanel.setVisible(false);
                 days_perweekpanel.setVisible(true);
@@ -1298,7 +1302,7 @@ public class gen_time_table extends javax.swing.JFrame {
     
      sg_Validate();  //VALIDATION - UKSI
             
-    //genInsertSGUI();//thread service not required
+    genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -1428,6 +1432,7 @@ threadGenViewTeacher();
     }//GEN-LAST:event_insert_panelMouseClicked
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+   
         t_std_grp_name.setText(" ");
         t_teacher_name.setText(" ");
         cb_no_subjects.setSelectedItem(null);
@@ -1438,14 +1443,17 @@ threadGenViewTeacher();
     private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
        jLabel19.setText(" ");
     }//GEN-LAST:event_t_std_grp_nameFocusGained
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
   
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws FileNotFoundException {
-     
-        
-        
+    //public static void main(String args[]) throws FileNotFoundException {
+     public static void init() throws FileNotFoundException {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1468,7 +1476,7 @@ threadGenViewTeacher();
             java.util.logging.Logger.getLogger(gen_time_table.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        initfirebase();    
+      
              /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1477,29 +1485,15 @@ threadGenViewTeacher();
             }
         });
     }
-    
-    public static void initfirebase() throws FileNotFoundException
-    {
-                   File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               FirebaseApp.initializeApp(options);
-    }
-   
+     
     public  void threadInsertStudentGroup()  
-    { 
-  
+    {   
+        
+        CloseOptionpane obj=new CloseOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
-  
+            int ret=-1;
+            
             @Override
             protected String doInBackground() throws Exception  
             { 
@@ -1512,19 +1506,15 @@ threadGenViewTeacher();
             @Override
             protected void process(List chunks) 
             { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                 CloseOptionpane.disp("Inserting Student Group Details");
-
+                obj.disp("Inserting Student Group Details");                      
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Student Group Inserted Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
+                
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -1533,7 +1523,7 @@ threadGenViewTeacher();
      
     public  void threadInsertTeacher()  
     { 
-  
+  CloseOptionpane obj=new CloseOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1554,7 +1544,7 @@ threadGenViewTeacher();
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
             
-                 CloseOptionpane.disp("Inserting Teacher Details");
+           obj.disp("Inserting Teacher Details");
  
                 
             } 
@@ -1562,9 +1552,8 @@ threadGenViewTeacher();
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Teacher Inserted Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -1573,6 +1562,7 @@ threadGenViewTeacher();
      
     public void threadUpdateDaysPerWeek()
     {
+     CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1587,29 +1577,23 @@ threadGenViewTeacher();
   
             @Override
             protected void process(List chunks) 
-            { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Updating Days Per Week");
-
+            {         
+                obj.disp("Updating Days Per Week");
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Days Per Week Updated Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
             } 
         }; 
-        // executes the swingworker on worker thread 
         sw1.execute();  
     }
      
     public void threadUpdateHoursPerDay()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1624,29 +1608,23 @@ threadGenViewTeacher();
   
             @Override
             protected void process(List chunks) 
-            { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Updating Hours Per Day ");
-
+            {      
+            obj.disp("Updating Hours Per Day ");
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Hours Per Day Updated Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
             } 
         }; 
-        // executes the swingworker on worker thread 
         sw1.execute();  
     }
     
     public void threadGenRemoveSGUI()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1661,30 +1639,22 @@ threadGenViewTeacher();
   
             @Override
             protected void process(List chunks) 
-            { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
-
+            {
+             obj.disp("Fetching Student Group Details");
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag();             
             } 
-        }; 
-        // executes the swingworker on worker thread 
+        };  
         sw1.execute();  
     }
        
     public  void threadgenInsertTeacherUI()  
     { 
-  
+  CloseOptionpane obj=new CloseOptionpane();
         SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1700,30 +1670,22 @@ threadGenViewTeacher();
             @Override
             protected void process(List chunks) 
             { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-            
-                 CloseOptionpane.disp("Inserting Teacher Details");
- 
-                
+            obj.disp("Fetching Subject Details");
+    
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-               
+                obj.setflag(); 
             } 
         }; 
-        // executes the swingworker on worker thread 
         sw1.execute();  
     }
         
     public void threadGenRemoveTeacherUI()
     {
+     CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1743,13 +1705,15 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
+             
+                obj.disp("Fetching Teacher Details");
 
             } 
   
             @Override
             protected void done()  
             { 
+                obj.setflag();
                 // this method is called when the background
                 // thread finishes execution
                
@@ -1761,6 +1725,7 @@ threadGenViewTeacher();
    
     public void threadGenViewSGUI()
     {
+     CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1780,13 +1745,15 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
-
+      
+                 
+                obj.disp("Fetching Student Group Details");
             } 
   
             @Override
             protected void done()  
             { 
+                obj.setflag();
                 // this method is called when the background
                 // thread finishes execution
                
@@ -1798,6 +1765,7 @@ threadGenViewTeacher();
    
     public void threadGenViewTeacher()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1817,13 +1785,14 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
+              obj.disp("Fetching Teacher Details");
 
             } 
   
             @Override
             protected void done()  
             { 
+                obj.setflag();
                 // this method is called when the background
                 // thread finishes execution
                
@@ -1835,6 +1804,7 @@ threadGenViewTeacher();
     
     public void threadGenViewDPWUI()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1854,13 +1824,14 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
+            obj.disp("Fetching Days Per Week Details");
 
             } 
   
             @Override
             protected void done()  
             { 
+                obj.setflag();
                 // this method is called when the background
                 // thread finishes execution
                
@@ -1872,6 +1843,7 @@ threadGenViewTeacher();
         
     public void threadGenViewHPDUI()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1891,13 +1863,14 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Fetching Student Group Details");
+            obj.disp("Fetching Hours Per Day Details");
 
             } 
   
             @Override
             protected void done()  
             { 
+                obj.setflag();
                 // this method is called when the background
                 // thread finishes execution
                
@@ -1909,6 +1882,7 @@ threadGenViewTeacher();
         
     public void threadRemoveSG()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1928,17 +1902,15 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Removing Student Group Details");
+       obj.disp("Removing Student Group Details");
 
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-                   JOptionPane.showMessageDialog(null, "Removed Successfully");
-               
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Removed Student Group Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);               
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -1947,6 +1919,7 @@ threadGenViewTeacher();
 
     public void threadRemoveTeacher()
     {
+     CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1966,16 +1939,15 @@ threadGenViewTeacher();
                 // will do with the intermediate results received 
                 // while the thread is executing 
                     // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Removing Student Group Details");
+             obj.disp("Removing Teacher Details");
 
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-                   JOptionPane.showMessageDialog(null, "Removed Successfully");
+                obj.setflag();
+                JOptionPane.showMessageDialog(jPanel1, "Removed Teacher Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
                
             } 
         }; 
@@ -1985,6 +1957,7 @@ threadGenViewTeacher();
     
     public void threadViewSG()
     {
+        CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -1999,22 +1972,14 @@ threadGenViewTeacher();
   
             @Override
             protected void process(List chunks) 
-            { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Removing Student Group Details");
-
+            {         
+            obj.disp("Fetching Student Group Details");
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-                   JOptionPane.showMessageDialog(null, "Removed Successfully");
-               
+                obj.setflag();               
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -2023,6 +1988,7 @@ threadGenViewTeacher();
     
     public void threadViewTeacher()
     {
+     CloseOptionpane obj=new CloseOptionpane();
      SwingWorker sw1 = new SwingWorker()  
         { 
   
@@ -2037,22 +2003,14 @@ threadGenViewTeacher();
   
             @Override
             protected void process(List chunks) 
-            { 
-                // define what the event dispatch thread  
-                // will do with the intermediate results received 
-                // while the thread is executing 
-                    // JOptionPane.showMessageDialog(jPanel1, "Data Inserted Successfully", "WARNING", JOptionPane.WARNING_MESSAGE);         
-                 CloseOptionpane.disp("Removing Student Group Details");
-
+            {        
+           obj.disp("Feetching Teacher Details");
             } 
   
             @Override
             protected void done()  
             { 
-                // this method is called when the background
-                // thread finishes execution
-                   JOptionPane.showMessageDialog(null, "Removed Successfully");
-               
+                obj.setflag();
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -2156,35 +2114,67 @@ for(int count = 0;count<sgcount;count++)
     @Override
     public void actionPerformed(ActionEvent e)
     {
-       threadInsertStudentGroup();   
+    subject_name_list=subject_name;
+    subject_hours_list=subject_hours;
+    
+           ArrayList sub_list = new ArrayList();
+       String sub_name = null;
+       
+       for(int i=0;i<subject_name_list.size();i++)
+       {
+                sub_name = subject_name_list.get(i).getText().toUpperCase();
+ 
+                if(!sub_list.contains(sub_name))
+                sub_list.add(sub_name);
+                else 
+                {
+                JOptionPane.showMessageDialog(null, "Subject repeated,Please make sure information given are accurate");
+                return;
+                }
+                
+                if(sub_list.contains(""))
+                {
+                JOptionPane.showMessageDialog(null, "Subject names should not be empty"); 
+                return;
+                }
+       }
+    
+    
+    threadInsertStudentGroup();   
     }
     });
 
-    subject_name_list=subject_name;
-    subject_hours_list=subject_hours;
+
     panel.add(b_submit,submit_button_Constraints);
-  
     b_submit_sg.setVisible(false);
     b_reset_sg.setVisible(true);
     
     }
     
     public void genInsertTeacherUI() throws FileNotFoundException, InterruptedException
-    { 
-
-                
-             
+    {
+           
+                ArrayList sub_list = new ArrayList();
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("teacher");               
+                DatabaseReference ref = database.getReference("studentgroup");               
                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
-                    
+                        
                         for(int i=1;i<=teacher_count;i++)
                         {
-                            cb_add_subject.addItem((String) dataSnapshot.child("teacher:"+i).child("subject").getValue());
+                        int sub_count= Integer.valueOf(dataSnapshot.child("studentgroup:"+i).child("subjectno").getValue().toString());   
+                        for(int j=1;j<=sub_count;j++)
+                        sub_list.add(dataSnapshot.child("studentgroup:"+i).child("subjects").child("subject:"+j).child("name").getValue().toString());
                         }
+                        
+                        Set<String> set = new HashSet<>(sub_list);
+                        sub_list.clear();
+                        sub_list.addAll(set);
+                        
+                        for(int h=0;h<sub_list.size();h++)
+                        cb_add_subject.addItem((String) sub_list.get(h));
                     flag=1;
                     }
                     
@@ -2193,6 +2183,8 @@ for(int count = 0;count<sgcount;count++)
                         System.out.println("Error");// ...
                     }
                 });
+
+                   
     time();
     flag=0;
     }
@@ -2212,123 +2204,101 @@ for(int count = 0;count<sgcount;count++)
       JPanel panel= p_view_sg;
 
   String sg_name=cb_view_sg.getSelectedItem().toString();
-      try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-
-                
-                
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("studentgroup");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-               Integer indexer = 1;              
-                for(int a = 1; a <= stg_count ; a++)             
-                {             
-                 if(dataSnapshot.child("studentgroup:"+a).child("name").getValue().equals(sg_name))
-                 {
-                 int sub_count = Integer.valueOf(dataSnapshot.child("studentgroup:"+a).child("subjectno").getValue().toString());
- 
-
-   
-for(int count = 1;count<=sub_count;count++)
-{
-    
-            // Create label and text field
-            subject_no_label.add(new JLabel("Subject no : " + indexer));
-            subject_name_label.add(new JLabel("Subject name :  "));
-            subject_hours_label.add(new JLabel("Subject hours :  "));
-            
-
-            subject_name.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("name").getValue()));
-            subject_hours.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("hours").getValue()));
-            
-        
-            // Create constraints
-            GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_name_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_hours_labelConstraints = new GridBagConstraints();
-            GridBagConstraints sub_name_textFieldConstraints = new GridBagConstraints();
-            GridBagConstraints sub_hours_comboBoxConstraints = new GridBagConstraints();
-            
-
-            // Add labels and text fields
-            for(int i = 0,j = 1,k = 0; i < indexer; i++,k=k+3)
-            {    
-                // Label constraints
-                sub_no_labelConstraints.gridx = j;
-                sub_no_labelConstraints.gridy = k;
-                
-                sub_name_labelConstraints.gridx = j+1;
-                sub_name_labelConstraints.gridy = k+1;
-
-              
-                sub_name_textFieldConstraints.gridx = j+2;
-                sub_name_textFieldConstraints.gridy = k+1;
-  
-                sub_hours_labelConstraints.gridx = j+1;
-                sub_hours_labelConstraints.gridy = k+2;
-                
-                sub_hours_comboBoxConstraints.gridx = j+2;
-                sub_hours_comboBoxConstraints.gridy = k+2;
-           
-                subject_name.get(i).setColumns(5);
-                subject_hours.get(i).setColumns(5);
-                         
-                subject_name.get(i).setEditable(false);
-                subject_hours.get(i).setEditable(false);
-                
-                // Add them to panel
-                panel.add(subject_no_label.get(i), sub_no_labelConstraints);
-                panel.add(subject_name_label.get(i), sub_name_labelConstraints);
-                panel.add(subject_name.get(i), sub_name_textFieldConstraints);
-                panel.add(subject_hours_label.get(i), sub_hours_labelConstraints);
-                panel.add(subject_hours.get(i), sub_hours_comboBoxConstraints);
-             
-            }
-
-            // Align components top-to-bottom
-            GridBagConstraints c = new GridBagConstraints();
-            c.gridx = 0;
-            c.gridy = 10;
-            c.weighty = 0;
-            panel.add(new JLabel(), c);
-
-            // Increment indexer
-            indexer++;
-            
-        
-}
-
-                 }
-                }         
-                flag=1;
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                    
-                });
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+  final FirebaseDatabase database = FirebaseDatabase.getInstance();
+  DatabaseReference ref = database.getReference("studentgroup");
+  ref.addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+          stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+          Integer indexer = 1;
+          for(int a = 1; a <= stg_count ; a++)
+          {
+              if(dataSnapshot.child("studentgroup:"+a).child("name").getValue().equals(sg_name))
+              {
+                  int sub_count = Integer.valueOf(dataSnapshot.child("studentgroup:"+a).child("subjectno").getValue().toString());
+                  
+                  
+                  
+                  for(int count = 1;count<=sub_count;count++)
+                  {
+                      
+                      // Create label and text field
+                      subject_no_label.add(new JLabel("Subject no : " + indexer));
+                      subject_name_label.add(new JLabel("Subject name :  "));
+                      subject_hours_label.add(new JLabel("Subject hours :  "));
+                      
+                      
+                      subject_name.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("name").getValue()));
+                      subject_hours.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("hours").getValue()));
+                      
+                      
+                      // Create constraints
+                      GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
+                      GridBagConstraints sub_name_labelConstraints = new GridBagConstraints();
+                      GridBagConstraints sub_hours_labelConstraints = new GridBagConstraints();
+                      GridBagConstraints sub_name_textFieldConstraints = new GridBagConstraints();
+                      GridBagConstraints sub_hours_comboBoxConstraints = new GridBagConstraints();
+                      
+                      
+                      // Add labels and text fields
+                      for(int i = 0,j = 1,k = 0; i < indexer; i++,k=k+3)
+                      {
+                          // Label constraints
+                          sub_no_labelConstraints.gridx = j;
+                          sub_no_labelConstraints.gridy = k;
+                          
+                          sub_name_labelConstraints.gridx = j+1;
+                          sub_name_labelConstraints.gridy = k+1;
+                          
+                          
+                          sub_name_textFieldConstraints.gridx = j+2;
+                          sub_name_textFieldConstraints.gridy = k+1;
+                          
+                          sub_hours_labelConstraints.gridx = j+1;
+                          sub_hours_labelConstraints.gridy = k+2;
+                          
+                          sub_hours_comboBoxConstraints.gridx = j+2;
+                          sub_hours_comboBoxConstraints.gridy = k+2;
+                          
+                          subject_name.get(i).setColumns(5);
+                          subject_hours.get(i).setColumns(5);
+                          
+                          subject_name.get(i).setEditable(false);
+                          subject_hours.get(i).setEditable(false);
+                          
+                          // Add them to panel
+                          panel.add(subject_no_label.get(i), sub_no_labelConstraints);
+                          panel.add(subject_name_label.get(i), sub_name_labelConstraints);
+                          panel.add(subject_name.get(i), sub_name_textFieldConstraints);
+                          panel.add(subject_hours_label.get(i), sub_hours_labelConstraints);
+                          panel.add(subject_hours.get(i), sub_hours_comboBoxConstraints);
+                          
+                      }
+                      
+                      // Align components top-to-bottom
+                      GridBagConstraints c = new GridBagConstraints();
+                      c.gridx = 0;
+                      c.gridy = 10;
+                      c.weighty = 0;
+                      panel.add(new JLabel(), c);
+                      
+                      // Increment indexer
+                      indexer++;
+                      
+                      
+                  }
+                  
+              }
+          }
+          flag=1;
+      }
+      
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+          System.out.println("Error");// ...
+      }
+      
+  });
       time();
       flag=0;
     b_submit_view_sg.setVisible(false);
@@ -2343,23 +2313,6 @@ for(int count = 1;count<=sub_count;count++)
     
     public void genViewDPWUI() throws InterruptedException, FileNotFoundException
     { 
-     
-        
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-
-                
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("basic");
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -2382,22 +2335,6 @@ for(int count = 1;count<=sub_count;count++)
     
     public void genViewHPDUI() throws InterruptedException, FileNotFoundException
     { 
-     
-        
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-   
-                
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("basic");
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -2423,48 +2360,26 @@ for(int count = 1;count<=sub_count;count++)
     {
       
         jComboBox3.removeAllItems();
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("studentgroup");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
                 
-
-                
-                
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("studentgroup");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                             
-                        for(int i = 1; i <= stg_count ; i++)             
-                {             
-                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
-                jComboBox3.addItem(sgname);   
-                }         
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                    
-                });
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                for(int i = 1; i <= stg_count ; i++)
+                {
+                    String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
+                    jComboBox3.addItem(sgname);
+                }
+            }
+            
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+            
+        });
 
     }
     
@@ -2472,119 +2387,66 @@ for(int count = 1;count<=sub_count;count++)
     {
       
         cb_remove_teacher.removeAllItems();
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("teacher");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
                 
-                
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("teacher");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                      teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                             
-                        for(int i = 1; i <= teacher_count ; i++)             
-                {             
-                String teacher_name = (String) dataSnapshot.child("teacher:"+i).child("name").getValue();
-                cb_remove_teacher.addItem(teacher_name);   
-                }         
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                    
-                });
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                for(int i = 1; i <= teacher_count ; i++)
+                {
+                    String teacher_name = (String) dataSnapshot.child("teacher:"+i).child("name").getValue();
+                    cb_remove_teacher.addItem(teacher_name);
+                }
+            }
+            
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+            
+        });
 
     }
     
-    public void genCBViewSGUI() 
+    public void genCBViewSGUI() throws InterruptedException 
     {
       
         cb_view_sg.removeAllItems();
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("studentgroup");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
                 
-                
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("studentgroup");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                      stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                             
-                        for(int i = 1; i <= stg_count ; i++)             
-                {             
-                String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
-                cb_view_sg.addItem(sgname);   
-                }         
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                    
-                });
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+                for(int i = 1; i <= stg_count ; i++)
+                {
+                    String sgname = (String) dataSnapshot.child("studentgroup:"+i).child("name").getValue();
+                    cb_view_sg.addItem(sgname);
+                }
+                flag=1;
+            }
+            
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+            
+        });
+time();
+flag=0;
     }
     
     /////////////////////////////////////////////////////////////////////
     
-    public void addStudentGroupData() 
+    public int addStudentGroupData() 
     {
-       
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
+        
 
-                
+           
+        try {                        
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("studentgroup");
 
@@ -2604,11 +2466,12 @@ for(int count = 1;count<=sub_count;count++)
                 time();
                 flag=0;
                 
+                
                 DatabaseReference stdgrpref = ref.child("studentgroup:"+(stg_count+1));
                 DatabaseReference subjectref = stdgrpref.child("subjects");
                 
                 Map<String, String> studentgroup = new HashMap<>();
-                studentgroup.put("name",t_std_grp_name.getText());
+                studentgroup.put("name",t_std_grp_name.getText().toUpperCase());
                 
                 int count =Integer.parseInt(cb_no_subjects.getSelectedItem().toString());
                 studentgroup.put("subjectno",String.valueOf(count));
@@ -2619,359 +2482,197 @@ for(int count = 1;count<=sub_count;count++)
                 for(int i = 1; i <= count ; i++)
                 {   
                 DatabaseReference subref = subjectref.child("subject:"+i);
+  
                 Map<String, String> subject = new HashMap<>();
-                subject.put("name",subject_name_list.get(i-1).getText());
+                subject.put("name",subject_name_list.get(i-1).getText().toUpperCase());
                 subject.put("hours",String.valueOf(subject_hours_list.get(i-1).getSelectedItem()));
                 subref.setValueAsync(subject); 
                
                 if(i==count)
                     flag=1;
                 }         
+                
                 time();
                 flag=0;
                 
-                ref.child("count").setValue(String.valueOf(stg_count+1),new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                   
-                if(error==null)
-                {
-                JOptionPane.showMessageDialog(null, "Inserted Student Group Successfully");
-                clearSgPanel(0);
-                b_reset_sg.setVisible(false);
-                b_submit_sg.setVisible(true);
-                }
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });             
+                ref.child("count").setValueAsync(String.valueOf(stg_count+1)); 
            
-            } catch (FileNotFoundException ex) {
+            } catch (InterruptedException ex) {
             Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-                
-
+        }   
+          return 0;      
     }
     
     public void addTeacherData() throws InterruptedException, InterruptedException
     {
-                try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("teacher");
-                //DatabaseReference usersRef = ref.child("users");
-                   ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());                  
-                        flag=1;
-                    
-                        for(int i=1;i<=teacher_count;i++)
-                        {
-                            cb_add_subject.addItem((String) dataSnapshot.child("teacher:"+i).child("subject").getValue());
-                        }
-                    flag=1;
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                });
-    
-                DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
-
-                Map<String, String> subject = new HashMap<>();
-                subject.put("name",t_teacher_name.getText());
-                subject.put("subject",cb_add_subject.getSelectedItem().toString());
-                teacherref.setValueAsync(subject);
-             
-                            
-                ref.child("count").setValue(String.valueOf(teacher_count+1),new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("teacher");
+        //DatabaseReference usersRef = ref.child("users");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+                for(int i=1;i<=teacher_count;i++)
                 {
-                JOptionPane.showMessageDialog(null, "Inserted Teacher Successfully");
+                    cb_add_subject.addItem((String) dataSnapshot.child("teacher:"+i).child("subject").getValue());
                 }
-                    else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });      
-                
-          
-     
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                time();
-                flag=0;
+                flag=1;
+            }
+            
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+        });
+        
+        time();
+        flag=0;
+        
+        DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
+        Map<String, String> subject = new HashMap<>();
+        subject.put("name",t_teacher_name.getText().toUpperCase());
+        subject.put("subject",cb_add_subject.getSelectedItem().toString());
+        teacherref.setValueAsync(subject);
+        ref.child("count").setValueAsync(String.valueOf(teacher_count+1));
+
     }
     
     public void updateDaysPerWeek()
     {
-         try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-            
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("basic");
-                //DatabaseReference usersRef = ref.child("users");
- 
-                String s_days = jComboBox2.getSelectedItem().toString();
-                
-                ref.child("daysperweek").setValue(s_days,new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });               
-                
-                     
-                TimeUnit.SECONDS.sleep(5);
-                
-               
-      
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("basic");
+        String s_days = jComboBox2.getSelectedItem().toString();
+        ref.child("daysperweek").setValueAsync(s_days);
     }
     
     public void updateHoursPerDay()
     {
-        try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-   
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("basic");
-                //DatabaseReference usersRef = ref.child("users");
-
-                String s_hours = jComboBox1.getSelectedItem().toString();
-                            
-                ref.child("hoursperday").setValue(s_hours,new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if(error==null)
-                JOptionPane.showMessageDialog(null, "Updated Successfully");
-                else
-                JOptionPane.showMessageDialog(null, "Error occured ,please verify your internet connection");
-                }
-                });      
-                
-                
-                TimeUnit.SECONDS.sleep(5);
-     
-            } catch (InterruptedException ex) {
-                Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("basic");
+        String s_hours = jComboBox1.getSelectedItem().toString();
+        ref.child("hoursperday").setValueAsync(s_hours);
     }
     
     public void removeSG() throws InterruptedException
     {
        
         String sg_name=jComboBox3.getSelectedItem().toString();
-        try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-
-              
-               final FirebaseDatabase database = FirebaseDatabase.getInstance();
-               DatabaseReference sgref = database.getReference("studentgroup");
-
-                sgref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                    stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                    int f_count=0;
-                  for(int i = 1; i <= stg_count ; i++)             
-                {             
-                if(dataSnapshot.child("studentgroup:"+i).child("name").getValue().equals(sg_name))         
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference sgref = database.getReference("studentgroup");
+        sgref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+                int f_count=0;
+                for(int i = 1; i <= stg_count ; i++)         
                 {
-                    sgref.child("studentgroup:"+i).removeValueAsync();
-                    f_count=1;
-                }
-                
-                if(f_count==1 && i<stg_count)
-                {
-                sgref.child("studentgroup:"+i).child("demo").setValueAsync("demo");
-                DatabaseReference new_node_ref = sgref.child("studentgroup:"+i);
-                DatabaseReference next_node_ref = sgref.child("studentgroup:"+(i+1));
-                
-                 next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {                
-                        Map<String, String> sg = new HashMap<>();
-                        String na =dataSnapshot.child("name").getValue().toString() ;
-                        String sno =dataSnapshot.child("subjectno").getValue().toString();
-                        sg.put("name",na);
-                        sg.put("subjectno",sno);
-                        new_node_ref.setValueAsync(sg);
-                        for(int i = 1; i <= Integer.parseInt(dataSnapshot.child("subjectno").getValue().toString()) ; i++)
-                        {
-       Map<String, String> sub = new HashMap<>();
-                            String sub_name=dataSnapshot.child("subjects").child("subject:"+i).child("name").getValue().toString();
-                            String sub_hours=dataSnapshot.child("subjects").child("subject:"+i).child("hours").getValue().toString();
-                            sub.put("name",sub_name );
-                            sub.put("hours",sub_hours);
-                            
-                            new_node_ref.child("subjects").child("subject:"+i).setValueAsync(sub);
-       
-                        }
-                        next_node_ref.removeValueAsync();
-                        sgref.child("count").setValueAsync(String.valueOf(stg_count-1));
-                        flag=1;
-                }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                }
-                });
-                }
-                }
-                    }  
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
+                    if(dataSnapshot.child("studentgroup:"+i).child("name").getValue().equals(sg_name))
+                    {
+                        sgref.child("studentgroup:"+i).removeValueAsync();
+                        f_count=1;
                     }
-                });
-                time();
-                flag=0;
-                
+                    
+                    if(f_count==1 && i<stg_count)
+                    {
+                        sgref.child("studentgroup:"+i).child("demo").setValueAsync("demo");
+                        DatabaseReference new_node_ref = sgref.child("studentgroup:"+i);
+                        DatabaseReference next_node_ref = sgref.child("studentgroup:"+(i+1));
+                        
+                        next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Map<String, String> sg = new HashMap<>();
+                                String na =dataSnapshot.child("name").getValue().toString() ;
+                                String sno =dataSnapshot.child("subjectno").getValue().toString();
+                                sg.put("name",na);
+                                sg.put("subjectno",sno);
+                                new_node_ref.setValueAsync(sg);
+                                for(int i = 1; i <= Integer.parseInt(dataSnapshot.child("subjectno").getValue().toString()) ; i++)
+                                {
+                                    Map<String, String> sub = new HashMap<>();
+                                    String sub_name=dataSnapshot.child("subjects").child("subject:"+i).child("name").getValue().toString();
+                                    String sub_hours=dataSnapshot.child("subjects").child("subject:"+i).child("hours").getValue().toString();
+                                    sub.put("name",sub_name );
+                                    sub.put("hours",sub_hours);
+                                    
+                                    new_node_ref.child("subjects").child("subject:"+i).setValueAsync(sub);
+                                    next_node_ref.removeValueAsync();
+                                }
 
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                System.out.println("Error");// ...
+                            }
+                        });
+                    }   
+                                sgref.child("count").setValueAsync(String.valueOf(stg_count-1));
+                                flag=1;
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+        });
+        time();
+        flag=0;
     }
     
     public void removeTeacher() throws InterruptedException
     {
        
         String sg_name=cb_remove_teacher.getSelectedItem().toString();
-        try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-               
-                
-              
-               final FirebaseDatabase database = FirebaseDatabase.getInstance();
-               DatabaseReference teacher_ref = database.getReference("teacher");
-
-                teacher_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                    teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                    int f_count=0;
-                  for(int i = 1; i <= teacher_count ; i++)             
-                {             
-                if(dataSnapshot.child("teacher:"+i).child("name").getValue().equals(sg_name))         
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference teacher_ref = database.getReference("teacher");
+        teacher_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+                int f_count=0;
+                for(int i = 1; i <= teacher_count ; i++)         
                 {
-                    teacher_ref.child("teacher:"+i).removeValueAsync();
-                    f_count=1;
-                }
-                
-                if(f_count==1 && i<teacher_count)
-                {
-                teacher_ref.child("teacher:"+i).child("demo").setValueAsync("demo");
-                DatabaseReference new_node_ref = teacher_ref.child("teacher:"+i);
-                DatabaseReference next_node_ref = teacher_ref.child("teacher:"+(i+1));
-                
-                 next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {                
-                        Map<String, String> teacher = new HashMap<>();
-                        String na =dataSnapshot.child("name").getValue().toString() ;
-                        String sname =dataSnapshot.child("subject").getValue().toString();
-                        teacher.put("name",na);
-                        teacher.put("subject",sname);
-                        new_node_ref.setValueAsync(teacher);  
-                        next_node_ref.removeValueAsync();
-                        teacher_ref.child("count").setValueAsync(String.valueOf(teacher_count-1));
-                        flag=1;
-                }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                }
-                });
-                }
-                }
-                    }  
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
+                    if(dataSnapshot.child("teacher:"+i).child("name").getValue().equals(sg_name))
+                    {
+                        teacher_ref.child("teacher:"+i).removeValueAsync();
+                        f_count=1;
                     }
-                });
-                time();
-                flag=0;
-                
-
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(gen_time_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    
+                    if(f_count==1 && i<teacher_count)
+                    {
+                        teacher_ref.child("teacher:"+i).child("demo").setValueAsync("demo");
+                        DatabaseReference new_node_ref = teacher_ref.child("teacher:"+i);
+                        DatabaseReference next_node_ref = teacher_ref.child("teacher:"+(i+1));
+                        
+                        next_node_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Map<String, String> teacher = new HashMap<>();
+                                String na =dataSnapshot.child("name").getValue().toString() ;
+                                String sname =dataSnapshot.child("subject").getValue().toString();
+                                teacher.put("name",na);
+                                teacher.put("subject",sname);
+                                new_node_ref.setValueAsync(teacher);
+                                next_node_ref.removeValueAsync();
+                                
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                System.out.println("Error");// ...
+                            }
+                        });
+                    }
+                      teacher_ref.child("count").setValueAsync(String.valueOf(teacher_count-1));
+                      flag=1;
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error");// ...
+            }
+        });
+        time();
+        flag=0;
     }
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -2980,19 +2681,19 @@ for(int count = 1;count<=sub_count;count++)
     {
         if(f==0)
         {
-   jPanel11.removeAll();
-   jPanel11.revalidate();
-   jPanel11.repaint();
-   b_reset_sg.setVisible(false);
-   b_submit_sg.setVisible(true);
+    jPanel11.removeAll();
+    jPanel11.revalidate();
+    jPanel11.repaint();
+    b_reset_sg.setVisible(false);
+    b_submit_sg.setVisible(true);
         }
         else if(f==1)
         {
-           p_view_sg.removeAll();
-           p_view_sg.revalidate();
-           p_view_sg.repaint();
-           b_reset_view_sg.setVisible(false);
-   b_submit_view_sg.setVisible(true);
+    p_view_sg.removeAll();
+    p_view_sg.revalidate();
+    p_view_sg.repaint();
+    b_reset_view_sg.setVisible(false);
+    b_submit_view_sg.setVisible(true);
         }
         }
     
@@ -3046,7 +2747,7 @@ for(int count = 1;count<=sub_count;count++)
     
     public void tg_validate()
     {
-     Pattern pattern = Pattern.compile("[a-zA-Z0-9_-]*");
+     Pattern pattern = Pattern.compile("[a-zA-Z_-]*");
          Matcher matcher = pattern.matcher(t_teacher_name.getText());
          
          if(t_teacher_name.getText().trim().isEmpty())

@@ -2,8 +2,12 @@ package operations;
 
 
 
+import UI.NewJFrame;
+import UI.ProgressOptionpane;
 import java.util.*;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingWorker;
 
 
 public class SchedulerMain{
@@ -22,12 +26,14 @@ public class SchedulerMain{
 	int populationsize=1000;//1000
 	int maxgenerations=100;
         JPanel disp_panel;
+        ProgressOptionpane obj;
 	
 	public static Chromosome finalson;
 	
-	public SchedulerMain(int ip_type,JPanel panel) throws InterruptedException, Exception {
+	public SchedulerMain(int ip_type,JPanel panel,ProgressOptionpane object) throws InterruptedException, Exception {
 		
                 disp_panel=panel;
+                obj=object;
                 
 		//printing input data (on console for testing)
 		Utility.printInputData(ip_type);
@@ -100,7 +106,7 @@ public class SchedulerMain{
 			
 			//if chromosome with fitness 1 found
 			if(i<populationsize){
-				
+				 obj.setfitness(1);
 				System.out.println("****************************************************************************************");
 				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
 				System.out.println("\nGenerated Timetable is:");
@@ -189,13 +195,15 @@ public class SchedulerMain{
 		Collections.sort(firstlist);
 		System.out.println("----------Initial Generation-----------\n");
 		printGeneration(firstlist);
-		
+                	
 	}
 	
+        
 	
 	//printing important details of a generation
 	public void printGeneration(List<Chromosome> list){
-		
+                
+            
 		System.out.println("Fetching details from this generation...\n");	
 		
 		//to print only initial 4 chromosomes of sorted list
@@ -208,7 +216,9 @@ public class SchedulerMain{
 		System.out.println("Chromosome no. "+(populationsize/10+1)+" :"+list.get(populationsize/10+1).getFitness()+"\n");
 		System.out.println("Chromosome no. "+(populationsize)+" :"+list.get(populationsize/5+1).getFitness()+"\n");
 		System.out.println("Most fit chromosome from this generation has fitness = "+list.get(0).getFitness()+"\n");
-		
+
+          obj.setfitness(list.get(0).getFitness());
+
 	}
 	
 	
@@ -248,14 +258,15 @@ public class SchedulerMain{
 
 	
 	//public static void main(String[] args) throws InterruptedException, Exception {
-	  public static void gen(int ip_type,JPanel p) throws InterruptedException, Exception {
+	  public static void gen(int ip_type,JPanel p,ProgressOptionpane obj) throws InterruptedException, Exception {
               
-              new SchedulerMain(ip_type,p);
+              new SchedulerMain(ip_type,p,obj);
 	}
         
-        public double getFitness()
-        {
-            return newlistfitness;
-        }
         
+       
+          
+          
+  
+    
 }

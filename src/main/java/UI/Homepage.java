@@ -5,11 +5,22 @@
  */
 package UI;
 
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import operations.inputdata;
 
 
 /**
@@ -18,6 +29,7 @@ import java.util.logging.Logger;
  */
 public class Homepage extends javax.swing.JFrame {
 
+    int network_flag;
     /**
      * Creates new form Homepage
      */
@@ -38,13 +50,18 @@ public class Homepage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        b_data_op = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setLayout(null);
 
@@ -75,10 +92,16 @@ public class Homepage extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(360, 200, 170, 40);
 
-        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButton3.setText("DATA OPERATIONS");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(360, 290, 170, 40);
+        b_data_op.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        b_data_op.setText("DATA OPERATIONS");
+        b_data_op.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_data_opActionPerformed(evt);
+            }
+        });
+        jPanel1.add(b_data_op);
+        b_data_op.setBounds(360, 290, 170, 40);
+        b_data_op.setVisible(false);
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,17 +139,71 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_closebutton
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-
-
-        
-        
+        NewJFrame.init(network_flag);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        threadCheckInternet();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void b_data_opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_data_opActionPerformed
+        try {
+            gen_time_table.init();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_b_data_opActionPerformed
+
+     public void threadCheckInternet()
+    {
+     CloseOptionpane obj=new CloseOptionpane();
+     SwingWorker sw1 = new SwingWorker()  
+        { 
+  
+            @Override
+            protected String doInBackground() throws Exception  
+            { 
+               publish(); 
+               networkAvailableUI();
+               return null; 
+            }    
+             
+  
+            @Override
+            protected void process(List chunks) 
+            {        
+                obj.disp("Checking Internet Connectivity");
+            } 
+  
+            @Override
+            protected void done()  
+            { 
+                obj.setflag();
+            } 
+        }; 
+        // executes the swingworker on worker thread 
+        sw1.execute();  
+    }
+    public void networkAvailableUI()
+    {
+            try {
+            Process process = java.lang.Runtime.getRuntime().exec("ping www.google.com");
+            network_flag = process.waitFor();
+            if (network_flag == 0) 
+            b_data_op.setVisible(true);
+        
+        } catch (IOException ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -150,11 +227,12 @@ public class Homepage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
+  
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
+                    initfirebase(); 
                     new Homepage().setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,12 +240,28 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
     }
+        public static void initfirebase() throws FileNotFoundException
+    {
+                   File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                FileInputStream serviceAccount = new FileInputStream(f);
+                FirebaseOptions options = null;
+                try {
+                    options = new FirebaseOptions.Builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
+                            .build(); } catch (IOException ex) {
+                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+               FirebaseApp.initializeApp(options);
+    }
+     
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_data_op;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
