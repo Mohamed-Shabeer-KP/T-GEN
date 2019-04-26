@@ -106,7 +106,7 @@ public class inputdata {
 						i++;
 					}
                                         noteacher = i;
-				if((line = scanner.nextLine()).equalsIgnoreCase("end"))
+				if(line.equalsIgnoreCase("end"))
                                 file_flag=1; 
                                 }
                           

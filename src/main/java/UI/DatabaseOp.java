@@ -188,6 +188,7 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1000, 550));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -877,7 +878,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -888,7 +889,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(jButton13)
-                .addContainerGap(348, Short.MAX_VALUE))
+                .addContainerGap(363, Short.MAX_VALUE))
         );
 
         hours_perdaypanel.setBackground(new java.awt.Color(102, 102, 102));
