@@ -110,6 +110,11 @@ public class Homepage extends javax.swing.JFrame {
         jLabel3.setBounds(80, 100, 160, 21);
 
         jButton4.setText("--");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
         jButton4.setBounds(790, 10, 40, 20);
 
@@ -140,6 +145,7 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         TimeTableDisplay.init(network_flag);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -153,7 +159,12 @@ public class Homepage extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.setVisible(false);
     }//GEN-LAST:event_b_data_opActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.setState(this.ICONIFIED);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
      public void threadCheckInternet()
     {
