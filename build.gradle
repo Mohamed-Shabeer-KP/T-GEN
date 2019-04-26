@@ -13,7 +13,7 @@ sourceCompatibility = '1.8'
 if (!hasProperty('mainClass')) {
    // ext.mainClass = 'operations.SchedulerMain'
    
-    ext.mainClass = 'UI.NewJFrame'
+    ext.mainClass = 'UI.HomePage'
 }
 
 repositories {
@@ -33,5 +33,5 @@ dependencies {
 }
 
 application {
-    mainClassName = 'UI.NewJFrame'
+    mainClassName = 'UI.HomePage'
 }

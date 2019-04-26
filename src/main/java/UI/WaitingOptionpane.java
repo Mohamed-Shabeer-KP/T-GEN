@@ -53,8 +53,26 @@ p.add(l_timer);
 
 
 
-   JOptionPane.showOptionDialog(null, p, "Please wait", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
- 
+//JOptionPane.showOptionDialog(null, p, "Please wait", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
+Object [] options1 = {"Go Back", "Accept"};
+JOptionPane msg = new JOptionPane(p, JOptionPane.PLAIN_MESSAGE, JOptionPane.DEFAULT_OPTION, null,new Object[]{},null);
+JDialog msg_dialog = msg.createDialog(null, "Processing");
+msg_dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+msg_dialog.addWindowListener(new WindowAdapter() {
+    public void windowClosing(WindowEvent we) {
+    JOptionPane jop = new JOptionPane("Exit Application", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION, null, options1, options1[0]);
+    JDialog dialog = jop.createDialog(null, "Caution");
+    dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+    dialog.setVisible(true);
+    String a3 = (String) jop.getValue();
+    if (a3.equals("Accept")) {
+    System.exit(0);
+}
+    dialog.dispose();
+    }
+});
+msg_dialog.setVisible(true);
+msg_dialog.dispose();
 
    }
    
