@@ -120,7 +120,7 @@ public class Homepage extends javax.swing.JFrame {
 
         try{
         }catch(Exception e){System.out.println(e);}
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("image");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(0, 0, 890, 500);
 
