@@ -52,6 +52,10 @@ public class SchedulerMain{
 		
 	}
 
+    public SchedulerMain() {
+        
+    }
+
         
 	//Creating new Generations using crossovers and mutations
 	public void createNewGenerations() throws Exception{

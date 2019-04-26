@@ -60,17 +60,25 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         b_generate = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        b_file = new javax.swing.JButton();
         b_database = new javax.swing.JButton();
         b_reset = new javax.swing.JButton();
         sp_display = new javax.swing.JScrollPane();
         p_display = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1210, 700));
+        setResizable(false);
+        setSize(getPreferredSize());
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         b_generate.setText("GENERATE");
+        b_generate.setMaximumSize(new java.awt.Dimension(150, 25));
+        b_generate.setMinimumSize(new java.awt.Dimension(150, 25));
+        b_generate.setPreferredSize(new java.awt.Dimension(150, 25));
         b_generate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_generateActionPerformed(evt);
@@ -78,16 +86,20 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         });
         b_generate.setVisible(false);
 
-        jButton1.setText("File");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        b_file.setText("File");
+        b_file.setMaximumSize(new java.awt.Dimension(150, 25));
+        b_file.setMinimumSize(new java.awt.Dimension(150, 25));
+        b_file.setPreferredSize(new java.awt.Dimension(150, 25));
+        b_file.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                b_fileActionPerformed(evt);
             }
         });
 
         b_database.setText("Database");
-        b_database.setMaximumSize(new java.awt.Dimension(85, 23));
-        b_database.setMinimumSize(new java.awt.Dimension(85, 23));
+        b_database.setMaximumSize(new java.awt.Dimension(150, 25));
+        b_database.setMinimumSize(new java.awt.Dimension(150, 25));
+        b_database.setPreferredSize(new java.awt.Dimension(150, 25));
         b_database.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_databaseActionPerformed(evt);
@@ -96,6 +108,9 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         b_database.setVisible(false);
 
         b_reset.setText("RESET");
+        b_reset.setMaximumSize(new java.awt.Dimension(150, 25));
+        b_reset.setMinimumSize(new java.awt.Dimension(150, 25));
+        b_reset.setPreferredSize(new java.awt.Dimension(150, 25));
         b_reset.setVisible(false);
         b_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,61 +118,73 @@ public class TimeTableDisplay extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(b_generate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(b_database, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(b_file, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(b_database, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(b_file, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addComponent(b_generate, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
+        );
+
+        sp_display.setViewportView(p_display);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(b_generate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(b_database, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
+                .addComponent(sp_display, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(b_database, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178)
-                .addComponent(b_generate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(b_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_display, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        sp_display.setPreferredSize(new java.awt.Dimension(500, 500));
-
-        p_display.setPreferredSize(new java.awt.Dimension(500, 500));
-        sp_display.setViewportView(p_display);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sp_display, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sp_display, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,15 +198,16 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         
         b_generate.setVisible(false);
         b_reset.setVisible(true);
-        
+        b_database.setVisible(false);
+        b_file.setVisible(false);
     }//GEN-LAST:event_b_generateActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void b_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_fileActionPerformed
         input_flag=2;
         fileChooser(); 
         if(file_path!=null)
         b_generate.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_b_fileActionPerformed
 
     private void b_databaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_databaseActionPerformed
         input_flag=1;
@@ -192,6 +220,8 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         p_display.revalidate();
         p_display.repaint();
         b_reset.setVisible(false);
+        b_database.setVisible(true);
+        b_file.setVisible(true);
     }//GEN-LAST:event_b_resetActionPerformed
 
     public void threadGenFile()
@@ -271,7 +301,8 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         if(file_path!=null)
         {
         try {
-            SchedulerMain.gen(0,p_display,obj);
+           SchedulerMain schedule_obj =new SchedulerMain();
+           schedule_obj.gen(0,p_display,obj);
             
         } catch (Exception ex) {
             Logger.getLogger(TimeTableDisplay.class.getName()).log(Level.SEVERE, null, ex);
@@ -281,7 +312,8 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     public void genDatabase(ProgressOptionpane obj)
     {
              try {
-            SchedulerMain.gen(1,p_display,obj);
+                 SchedulerMain schedule_obj =new SchedulerMain();
+                 schedule_obj.gen(1,p_display,obj);
        
         } catch (Exception ex) {
             Logger.getLogger(TimeTableDisplay.class.getName()).log(Level.SEVERE, null, ex);
@@ -361,10 +393,11 @@ public class TimeTableDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_database;
+    private javax.swing.JButton b_file;
     private javax.swing.JButton b_generate;
     private javax.swing.JButton b_reset;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel p_display;
     private javax.swing.JScrollPane sp_display;
     // End of variables declaration//GEN-END:variables

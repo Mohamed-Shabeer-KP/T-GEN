@@ -78,13 +78,8 @@ JPanel p = new JPanel();
 p.setSize(1000,1000);
 p.setPreferredSize(new Dimension(300, 60));
 p.add(l_timer);
-
-
-
-   JOptionPane.showOptionDialog(null, p, "Generating Time Table", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
- 
-
-   }
+JOptionPane.showOptionDialog(null, p, "Generating Time Table", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
+ }
    
    public  void setfitness(double fit)
    {
