@@ -1,11 +1,13 @@
 package operations;
 
+import UI.ProgressOptionpane;
+
 
 
 public class Utility {
 	
-	public static void printInputData(int ip_type) throws InterruptedException{
-                new inputdata(ip_type);
+	public static void printInputData(int ip_type,ProgressOptionpane object) throws InterruptedException{
+                new inputdata(ip_type,object);
                 
 		System.out.println("Nostgrp="+inputdata.nostudentgroup+" Noteachers="+inputdata.noteacher+" daysperweek="+inputdata.daysperweek+" hoursperday="+inputdata.hoursperday);
 		for(int i=0;i<inputdata.nostudentgroup;i++){

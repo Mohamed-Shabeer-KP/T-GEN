@@ -36,7 +36,7 @@ public class SchedulerMain{
                 obj=object;
                 
 		//printing input data (on console for testing)
-		Utility.printInputData(ip_type);
+		Utility.printInputData(ip_type,obj);
 		
 		//generating slots
 		new TimeTable();
@@ -106,7 +106,7 @@ public class SchedulerMain{
 			
 			//if chromosome with fitness 1 found
 			if(i<populationsize){
-				 obj.setfitness(1);
+				obj.setfitness(1);
 				System.out.println("****************************************************************************************");
 				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
 				System.out.println("\nGenerated Timetable is:");

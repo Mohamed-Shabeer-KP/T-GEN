@@ -19,6 +19,7 @@ import javax.swing.*;
 
 public class ProgressOptionpane {
 double  fitness=0;
+int file_error_flag=0;
    @SuppressWarnings("serial")
    private  void createAndShowGui() {
        JLabel l_timer = new JLabel();
@@ -33,10 +34,17 @@ double  fitness=0;
 
       @Override
          public void actionPerformed(ActionEvent e) {
-
+             
              int flag = (int) Math.round(fitness * 100);
              DecimalFormat f = new DecimalFormat("##.##");
              double perc =Double.valueOf(f.format(fitness*100));
+             
+            if(file_error_flag==1)
+             {
+              ((Timer)e.getSource()).stop();
+               Window win = SwingUtilities.getWindowAncestor(l_timer);
+               win.setVisible(false);
+             }
              
             if (timeCounter <60 && flag!=100)  {      
                 l_timer.setText("<html><b><center>"+"Progress : "+ perc +"%"+"</center></b><br/>"+"Time Elapsed " + timeCounter + " seconds"+"</html>");
@@ -56,7 +64,9 @@ double  fitness=0;
                ((Timer)e.getSource()).stop();
                Window win = SwingUtilities.getWindowAncestor(l_timer);
                win.setVisible(false);
-               JOptionPane.showMessageDialog(null,"Time Taken : "+ min+"mins and "+sec+"seconds ");
+               if(min == 0 && sec == 0)
+               sec=1;
+               JOptionPane.showMessageDialog(null,"Time Taken : "+ min +"mins and "+ sec + "seconds ");
             }
          
          
@@ -79,6 +89,16 @@ p.add(l_timer);
    public  void setfitness(double fit)
    {
    fitness=fit;
+   }
+   
+   public void set_file_error_flag(int t)
+   {
+    file_error_flag=t;      
+   }
+   
+   public int get_file_error_flag()
+   {
+    return file_error_flag;      
    }
               
 

@@ -139,8 +139,7 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_closebutton
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TimeTableDisplay.init(network_flag);
-        
+        TimeTableDisplay.init(network_flag);        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

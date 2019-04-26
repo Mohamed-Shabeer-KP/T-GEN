@@ -2,6 +2,7 @@ package operations;
 
 import UI.TimeTableDisplay;
 import UI.DatabaseOp;
+import UI.ProgressOptionpane;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -34,14 +35,14 @@ public class inputdata {
         int file_flag=0;
         boolean hasbeeninitialized=false;
         int ip_type=0;
-
-	public inputdata(int ip_type) throws InterruptedException {
+        
+	public inputdata(int ip_type,ProgressOptionpane object) throws InterruptedException {
 		
                 this.ip_type=ip_type;
                 studentgroup = new StudentGroup[100];
 		teacher =   new Teacher[100];
             try {
-                takeinput();
+                takeinput(object);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -55,12 +56,12 @@ public class inputdata {
 			return (false);
 	}
 
-	public void takeinput() throws FileNotFoundException, InterruptedException// takes input from file input.txt
+	public void takeinput(ProgressOptionpane obj) throws FileNotFoundException, InterruptedException// takes input from file input.txt
 	{
 		//this method of taking input through file is only for development purpose so hours and days are hard coded
 		
-                if(ip_type==0)
-                {
+               if(ip_type==0)
+               {
                daysperweek = 5;
                hoursperday = 6;
 		try {
@@ -105,8 +106,10 @@ public class inputdata {
 						i++;
 					}
                                         noteacher = i;
-				}
-                            file_flag = 1;
+				if((line = scanner.nextLine()).equalsIgnoreCase("end"))
+                                file_flag=1; 
+                                }
+                          
 			}
 			scanner.close();
 		} catch (Exception e) {
@@ -116,11 +119,13 @@ public class inputdata {
                 if(file_flag==1)
                     System.out.println("Input Successfull");
                 else
-                    System.out.println("Please Select A Valid Input File (Make sure to check the format)");
-                
+                {
+                obj.set_file_error_flag(1);
+                JOptionPane.showMessageDialog(null,"Inputing failed , Please make sure input format is valid ");       
+                }
         }
   
-  // Fetch the service account key JSON file contents
+ 
         
 else if(ip_type==1)
 {
@@ -199,72 +204,6 @@ else if(ip_type==1)
         }
 
 }
- /*
-               daysperweek = 5;
-               hoursperday = 6;
-                          
-                nostudentgroup = 2;
-                noteacher = 5;
-             
-                studentgroup[0] = new StudentGroup();
-                studentgroup[0].id = 0;
-		studentgroup[0].name = "INT MCA 6TH A BATCH";
-                studentgroup[0].nosubject = 5;
-		studentgroup[0].subject[0] = "AI";
-		studentgroup[0].hours[0] = 4;
-                studentgroup[0].subject[1] = "CG";
-		studentgroup[0].hours[1] = 4;
-                studentgroup[0].subject[2] = "SC";//SC
-		studentgroup[0].hours[2] = 5;
-                studentgroup[0].subject[3] = "LIB";
-		studentgroup[0].hours[3] = 2;
-                studentgroup[0].subject[4] = "LAB";
-		studentgroup[0].hours[4] = 15;
-                
-                studentgroup[1] = new StudentGroup();
-                studentgroup[1].id = 1;
-		studentgroup[1].name = "INT MCA 6TH B BATCH";
-                studentgroup[1].nosubject = 5;
-		studentgroup[1].subject[0] = "AI";
-		studentgroup[1].hours[0] = 4;
-                studentgroup[1].subject[1] = "CG";
-		studentgroup[1].hours[1] = 4;
-                studentgroup[1].subject[2] = "SC";
-		studentgroup[1].hours[2] = 5;
-                studentgroup[1].subject[3] = "LIB";
-		studentgroup[1].hours[3] = 2;
-                studentgroup[1].subject[4] = "LAB";
-		studentgroup[1].hours[4] = 15;
-                
-                
-
-                teacher[0] = new Teacher();
-                teacher[0].id = 0;
-		teacher[0].name = "SOUMYA MISS";
-		teacher[0].subject = "AI";
-                
-                teacher[1] = new Teacher();
-                teacher[1].id = 1;
-		teacher[1].name = "DEEPA MISS";
-		teacher[1].subject = "SC";
-                
-                teacher[2] = new Teacher();
-                teacher[2].id = 2;
-		teacher[2].name = "LEENA MISS";
-		teacher[2].subject = "CG";
-                
-                teacher[3] = new Teacher();
-                teacher[3].id = 3;
-		teacher[3].name = "RAHUL";
-		teacher[3].subject = "LIB";
-               
-                teacher[4] = new Teacher();
-                teacher[4].id = 4;
-		teacher[4].name = "RAJESH";
-		teacher[4].subject = "LAB";
-                
-            */
-
                 assignTeacher();
 	}
         
