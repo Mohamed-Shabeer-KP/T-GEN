@@ -159,7 +159,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
+        b_remove_sg = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLayeredPane3 = new javax.swing.JLayeredPane();
         remove_studpanel = new javax.swing.JPanel();
@@ -293,6 +293,7 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         b_submit_view_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         b_submit_view_sg.setText("Submit");
+        b_submit_view_sg.setMinimumSize(new java.awt.Dimension(70, 25));
         b_submit_view_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_submit_view_sgActionPerformed(evt);
@@ -301,6 +302,7 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         b_reset_view_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         b_reset_view_sg.setText("Reset");
+        b_reset_view_sg.setPreferredSize(new java.awt.Dimension(70, 25));
         b_reset_view_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_reset_view_sgActionPerformed(evt);
@@ -320,11 +322,11 @@ public class DatabaseOp extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cb_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(viewstudent_panelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(b_submit_view_sg)
-                        .addGap(52, 52, 52)
-                        .addComponent(b_reset_view_sg)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGap(53, 53, 53)
+                        .addComponent(b_submit_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(b_reset_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         viewstudent_panelLayout.setVerticalGroup(
             viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,9 +337,9 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(cb_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88)
                 .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_submit_view_sg)
-                    .addComponent(b_reset_view_sg))
-                .addContainerGap(148, Short.MAX_VALUE))
+                    .addComponent(b_submit_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_reset_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         viewteacher_panel.setBackground(new java.awt.Color(102, 102, 102));
@@ -560,6 +562,7 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         b_submit_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         b_submit_sg.setText("Submit");
+        b_submit_sg.setPreferredSize(new java.awt.Dimension(70, 25));
         b_submit_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_submit_sgActionPerformed(evt);
@@ -567,6 +570,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         });
 
         b_reset_sg.setText("reset");
+        b_reset_sg.setPreferredSize(new java.awt.Dimension(70, 25));
         b_reset_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_reset_sgActionPerformed(evt);
@@ -582,18 +586,18 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(add_studLayout.createSequentialGroup()
-                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(b_submit_sg)
-                            .addComponent(jLabel8))
-                        .addGap(61, 61, 61)
-                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(b_reset_sg)
-                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(add_studLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(add_studLayout.createSequentialGroup()
+                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -606,16 +610,16 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_submit_sg)
-                    .addComponent(b_reset_sg))
+                    .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -633,7 +637,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             .addGroup(add_studpanelLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(add_stud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -681,18 +685,17 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(t_teacher_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_add_subject, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(add_teachLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
                 .addComponent(jButton7)
-                .addGap(77, 77, 77))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         add_teachLayout.setVerticalGroup(
             add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1000,9 +1003,9 @@ public class DatabaseOp extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -1015,10 +1018,10 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel15.setBackground(new java.awt.Color(51, 51, 51));
         jPanel15.setPreferredSize(new java.awt.Dimension(230, 440));
 
-        jButton8.setText("Remove Student Group");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        b_remove_sg.setText("Remove Student Group");
+        b_remove_sg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                b_remove_sgActionPerformed(evt);
             }
         });
 
@@ -1037,14 +1040,14 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
+                    .addComponent(b_remove_sg))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(146, 146, 146)
-                .addComponent(jButton8)
+                .addComponent(b_remove_sg)
                 .addGap(57, 57, 57)
                 .addComponent(jButton11)
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -1336,7 +1339,7 @@ public class DatabaseOp extends javax.swing.JFrame {
    // genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void b_remove_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_remove_sgActionPerformed
 
 
         threadGenRemoveSGUI();
@@ -1344,7 +1347,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLayeredPane3.setVisible(true);
         remove_teachpanel.setVisible(false);
         remove_studpanel.setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_b_remove_sgActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
 
@@ -1359,8 +1362,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_t_std_grp_nameActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-            threadRemoveSG();          
+           threadRemoveSG();    
     }//GEN-LAST:event_jButton3ActionPerformed
    int xx=0;
    int yy=0;
@@ -1431,7 +1433,7 @@ threadGenViewTeacher();
            jLabel19.setText("Student Group name is empty");
        }
        else
-          jLabel19.setText(" "); 
+          jLabel19.setText(""); 
        
     }//GEN-LAST:event_focuslost
 
@@ -1455,7 +1457,7 @@ threadGenViewTeacher();
            jLabel13.setText("Student Group name is empty");
        }
        else
-          jLabel13.setText(" "); 
+          jLabel13.setText(""); 
     }//GEN-LAST:event_t_teacher_nameFocusLost
 
     private void insert_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_panelMouseClicked
@@ -1464,15 +1466,15 @@ threadGenViewTeacher();
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
    
-        t_std_grp_name.setText(" ");
-        t_teacher_name.setText(" ");
+        t_std_grp_name.setText("");
+        t_teacher_name.setText("");
         cb_no_subjects.setSelectedItem(null);
         cb_add_subject.setSelectedItem(null);
       
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
-       jLabel19.setText(" ");
+       jLabel19.setText("");
     }//GEN-LAST:event_t_std_grp_nameFocusGained
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -2176,8 +2178,7 @@ for(int count = 0;count<sgcount;count++)
                 return;
                 }
        }
-    
-    
+    b_submit.setVisible(false);
     threadInsertStudentGroup();   
     }
     });
@@ -2228,19 +2229,13 @@ for(int count = 0;count<sgcount;count++)
     }
  
     public void genViewSGUI() throws InterruptedException
-    { 
-     
-
+    {
       List<JTextField> subject_name = new ArrayList<JTextField>();
       List<JTextField> subject_hours = new ArrayList<JTextField>();
       List<JLabel> subject_no_label = new ArrayList<JLabel>();
       List<JLabel> subject_name_label = new ArrayList<JLabel>();
       List<JLabel> subject_hours_label = new ArrayList<JLabel>();
-    
-  
-       
       JPanel panel= p_view_sg;
-
   String sg_name=cb_view_sg.getSelectedItem().toString();
   final FirebaseDatabase database = FirebaseDatabase.getInstance();
   DatabaseReference ref = database.getReference("studentgroup");
@@ -2655,6 +2650,7 @@ flag=0;
         });
         time();
         flag=0;
+        jComboBox3.removeItem(sg_name);
     }
     
     public void removeTeacher() throws InterruptedException
@@ -2824,6 +2820,7 @@ flag=0;
     private javax.swing.JPanel add_studpanel;
     private javax.swing.JPanel add_teach;
     private javax.swing.JPanel add_teachpanel;
+    private javax.swing.JButton b_remove_sg;
     private javax.swing.JButton b_reset_sg;
     private javax.swing.JButton b_reset_view_sg;
     private javax.swing.JButton b_submit_sg;
@@ -2851,7 +2848,6 @@ flag=0;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
