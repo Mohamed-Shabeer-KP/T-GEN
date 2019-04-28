@@ -206,11 +206,6 @@ public class DatabaseOp extends javax.swing.JFrame {
                 jTabbedPane1StateChanged(evt);
             }
         });
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseClicked(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -656,7 +651,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Calibri", 1, 11)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 204));
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -683,13 +678,13 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(add_teachLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jButton7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachLayout.createSequentialGroup()
+                .addGap(0, 125, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         add_teachLayout.setVerticalGroup(
             add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,8 +694,8 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -1467,7 +1462,7 @@ threadGenViewTeacher();
    
         t_std_grp_name.setText("");
         t_teacher_name.setText("");
-        cb_no_subjects.setSelectedItem(null);
+        cb_no_subjects.setSelectedItem(1);
         cb_add_subject.setSelectedItem(null);
       
     }//GEN-LAST:event_jTabbedPane1StateChanged
@@ -1475,10 +1470,6 @@ threadGenViewTeacher();
     private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
        jLabel19.setText("");
     }//GEN-LAST:event_t_std_grp_nameFocusGained
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void cb_add_subjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_add_subjectActionPerformed
         // TODO add your handling code here:
@@ -2758,7 +2749,7 @@ flag=0;
          
          if(t_teacher_name.getText().trim().isEmpty())
          {
-             jLabel13.setText("Student Group name is Empty");
+             jLabel13.setText("Teacher name is Empty");
            JOptionPane.showMessageDialog(null, "Please Enter valid Name");
          }
          else if ((!matcher.matches()))
