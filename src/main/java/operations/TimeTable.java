@@ -11,14 +11,14 @@ public class TimeTable {
 
 	public static Slot[] slot;
 
-	TimeTable() {
+	TimeTable(inputdata ipobj) {
 
 		int k = 0;
 		int subjectno = 0;
 		int hourcount = 1;
-		int days = inputdata.daysperweek;
-		int hours = inputdata.hoursperday;
-		int nostgrp = inputdata.nostudentgroup;
+		int days = ipobj.daysperweek;
+		int hours = ipobj.hoursperday;
+		int nostgrp = ipobj.nostudentgroup;
 
 		// creating as many slots as the no of blocks in overall timetable
 		slot = new Slot[hours * days * nostgrp];
@@ -30,7 +30,7 @@ public class TimeTable {
 			// for every slot in a week for a student group
 			for (int j = 0; j < hours * days; j++) {
 
-				StudentGroup sg = inputdata.studentgroup[i];
+				StudentGroup sg = ipobj.studentgroup[i];
 
 				// if all subjects have been assigned required hours we give
 				// free periods

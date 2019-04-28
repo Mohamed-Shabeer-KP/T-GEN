@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -59,8 +60,10 @@ public class Teacher_Table extends JFrame{
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                     teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
-                
+                    teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());    
+   
+                    if(teacher_count==0)
+                    JOptionPane.showMessageDialog(null, "No Teacher Found");
                         
                     tableModel = new DefaultTableModel(new Object[]{"Name","Subject"},0);
                     table.setModel(tableModel);

@@ -45,13 +45,13 @@ public class TimeTable_Table extends JFrame{
     DefaultTableModel tableModel;
    
 
-    public  void createGUI(JPanel p,String sg_name ,ArrayList list) throws FileNotFoundException, InterruptedException {
+    public  void createGUI(JPanel p,String sg_name ,ArrayList list,int day,int hour) throws FileNotFoundException, InterruptedException {
    
-        int h = Chromosome.hours;
-        int d = Chromosome.days;
+        int h = hour;
+        int d = day;
         
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-         p.setBorder(new LineBorder(Color.BLACK));
+        p.setBorder(new LineBorder(Color.BLACK));
         JPanel panel = new JPanel();
 
         JLabel l_sg = new JLabel();

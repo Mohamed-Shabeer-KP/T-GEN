@@ -118,7 +118,7 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         });
         b_generate.setVisible(false);
 
-        b_reset.setText("CLOSE");
+        b_reset.setText("RESET");
         b_reset.setMaximumSize(new java.awt.Dimension(150, 25));
         b_reset.setMinimumSize(new java.awt.Dimension(150, 25));
         b_reset.setPreferredSize(new java.awt.Dimension(150, 25));
@@ -330,9 +330,13 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     }//GEN-LAST:event_b_databaseActionPerformed
 
     private void b_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_resetActionPerformed
-        dispose();      
-        home.setVisible(true);
-        
+    p_display.removeAll();
+    p_display.revalidate();
+    p_display.repaint();
+    b_database.setVisible(true);
+    b_file.setVisible(true);       
+    b_reset.setVisible(false); 
+    b_print.setVisible(false); 
     }//GEN-LAST:event_b_resetActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

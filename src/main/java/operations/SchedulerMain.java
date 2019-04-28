@@ -27,24 +27,25 @@ public class SchedulerMain{
 	int maxgenerations=100;
         JPanel disp_panel;
         ProgressOptionpane obj;
-	
+        Utility utilobj;
+                
 	public static Chromosome finalson;
 	
 	public SchedulerMain(int ip_type,JPanel panel,ProgressOptionpane object) throws InterruptedException, Exception, Throwable {
 		
                 disp_panel=panel;
                 obj=object;
+	
+		utilobj=new Utility();
                 
-		//printing input data (on console for testing)
-		Utility util_obj=new Utility();
-                        
-                util_obj.printInputData(ip_type,obj);
+                //printing input data (on console for testing)
+                utilobj.printInputData(ip_type,obj);
 		
 		//generating slots
-		new TimeTable();
+		new TimeTable(utilobj.getobj());
 		
 		//printing slots (testing purpose only)
-		Utility.printSlots();
+		utilobj.printSlots();
 		
 		//initialising first generation of chromosomes and puting in first arraylist
 		initialisePopulation();
@@ -89,7 +90,7 @@ public class SchedulerMain{
 				mother=selectParentRoulette();
 		
 				//crossover
-				if(new Random().nextDouble()<inputdata.crossoverrate){
+				if(new Random().nextDouble()<utilobj.getobj().crossoverrate){
 					son=crossover(father,mother);	
 				}else
 					son=father;
@@ -152,7 +153,7 @@ public class SchedulerMain{
 	public void customMutation(Chromosome c){
 				
 		double newfitness=0,oldfitness=c.getFitness();
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
+		int geneno=new Random().nextInt(utilobj.getobj().nostudentgroup);
 				
 		int i=0;
 		while(newfitness<oldfitness){
@@ -160,7 +161,7 @@ public class SchedulerMain{
 			//c.printChromosome();
 			//System.out.println("getf="+c.getFitness()+" fit= "+c.fitness);
 					
-			c.gene[geneno]=new Gene(geneno);
+			c.gene[geneno]=new Gene(geneno,utilobj.getobj());
 			newfitness=c.getFitness();
 					
 			//c.printChromosome();
@@ -175,7 +176,7 @@ public class SchedulerMain{
 	//Two point crossover
 	public Chromosome crossover(Chromosome father,Chromosome mother){
 			
-		int randomint=new Random().nextInt(inputdata.nostudentgroup);
+		int randomint=new Random().nextInt(utilobj.getobj().nostudentgroup);
 		Gene temp=father.gene[randomint].deepClone();
 		father.gene[randomint]=mother.gene[randomint].deepClone();
 		mother.gene[randomint]=temp;
@@ -194,7 +195,7 @@ public class SchedulerMain{
 		for(int i=0;i<populationsize;i++){
 		
 			Chromosome c;
-			firstlist.add(c=new Chromosome());
+			firstlist.add(c=new Chromosome(utilobj.getobj()));
 			firstlistfitness+=c.fitness;
 			
 		}
@@ -240,21 +241,21 @@ public class SchedulerMain{
 	
 	//simple Mutation operation
 	public void mutation(Chromosome c){
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
+		int geneno=new Random().nextInt(utilobj.getobj().nostudentgroup);
 		int temp=c.gene[geneno].slotno[0];
-		for(int i=0;i<inputdata.daysperweek*inputdata.hoursperday-1;i++){
+		for(int i=0;i<utilobj.getobj().daysperweek*utilobj.getobj().hoursperday-1;i++){
 			c.gene[geneno].slotno[i]=c.gene[geneno].slotno[i+1];
 		}
-		c.gene[geneno].slotno[inputdata.daysperweek*inputdata.hoursperday-1]=temp;
+		c.gene[geneno].slotno[utilobj.getobj().daysperweek*utilobj.getobj().hoursperday-1]=temp;
 	}
 	
 	
 	//swap mutation
 	public void swapMutation(Chromosome c){
 		
-		int geneno=new Random().nextInt(inputdata.nostudentgroup);
-		int slotno1=new Random().nextInt(inputdata.hoursperday*inputdata.daysperweek);
-		int slotno2=new Random().nextInt(inputdata.hoursperday*inputdata.daysperweek);
+		int geneno=new Random().nextInt(utilobj.getobj().nostudentgroup);
+		int slotno1=new Random().nextInt(utilobj.getobj().hoursperday*utilobj.getobj().daysperweek);
+		int slotno2=new Random().nextInt(utilobj.getobj().hoursperday*utilobj.getobj().daysperweek);
 		
 		int temp=c.gene[geneno].slotno[slotno1];
 		c.gene[geneno].slotno[slotno1]=c.gene[geneno].slotno[slotno2];

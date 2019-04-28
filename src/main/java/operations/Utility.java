@@ -5,13 +5,12 @@ import UI.ProgressOptionpane;
 
 
 public class Utility {
-	
+	inputdata ip_obj;
 	public void printInputData(int ip_type,ProgressOptionpane object) throws InterruptedException{
-                inputdata ip_obj;
                 ip_obj=new inputdata(ip_type,object);
                 
-		System.out.println("Nostgrp="+inputdata.nostudentgroup+" Noteachers="+inputdata.noteacher+" daysperweek="+inputdata.daysperweek+" hoursperday="+inputdata.hoursperday);
-		for(int i=0;i<inputdata.nostudentgroup;i++){
+		System.out.println("Nostgrp="+ip_obj.nostudentgroup+" Noteachers="+ip_obj.noteacher+" daysperweek="+ip_obj.daysperweek+" hoursperday="+ip_obj.hoursperday);
+		for(int i=0;i<ip_obj.nostudentgroup;i++){
 			
 			System.out.println(ip_obj.studentgroup[i].id+" "+ip_obj.studentgroup[i].name);
 			
@@ -21,17 +20,17 @@ public class Utility {
 			System.out.println("");
 		}
 		
-		for(int i=0;i<inputdata.noteacher;i++){			
-			System.out.println(inputdata.teacher[i].id+" "+inputdata.teacher[i].name+" "+inputdata.teacher[i].subject+" "+inputdata.teacher[i].assigned);
+		for(int i=0;i<ip_obj.noteacher;i++){			
+			System.out.println(ip_obj.teacher[i].id+" "+ip_obj.teacher[i].name+" "+ip_obj.teacher[i].subject+" "+ip_obj.teacher[i].assigned);
 		}
 	}
 	
 	
-	public static void printSlots(){
+	public void printSlots(){
 		
-		int days=inputdata.daysperweek;
-		int hours=inputdata.hoursperday;
-		int nostgrp=inputdata.nostudentgroup;
+		int days=ip_obj.daysperweek;
+		int hours=ip_obj.hoursperday;
+		int nostgrp=ip_obj.nostudentgroup;
 		System.out.println("----Slots----");
 		for(int i=0;i<days*hours*nostgrp;i++){
 			if(TimeTable.slot[i]!=null)
@@ -42,7 +41,10 @@ public class Utility {
 		}
 		
 	}
-	
-	
-	
+        
+        public inputdata getobj()
+        {       
+        return ip_obj;
+        }
+
 }

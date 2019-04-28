@@ -152,7 +152,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="b_reset">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CLOSE"/>
+                <Property name="text" type="java.lang.String" value="RESET"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[150, 25]"/>
                 </Property>

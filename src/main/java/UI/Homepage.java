@@ -102,7 +102,7 @@ public class Homepage extends javax.swing.JFrame {
         jButton1.setBounds(360, 180, 170, 40);
 
         b_data_op.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        b_data_op.setText("DATA OPERATIONS");
+        b_data_op.setText("DATA MODIFICATION");
         b_data_op.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_data_opActionPerformed(evt);
@@ -176,7 +176,7 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Object [] options1 = {"Exit", "No"};
+    Object [] options1 = {"Exit", "No"};
     JOptionPane jop = new JOptionPane("Are you sure you want to exit ?", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION, null, options1, options1[0]);
     JDialog dialog = jop.createDialog(null, "Exit");
     dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);

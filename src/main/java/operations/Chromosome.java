@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 //Chromosome represents array of genes as complete timetable (looks like gene[0]gene[1]gene[2]...)
 public class Chromosome implements Comparable<Chromosome>,Serializable{
 	
-	static double crossoverrate=inputdata.crossoverrate;
-	static double mutationrate=inputdata.mutationrate;
-	public static int hours=inputdata.hoursperday,days=inputdata.daysperweek;
-	static int nostgrp=inputdata.nostudentgroup;
+	double crossoverrate;
+	double mutationrate;
+	public int hours,days;
+        int nostgrp;
 	double fitness;
 	double tr_p;
 	public Gene[] gene;
@@ -29,12 +29,18 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
         
 
 	
-	Chromosome(){
+	Chromosome(inputdata ipobj){
 		
+                crossoverrate=ipobj.crossoverrate;
+                mutationrate=ipobj.mutationrate;
+                nostgrp=ipobj.nostudentgroup;
+                hours=ipobj.hoursperday;
+                days=ipobj.daysperweek;
+            
 		gene=new Gene[nostgrp];
 		
 		for(int i=0;i<nostgrp;i++){			
-			gene[i]=new Gene(i);			
+			gene[i]=new Gene(i,ipobj);			
 		}
 		fitness=getFitness();
               
@@ -213,7 +219,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 			
 			}
                 
-        table_obj.createGUI(p,sg_name,subject);	
+        table_obj.createGUI(p,sg_name,subject,days,hours);	
 		}
 
 	}

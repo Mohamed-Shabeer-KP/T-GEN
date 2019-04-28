@@ -9,13 +9,16 @@ import java.io.*;
 public class Gene implements Serializable{
 
 	public int slotno[];
-	int days=inputdata.daysperweek;
-	int hours=inputdata.hoursperday;
+	int days;
+	int hours;
 	
 	Random r=new Random();
 	
-	Gene(int i){
-		
+	Gene(int i,inputdata ipobj){
+            	
+                days=ipobj.daysperweek;
+                hours=ipobj.hoursperday;
+   
 		boolean[] flag=new boolean[days*hours];
 		
 		/*  generating an array of slot no corresponding to index of gene eg suppose index

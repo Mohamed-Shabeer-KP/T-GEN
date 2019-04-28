@@ -26,11 +26,11 @@ import javax.swing.JOptionPane;
 
 public class inputdata {
 
-	public static StudentGroup[] studentgroup;
-	public static Teacher[] teacher;
-	public static double crossoverrate = 1.0, mutationrate = 0.1;
-	public static int nostudentgroup, noteacher;
-	public static int hoursperday, daysperweek;
+	public StudentGroup[] studentgroup;
+	public Teacher[] teacher;
+	public double crossoverrate = 1.0, mutationrate = 0.1;
+	public int nostudentgroup, noteacher;
+	public int hoursperday, daysperweek;
         int flag=0;
         int file_flag=0;
         boolean hasbeeninitialized=false;
