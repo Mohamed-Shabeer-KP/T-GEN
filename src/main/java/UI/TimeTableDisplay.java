@@ -306,7 +306,6 @@ public class TimeTableDisplay extends javax.swing.JFrame {
               
         p_display.revalidate();
         p_display.repaint();
-        p_display.updateUI();
         
         b_generate.setVisible(false);
         b_reset.setVisible(true);
@@ -431,9 +430,7 @@ public class TimeTableDisplay extends javax.swing.JFrame {
                 
                 // this method is called when the background
                 // thread finishes execution
-                   JOptionPane.showMessageDialog(null, "Time-Table Generated Successfully");
-                   b_generate.setVisible(true);
-               
+                   JOptionPane.showMessageDialog(null, "Time-Table Generated Successfully");       
             } 
         }; 
         // executes the swingworker on worker thread 

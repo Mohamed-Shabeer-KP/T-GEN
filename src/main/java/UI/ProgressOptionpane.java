@@ -62,9 +62,9 @@ public class ProgressOptionpane {
                     ((Timer) e.getSource()).stop();
                     Window win = SwingUtilities.getWindowAncestor(l_timer);
                     win.setVisible(false);
-                    if (min == 0 && sec == 0) {
-                        sec = 1;
-                    }
+                    if (sec==0 &min==0)
+                        sec = timeCounter;
+                    
                     JOptionPane.showMessageDialog(null, "Time Taken : " + min + " minutes and " + sec + " seconds ");
                 }
 
@@ -79,9 +79,9 @@ public class ProgressOptionpane {
         p.setSize(1000, 1000);
         p.setPreferredSize(new Dimension(300, 60));
         p.add(l_timer);
-        Object[] options1 = {"Go Back", "Accept"};
+        Object[] options1 = {"Yes", "No"};
         JOptionPane msg = new JOptionPane(p, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
-        JDialog msg_dialog = msg.createDialog(null, "Processing");
+        JDialog msg_dialog = msg.createDialog(null, "Generating Time-Table");
         msg_dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         msg_dialog.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
@@ -90,7 +90,7 @@ public class ProgressOptionpane {
                 dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
                 dialog.setVisible(true);
                 String a3 = (String) jop.getValue();
-                if (a3.equals("Accept")) {
+                if (a3.equals("Yes")) {
                     System.exit(0);
                 }
                 dialog.dispose();

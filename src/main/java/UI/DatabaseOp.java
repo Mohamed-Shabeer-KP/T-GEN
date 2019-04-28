@@ -64,7 +64,7 @@ public class DatabaseOp extends javax.swing.JFrame {
  
      
      
-     int stg_count=0,sg_count=0;
+     int stg_count=0,teacher_count=0;
      String stg_name="";
      JProgressBar pb;
      JButton b1;
@@ -87,7 +87,6 @@ public class DatabaseOp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -109,7 +108,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         t_view_hpd = new javax.swing.JTextField();
         p_view_teacher = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        sp_view_sg = new javax.swing.JScrollPane();
         p_view_sg = new javax.swing.JPanel();
         insert_panel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -170,17 +169,6 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -278,6 +266,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         );
 
         jLayeredPane4.setVisible(false);
+        jLayeredPane4.setOpaque(true);
 
         viewstudent_panel.setBackground(new java.awt.Color(102, 102, 102));
         viewstudent_panel.setPreferredSize(new java.awt.Dimension(320, 440));
@@ -317,19 +306,19 @@ public class DatabaseOp extends javax.swing.JFrame {
         viewstudent_panelLayout.setHorizontalGroup(
             viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewstudent_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(b_submit_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGroup(viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(viewstudent_panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)
                         .addGap(18, 18, 18)
-                        .addComponent(cb_view_sg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(viewstudent_panelLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(b_submit_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addComponent(cb_view_sg, 0, 188, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewstudent_panelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(b_reset_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 72, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(36, 36, 36))))
         );
         viewstudent_panelLayout.setVerticalGroup(
             viewstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,9 +444,10 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         p_view_teacher.setBackground(new java.awt.Color(50, 50, 50));
         p_view_teacher.setLayout(new java.awt.BorderLayout());
+        p_view_teacher.setVisible(false);
 
         p_view_sg.setLayout(new java.awt.GridBagLayout());
-        jScrollPane3.setViewportView(p_view_sg);
+        sp_view_sg.setViewportView(p_view_sg);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -468,7 +458,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sp_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -482,7 +472,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sp_view_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -547,19 +537,20 @@ public class DatabaseOp extends javax.swing.JFrame {
         add_stud.setLayout(add_studLayout);
         add_studLayout.setHorizontalGroup(
             add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(add_studLayout.createSequentialGroup()
+                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
+                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
+                        .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
         add_studLayout.setVerticalGroup(
             add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,9 +565,9 @@ public class DatabaseOp extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -622,7 +613,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(t_std_grp_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(add_stud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         add_teachpanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -679,9 +670,9 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(add_teachLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(107, 107, 107)
                 .addComponent(jButton7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         add_teachLayout.setVerticalGroup(
             add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -696,9 +687,9 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jButton7)
-                .addGap(24, 24, 24))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout add_teachpanelLayout = new javax.swing.GroupLayout(add_teachpanel);
@@ -1295,8 +1286,8 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
         threadgenInsertTeacherUI();
-    
         //jLayeredPane2.setVisible(true);
         jScrollPane1.setVisible(false);
         add_studpanel.setVisible(false);
@@ -1330,15 +1321,15 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-      
-      tg_validate(); 
+        int ret = tg_validate(); 
+        if(ret==0)
+            threadInsertTeacher();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void b_submit_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_submit_sgActionPerformed
-    
-     sg_Validate();  //VALIDATION 
-            
-    genInsertSGUI();//thread service not required
+        int ret = sg_Validate();  //VALIDATION 
+         if(ret==0)
+        genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void b_remove_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_remove_sgActionPerformed
@@ -1389,7 +1380,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        threadGenViewTeacher();    
+        threadGenViewTeacher();
         viewstudent_panel.setVisible(false);
         p_view_teacher.setVisible(true);
         viewdaysperweek_panel.setVisible(false);
@@ -1573,7 +1564,10 @@ public class DatabaseOp extends javax.swing.JFrame {
             { 
                 obj.setflag();
                 if(ret==0)
+                {
                 JOptionPane.showMessageDialog(jPanel1, "Teacher Inserted Successfully","Successfull", JOptionPane.PLAIN_MESSAGE);
+                t_teacher_name.setText("");
+                }
             } 
         }; 
         // executes the swingworker on worker thread 
@@ -2046,14 +2040,14 @@ public class DatabaseOp extends javax.swing.JFrame {
       List<JLabel> subject_name_label = new ArrayList<JLabel>();
       List<JLabel> subject_hours_label = new ArrayList<JLabel>();
     
-      JButton b_submit ;
+            JButton b_submit ;
       
-      JPanel panel= jPanel11;
+            JPanel panel= jPanel11;
  
-//remove all components in panel
-      Integer indexer = 1;
-for(int count = 0;count<sgcount;count++)
-{
+            //remove all components in panel
+              Integer indexer = 1;
+            for(int count = 0;count<sgcount;count++)
+            {
     
             // Create label and text field
             subject_no_label.add(new JLabel("Subject no : " + indexer));
@@ -2130,10 +2124,14 @@ for(int count = 0;count<sgcount;count++)
     @Override
     public void actionPerformed(ActionEvent e)
     {
+        
+    if(sg_Validate()!=0)
+       return;
+        
     subject_name_list=subject_name;
     subject_hours_list=subject_hours;
     
-           ArrayList sub_list = new ArrayList();
+       ArrayList sub_list = new ArrayList();
        String sub_name = null;
        
        for(int i=0;i<subject_name_list.size();i++)
@@ -2168,7 +2166,7 @@ for(int count = 0;count<sgcount;count++)
     
     public void genInsertTeacherUI() throws FileNotFoundException, InterruptedException
     {
-           
+                cb_add_subject.removeAllItems();
                 ArrayList sg_sub_list = new ArrayList();
                 ArrayList teacher_sub_list = new ArrayList();
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -2176,10 +2174,10 @@ for(int count = 0;count<sgcount;count++)
                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        sg_count = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue());                  
-                        int teacher_count = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue()); 
+                        teacher_count = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue());                  
+                        int teacher_count = Integer.parseInt((String) dataSnapshot.child("teacher").child("count").getValue()); 
                         
-                        for(int i=1;i<=sg_count;i++)
+                        for(int i=1;i<=DatabaseOp.this.teacher_count;i++)
                         {
                         int sub_count= Integer.valueOf(dataSnapshot.child("studentgroup").child("studentgroup:"+i).child("subjectno").getValue().toString());   
                         for(int j=1;j<=sub_count;j++)
@@ -2189,7 +2187,7 @@ for(int count = 0;count<sgcount;count++)
                         for(int i=1;i<=teacher_count;i++)
                         teacher_sub_list.add(dataSnapshot.child("teacher").child("teacher:"+i).child("subject").getValue().toString());
                         
-                        sg_sub_list.remove(teacher_sub_list);
+                        sg_sub_list.removeAll(teacher_sub_list);
                         
                         Set<String> set = new HashSet<>(sg_sub_list);
                         sg_sub_list.clear();
@@ -2197,6 +2195,7 @@ for(int count = 0;count<sgcount;count++)
                         
                         for(int h=0;h<sg_sub_list.size();h++)
                         cb_add_subject.addItem((String) sg_sub_list.get(h));
+                        
                     flag=1;
                     }
                     
@@ -2205,8 +2204,7 @@ for(int count = 0;count<sgcount;count++)
                         System.out.println("Error");// ...
                     }
                 });
-
-                   
+        
     time();
     flag=0;
     }
@@ -2406,9 +2404,9 @@ for(int count = 0;count<sgcount;count++)
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                sg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
                 
-                for(int i = 1; i <= sg_count ; i++)
+                for(int i = 1; i <= teacher_count ; i++)
                 {
                     String teacher_name = (String) dataSnapshot.child("teacher:"+i).child("name").getValue();
                     cb_remove_teacher.addItem(teacher_name);
@@ -2538,13 +2536,7 @@ flag=0;
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                sg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
-                for(int i=1;i<=sg_count;i++)
-                {
-                    teacherlist.add((String) dataSnapshot.child("teacher:"+i).child("name").getValue()); 
-                    cb_add_subject.addItem((String) dataSnapshot.child("teacher:"+i).child("subject").getValue());
-                }
-                
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());              
                 flag=1;               
             }    
             @Override
@@ -2556,18 +2548,21 @@ flag=0;
         time();
         flag=0;
         
-        if(teacherlist.contains(t_teacher_name.getText().toUpperCase()))
+       /* if(teacherlist.contains(t_teacher_name.getText().toUpperCase()))
         {  
         JOptionPane.showMessageDialog(null, "Teacher Already Exist");
         return 1;
-        }
+        }*/
         
-        DatabaseReference teacherref = ref.child("teacher:"+(sg_count+1));
+        DatabaseReference teacherref = ref.child("teacher:"+(teacher_count+1));
         Map<String, String> subject = new HashMap<>();
         subject.put("name",t_teacher_name.getText().toUpperCase());
         subject.put("subject",cb_add_subject.getSelectedItem().toString());
         teacherref.setValueAsync(subject);
-        ref.child("count").setValueAsync(String.valueOf(sg_count+1));
+        ref.child("count").setValueAsync(String.valueOf(teacher_count+1));
+        
+        cb_add_subject.removeItem(cb_add_subject.getSelectedItem().toString());
+        
         return 0;
     }
     
@@ -2663,9 +2658,9 @@ flag=0;
         teacher_ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                sg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
+                teacher_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
                 int f_count=0;
-                for(int i = 1; i <= sg_count ; i++)         
+                for(int i = 1; i <= teacher_count ; i++)         
                 {
                     if(dataSnapshot.child("teacher:"+i).child("name").getValue().equals(sg_name))
                     {
@@ -2673,7 +2668,7 @@ flag=0;
                         f_count=1;
                     }
                     
-                    if(f_count==1 && i<sg_count)
+                    if(f_count==1 && i<teacher_count)
                     {
                         teacher_ref.child("teacher:"+i).child("demo").setValueAsync("demo");
                         DatabaseReference new_node_ref = teacher_ref.child("teacher:"+i);
@@ -2697,7 +2692,7 @@ flag=0;
                             }
                         });
                     }
-                      teacher_ref.child("count").setValueAsync(String.valueOf(sg_count-1));
+                      teacher_ref.child("count").setValueAsync(String.valueOf(teacher_count-1));
                       flag=1;
                 }
             }
@@ -2745,7 +2740,7 @@ flag=0;
   //////////////////////////////////////////////////////////////////////////
     //(VALIDATION)
     
-    public void sg_Validate()
+    public int sg_Validate()
     {
          Pattern pattern = Pattern.compile("[a-zA-Z0-9_-]*");
          Matcher matcher = pattern.matcher(t_std_grp_name.getText());
@@ -2753,27 +2748,25 @@ flag=0;
          if((t_std_grp_name.getText().trim().isEmpty())&&(!(t_std_grp_name.getText().contains(" "))))
          {
              jLabel19.setText("Student Group name is Empty");
-           JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+           JOptionPane.showMessageDialog(null, "Please Enter a valid Student Group Name");
+           return -1;
          }
          else if ((!matcher.matches()))
          {
               
                      jLabel19.setText("Student Group name is Invalid");
-                     JOptionPane.showMessageDialog(null, "Please Enter valid Name");
-               
+                     JOptionPane.showMessageDialog(null, "Please Enter a valid Student Group Name");
+               return -1;
          }
          
-         else
-         { 
+         else 
          jLabel19.setText(" ");
-         genInsertSGUI();
-         }
          
-
+         return 0;
     }
     
     
-    public void tg_validate()
+    public int tg_validate()
     {
      Pattern pattern = Pattern.compile("[a-zA-Z_-]*");
          Matcher matcher = pattern.matcher(t_teacher_name.getText());
@@ -2781,7 +2774,8 @@ flag=0;
          if(t_teacher_name.getText().trim().isEmpty())
          {
              jLabel13.setText("Teacher name is Empty");
-           JOptionPane.showMessageDialog(null, "Please Enter valid Name");
+           JOptionPane.showMessageDialog(null, "Please Enter a valid Teacher Name");
+           return -1;
          }
          else if ((!matcher.matches()))
              
@@ -2789,25 +2783,20 @@ flag=0;
                   if(t_teacher_name.getText().contains(" "))
                     {
                          jLabel13.setText(" ");
-                         threadInsertTeacher();
-                         
+                      
                     }
                   else
                   {
-                        jLabel13.setText("Student Group name is Invalid");
-                        JOptionPane.showMessageDialog(null, "Please Enter valid Name");
-                  }
-               
+                        jLabel13.setText("Teacher name is Invalid");
+                        JOptionPane.showMessageDialog(null, "Please Enter a valid Teacher Name");
+                        return -1;
+                  }  
             }
          
          else
-         {
           jLabel13.setText(" ");
-          threadInsertTeacher();
-          
-         }
          
-
+         return 0;
     }
     //////////////////////////////////////////////////////////////////
     ///CLEAR PANEL
@@ -2882,19 +2871,18 @@ flag=0;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel p_view_sg;
     private javax.swing.JPanel p_view_teacher;
     private javax.swing.JPanel remove_studpanel;
     private javax.swing.JPanel remove_teachpanel;
+    private javax.swing.JScrollPane sp_view_sg;
     private javax.swing.JTextField t_std_grp_name;
     private javax.swing.JTextField t_teacher_name;
     private javax.swing.JTextField t_view_dpw;

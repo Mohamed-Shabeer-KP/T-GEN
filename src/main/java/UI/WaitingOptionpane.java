@@ -54,7 +54,7 @@ p.add(l_timer);
 
 
 //JOptionPane.showOptionDialog(null, p, "Please wait", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
-Object [] options1 = {"Exit","No"};
+Object [] options1 = {"Yes","No"};
 
 JOptionPane msg = new JOptionPane(p, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null,new Object[]{},null);
 JDialog msg_dialog = msg.createDialog(null, "Please Wait");
@@ -66,7 +66,7 @@ msg_dialog.addWindowListener(new WindowAdapter() {
     dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     dialog.setVisible(true);
     String a3 = (String) jop.getValue();
-    if (a3.equals("Exit")) {
+    if (a3.equals("Yes")) {
     System.exit(0);
 }
     dialog.dispose();
