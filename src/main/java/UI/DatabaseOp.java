@@ -1338,7 +1338,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     
      sg_Validate();  //VALIDATION 
             
-   // genInsertSGUI();//thread service not required
+    genInsertSGUI();//thread service not required
     }//GEN-LAST:event_b_submit_sgActionPerformed
 
     private void b_remove_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_remove_sgActionPerformed
@@ -1380,7 +1380,6 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jpanelmouse_dragged
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-
         threadGenViewSGUI();
         jLayeredPane4.setVisible(true);
         viewstudent_panel.setVisible(true);
@@ -1391,7 +1390,6 @@ public class DatabaseOp extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         threadGenViewTeacher();    
-        //jLayeredPane4.setVisible(true);
         viewstudent_panel.setVisible(false);
         p_view_teacher.setVisible(true);
         viewdaysperweek_panel.setVisible(false);
@@ -2051,7 +2049,6 @@ public class DatabaseOp extends javax.swing.JFrame {
       JButton b_submit ;
       
       JPanel panel= jPanel11;
- //panel.setLayout(new GridBagLayout());
  
 //remove all components in panel
       Integer indexer = 1;
@@ -2095,7 +2092,7 @@ for(int count = 0;count<sgcount;count++)
                 sub_hours_comboBoxConstraints.gridx = j+2;
                 sub_hours_comboBoxConstraints.gridy = k+2;
            
-                subject_name.get(i).setColumns(5);
+                subject_name.get(i).setColumns(13);
                 
                 
                 
@@ -2222,10 +2219,10 @@ for(int count = 0;count<sgcount;count++)
       List<JLabel> subject_name_label = new ArrayList<JLabel>();
       List<JLabel> subject_hours_label = new ArrayList<JLabel>();
       JPanel panel= p_view_sg;
-  String sg_name=cb_view_sg.getSelectedItem().toString();
-  final FirebaseDatabase database = FirebaseDatabase.getInstance();
-  DatabaseReference ref = database.getReference("studentgroup");
-  ref.addListenerForSingleValueEvent(new ValueEventListener() {
+      String sg_name=cb_view_sg.getSelectedItem().toString();
+      final FirebaseDatabase database = FirebaseDatabase.getInstance();
+      DatabaseReference ref = database.getReference("studentgroup");
+      ref.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {
           stg_count = Integer.parseInt((String) dataSnapshot.child("count").getValue());
@@ -2245,11 +2242,9 @@ for(int count = 0;count<sgcount;count++)
                       subject_no_label.add(new JLabel("Subject no : " + indexer));
                       subject_name_label.add(new JLabel("Subject name :  "));
                       subject_hours_label.add(new JLabel("Subject hours :  "));
-                      
-                      
+                                
                       subject_name.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("name").getValue()));
                       subject_hours.add(new JTextField((String) dataSnapshot.child("studentgroup:"+a).child("subjects").child("subject:"+count).child("hours").getValue()));
-                      
                       
                       // Create constraints
                       GridBagConstraints sub_no_labelConstraints = new GridBagConstraints();
@@ -2279,8 +2274,8 @@ for(int count = 0;count<sgcount;count++)
                           sub_hours_comboBoxConstraints.gridx = j+2;
                           sub_hours_comboBoxConstraints.gridy = k+2;
                           
-                          subject_name.get(i).setColumns(5);
-                          subject_hours.get(i).setColumns(5);
+                          subject_name.get(i).setColumns(13);
+                          subject_hours.get(i).setColumns(13);
                           
                           subject_name.get(i).setEditable(false);
                           subject_hours.get(i).setEditable(false);
