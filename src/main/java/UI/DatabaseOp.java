@@ -66,21 +66,16 @@ public class DatabaseOp extends javax.swing.JFrame {
      
      int stg_count=0,teacher_count=0;
      String stg_name="";
-      JProgressBar pb;
-      JButton b1;
+     JProgressBar pb;
+     JButton b1;
+     JFrame home;
       
-     
-     
-      
-     
-  
     /**
      * Creates new form gen_time_table
      */
-    public DatabaseOp() {
+    public DatabaseOp(JFrame frame) {
         initComponents();
-       
-        //panel.setBorder(LineBorder.createBlackLineBorder());
+        home=frame;
     }
 
     /**
@@ -190,7 +185,6 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 550));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -266,7 +260,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +273,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addComponent(jButton17)
                 .addGap(52, 52, 52)
                 .addComponent(jButton18)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jLayeredPane4.setVisible(false);
@@ -753,7 +747,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(add_studpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(add_teachpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE))
+                .addComponent(add_teachpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -809,7 +803,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(55, 55, 55)
                 .addComponent(jButton5)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout insert_panelLayout = new javax.swing.GroupLayout(insert_panel);
@@ -878,7 +872,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addComponent(jButton9)
                 .addGap(83, 83, 83)
                 .addComponent(jButton10)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setVisible(false);
@@ -912,7 +906,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addGroup(days_perweekpanelLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jButton13)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         days_perweekpanelLayout.setVerticalGroup(
             days_perweekpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1041,7 +1035,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_remove_sg))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1050,7 +1044,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addComponent(b_remove_sg)
                 .addGap(57, 57, 57)
                 .addComponent(jButton11)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         jLayeredPane3.setVisible(false);
@@ -1143,10 +1137,10 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLayeredPane3.setLayout(jLayeredPane3Layout);
         jLayeredPane3Layout.setHorizontalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 741, Short.MAX_VALUE)
+            .addGap(0, 755, Short.MAX_VALUE)
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                    .addComponent(remove_studpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                    .addComponent(remove_studpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane3Layout.createSequentialGroup()
@@ -1178,7 +1172,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, 438, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("          REMOVE                   ", jPanel6);
@@ -1189,6 +1183,11 @@ public class DatabaseOp extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closebutton(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -1484,43 +1483,23 @@ threadGenViewTeacher();
     private void cb_add_subjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_add_subjectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_add_subjectActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
   
     /**
      * @param args the command line arguments
      */
     //public static void main(String args[]) throws FileNotFoundException {
-     public static void init() throws FileNotFoundException {
+     public static void init(JFrame frame) throws FileNotFoundException {
 
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatabaseOp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+ 
       
              /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DatabaseOp().setVisible(true);
+                new DatabaseOp(frame).setVisible(true);
       
             }
         });
@@ -1686,7 +1665,7 @@ threadGenViewTeacher();
             @Override
             protected void done()  
             { 
-                obj.setflag();             
+            obj.setflag();             
             } 
         };  
         sw1.execute();  
@@ -2707,6 +2686,7 @@ flag=0;
         });
         time();
         flag=0;
+        cb_remove_teacher.removeItem(sg_name);
     }
     
     ////////////////////////////////////////////////////////////////////////////////

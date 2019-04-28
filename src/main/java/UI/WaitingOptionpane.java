@@ -54,8 +54,8 @@ p.add(l_timer);
 
 
 //JOptionPane.showOptionDialog(null, p, "Please wait", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
-Object [] options1 = {"Go Back", "Accept"};
-JOptionPane msg = new JOptionPane(p, JOptionPane.PLAIN_MESSAGE, JOptionPane.DEFAULT_OPTION, null,new Object[]{},null);
+Object [] options1 = {"Accept","Go Back"};
+JOptionPane msg = new JOptionPane(p, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null,new Object[]{},null);
 JDialog msg_dialog = msg.createDialog(null, "Processing");
 msg_dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 msg_dialog.addWindowListener(new WindowAdapter() {

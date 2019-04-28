@@ -66,13 +66,29 @@ public class inputdata {
                hoursperday = 6;
 		try {
                    
-			File file = new File(TimeTableDisplay.path);
+			File file = new File(TimeTableDisplay.o_path);
 			
 			Scanner scanner = new Scanner(file);
 			
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
 
+                                // input days per week
+				if (line.equalsIgnoreCase("daysperweek")) 
+                                {
+                                line = scanner.nextLine();
+                                StringTokenizer st = new StringTokenizer(line, " ");
+                                daysperweek=Integer.valueOf(st.nextToken());
+                                }   
+                                
+                                // input hours per day
+                                if (line.equalsIgnoreCase("hoursperday")) 
+                                {
+                                    line = scanner.nextLine();
+                                StringTokenizer st = new StringTokenizer(line, " ");
+                                hoursperday=Integer.valueOf(st.nextToken());
+                                }   
+                                        
 				// input student groups
 				if (line.equalsIgnoreCase("studentgroups")) {
 					int i = 0, j;
@@ -129,79 +145,59 @@ public class inputdata {
         
 else if(ip_type==1)
 {
-                    try {         
-                File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
-                FileInputStream serviceAccount = new FileInputStream(f);
-                FirebaseOptions options = null;
-                try {
-                    options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                            .setDatabaseUrl("https://t-gen-007.firebaseio.com")
-                            .build(); } catch (IOException ex) {
-                                Logger.getLogger(inputdata.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                       
-               
-                
-                           final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference basic_ref = database.getReference("basic");
-              
-                basic_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        daysperweek = Integer.parseInt((String) dataSnapshot.child("daysperweek").getValue());                  
-                        hoursperday = Integer.parseInt((String) dataSnapshot.child("hoursperday").getValue());
-                    }
-                    
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-               });
-           
-                 
-                DatabaseReference sgsref = database.getReference();
-                sgsref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        nostudentgroup = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue()); 
-                        noteacher = Integer.parseInt((String) dataSnapshot.child("teacher").child("count").getValue()); 
-                       
-                        for(int i=0;i<nostudentgroup;i++)
-                        {
-                            studentgroup[i] = new StudentGroup();
-                            studentgroup[i].id = i;
-                            studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjectno").getValue());
-                            studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("name").getValue());
-    
-                            for(int j=0;j<studentgroup[i].nosubject;j++)
-                            {
-                                studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
-                                studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
-                            }
-                        }
-                        
-                        for(int i=0;i<noteacher;i++)
-                        {
-                            teacher[i] = new Teacher();
-                            teacher[i].id = i;
-                            teacher[i].name = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("name").getValue();
-                            teacher[i].subject = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("subject").getValue();
-                        }
-                        
-                        flag=1;
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        System.out.println("Error");// ...
-                    }
-                });
-  		time();
-                flag=0;
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(DatabaseOp.class.getName()).log(Level.SEVERE, null, ex);
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference basic_ref = database.getReference("basic");
+    basic_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            daysperweek = Integer.parseInt((String) dataSnapshot.child("daysperweek").getValue());
+            hoursperday = Integer.parseInt((String) dataSnapshot.child("hoursperday").getValue());
         }
+        
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+            System.out.println("Error");// ...
+        }
+    });
+    DatabaseReference sgsref = database.getReference();
+    sgsref.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            nostudentgroup = Integer.parseInt((String) dataSnapshot.child("studentgroup").child("count").getValue());
+            noteacher = Integer.parseInt((String) dataSnapshot.child("teacher").child("count").getValue());
+            
+            for(int i=0;i<nostudentgroup;i++)
+            {
+                studentgroup[i] = new StudentGroup();
+                studentgroup[i].id = i;
+                studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjectno").getValue());
+                studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("name").getValue());
+                
+                for(int j=0;j<studentgroup[i].nosubject;j++)
+                {
+                    studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
+                    studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
+                }
+            }
+            
+            for(int i=0;i<noteacher;i++)
+            {
+                teacher[i] = new Teacher();
+                teacher[i].id = i;
+                teacher[i].name = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("name").getValue();
+                teacher[i].subject = (String) dataSnapshot.child("teacher").child("teacher:"+(i+1)).child("subject").getValue();
+            }
+            
+            flag=1;
+        }
+        
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+            System.out.println("Error");// ...
+        }
+    });
+    time();
+    flag=0;
 
 }
                 assignTeacher();

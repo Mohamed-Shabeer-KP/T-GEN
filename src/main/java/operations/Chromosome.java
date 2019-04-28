@@ -150,10 +150,10 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
               }
                 
               
-                 lab_point_1 =.5;//(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
-                 lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
+                lab_point_1 =.5;//(tlp_lp/(days*(hours/3)))/2;//tlp_lp m(10) ,lab_point_1 - .5
+                lab_point_2 =.5;//(rlh_lp/22)/2;//div by 25 - rlh_lp m(25) , lab_point_2 - .5
                 lab_point_3 = .5;//(st_lp/27);//div by 30 - st_lp m(15) lab_point_2 - .5
-                 final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
+                final_lab_point = (lab_point_3+lab_point_1+lab_point_2)/3;//final_lab_point - .5
           
             
             
@@ -169,7 +169,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	                
  
 	//printing final timetable
-	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException{
+	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException, Throwable{
             
             
             TimeTable_Table table_obj =new TimeTable_Table();
@@ -181,11 +181,10 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 			boolean status=false;
 			int l=0;
 			while(!status){
-				
-				//printing name of batch
+			
 				if(TimeTable.slot[gene[i].slotno[l]]!=null){
 					
-                                    sg_name ="Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable :-";
+                                    sg_name ="Batch "+TimeTable.slot[gene[i].slotno[l]].studentgroup.name+" Timetable :-";                                  
                                     status=true;
 				}
 				l++;
@@ -213,12 +212,9 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 				
 			
 			}
-			
-			
-	                
-table_obj.createGUI(p,sg_name,subject);	
+                
+        table_obj.createGUI(p,sg_name,subject);	
 		}
-
 
 	}
 	

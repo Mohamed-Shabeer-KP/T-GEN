@@ -18,8 +18,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import javax.swing.WindowConstants;
 import operations.inputdata;
 
 
@@ -79,8 +81,13 @@ public class Homepage extends javax.swing.JFrame {
                 closebutton(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
-        jButton2.setBounds(840, 10, 40, 20);
+        jButton2.setBounds(840, 10, 40, 30);
 
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         jButton1.setText("GENERATE TIME TABLE");
@@ -116,7 +123,7 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(790, 10, 40, 20);
+        jButton4.setBounds(790, 10, 40, 30);
 
         try{
         }catch(Exception e){System.out.println(e);}
@@ -144,8 +151,8 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_closebutton
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TimeTableDisplay.init(network_flag);
-        this.setVisible(false);     
+        TimeTableDisplay.init(network_flag,this);  
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -154,17 +161,28 @@ public class Homepage extends javax.swing.JFrame {
 
     private void b_data_opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_data_opActionPerformed
         try {
-            DatabaseOp.init();
+            DatabaseOp.init(this);
+            this.setVisible(false);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
     }//GEN-LAST:event_b_data_opActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setState(this.ICONIFIED);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Object [] options1 = {"Exit", "No"};
+    JOptionPane jop = new JOptionPane("Are you sure you want to exit ?", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION, null, options1, options1[0]);
+    JDialog dialog = jop.createDialog(null, "Exit");
+    dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+    dialog.setVisible(true);
+    String a3 = (String) jop.getValue();
+    if (a3.equals("Exit")) {
+    System.exit(0);   
+    }//GEN-LAST:event_jButton2ActionPerformed
+    }
      public void threadCheckInternet()
     {
      WaitingOptionpane obj=new WaitingOptionpane();

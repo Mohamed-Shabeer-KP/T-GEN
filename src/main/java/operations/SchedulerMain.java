@@ -30,7 +30,7 @@ public class SchedulerMain{
 	
 	public static Chromosome finalson;
 	
-	public SchedulerMain(int ip_type,JPanel panel,ProgressOptionpane object) throws InterruptedException, Exception {
+	public SchedulerMain(int ip_type,JPanel panel,ProgressOptionpane object) throws InterruptedException, Exception, Throwable {
 		
                 disp_panel=panel;
                 obj=object;
@@ -58,7 +58,7 @@ public class SchedulerMain{
 
         
 	//Creating new Generations using crossovers and mutations
-	public void createNewGenerations() throws Exception{
+	public void createNewGenerations() throws Exception, InterruptedException, Throwable{
 		
 		Chromosome father=null;
 		Chromosome mother=null;
@@ -115,8 +115,8 @@ public class SchedulerMain{
 				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
 				System.out.println("\nGenerated Timetable is:");
 				son.printTimeTable(disp_panel);
-				finalson=son;
-				break;
+				finalson=son;				
+                                break;
 				
 			}
 			
@@ -262,9 +262,10 @@ public class SchedulerMain{
 
 	
 	//public static void main(String[] args) throws InterruptedException, Exception {
-	  public static void gen(int ip_type,JPanel p,ProgressOptionpane obj) throws InterruptedException, Exception {
+	  public static void gen(int ip_type,JPanel p,ProgressOptionpane obj) throws InterruptedException, Exception, Throwable {
               
-              new SchedulerMain(ip_type,p,obj);
+             SchedulerMain object= new SchedulerMain(ip_type,p,obj);
+             
 	}
         
         
