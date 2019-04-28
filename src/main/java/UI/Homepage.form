@@ -151,7 +151,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="}catch(Exception e){System.out.println(e);}">
-              <Image iconType="3" name="/UI/TIME.jpg"/>
+              <Image iconType="3" name="/images/TIME.jpg"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -160,7 +160,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="860" height="450"/>
+              <AbsoluteConstraints x="180" y="70" width="570" height="300"/>
             </Constraint>
           </Constraints>
         </Component>

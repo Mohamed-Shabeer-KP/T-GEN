@@ -129,10 +129,10 @@ public class Homepage extends javax.swing.JFrame {
 
         try{
             jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/TIME.jpg"))); // NOI18N
+            jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TIME.jpg"))); // NOI18N
         }catch(Exception e){System.out.println(e);}
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 860, 450);
+        jLabel4.setBounds(180, 70, 570, 300);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
