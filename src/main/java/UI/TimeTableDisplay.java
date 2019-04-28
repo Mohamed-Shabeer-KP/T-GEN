@@ -77,6 +77,16 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         setSize(getPreferredSize());
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mouse_dragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mouse_pressed(evt);
+            }
+        });
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
 
@@ -207,6 +217,11 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
         jButton1.setText("--");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("X");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -292,6 +307,22 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+   int xx=0;
+   int yy=0;
+    private void mouse_pressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouse_pressed
+        xx=evt.getX();
+         yy=evt.getY(); 
+    }//GEN-LAST:event_mouse_pressed
+
+    private void mouse_dragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouse_dragged
+         int x=evt.getXOnScreen();
+       int y=evt.getYOnScreen();
+       this.setLocation(x-xx, y-yy);
+    }//GEN-LAST:event_mouse_dragged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setState(this.ICONIFIED);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void threadGenFile()
     {

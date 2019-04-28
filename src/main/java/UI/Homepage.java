@@ -57,12 +57,14 @@ public class Homepage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -79,8 +81,13 @@ public class Homepage extends javax.swing.JFrame {
                 closebutton(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
-        jButton2.setBounds(840, 10, 40, 20);
+        jButton2.setBounds(810, 10, 40, 20);
 
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         jButton1.setText("GENERATE TIME TABLE");
@@ -90,7 +97,7 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(360, 200, 170, 40);
+        jButton1.setBounds(360, 180, 170, 40);
 
         b_data_op.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         b_data_op.setText("DATA OPERATIONS");
@@ -100,7 +107,7 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(b_data_op);
-        b_data_op.setBounds(360, 290, 170, 40);
+        b_data_op.setBounds(360, 280, 170, 40);
         b_data_op.setVisible(false);
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
@@ -116,23 +123,24 @@ public class Homepage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(790, 10, 40, 20);
+        jButton4.setBounds(760, 10, 40, 20);
 
         try{
+            jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/TIME.jpg"))); // NOI18N
         }catch(Exception e){System.out.println(e);}
-        jLabel4.setText("image");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 890, 500);
+        jLabel4.setBounds(0, 0, 860, 450);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -164,6 +172,10 @@ public class Homepage extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setState(this.ICONIFIED);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
      public void threadCheckInternet()
     {
