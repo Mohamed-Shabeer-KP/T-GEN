@@ -6,16 +6,17 @@ import UI.ProgressOptionpane;
 
 public class Utility {
 	
-	public static void printInputData(int ip_type,ProgressOptionpane object) throws InterruptedException{
-                new inputdata(ip_type,object);
+	public void printInputData(int ip_type,ProgressOptionpane object) throws InterruptedException{
+                inputdata ip_obj;
+                ip_obj=new inputdata(ip_type,object);
                 
 		System.out.println("Nostgrp="+inputdata.nostudentgroup+" Noteachers="+inputdata.noteacher+" daysperweek="+inputdata.daysperweek+" hoursperday="+inputdata.hoursperday);
 		for(int i=0;i<inputdata.nostudentgroup;i++){
 			
-			System.out.println(inputdata.studentgroup[i].id+" "+inputdata.studentgroup[i].name);
+			System.out.println(ip_obj.studentgroup[i].id+" "+ip_obj.studentgroup[i].name);
 			
-			for(int j=0;j<inputdata.studentgroup[i].nosubject;j++){
-				System.out.println(inputdata.studentgroup[i].subject[j]+" "+inputdata.studentgroup[i].hours[j]+" hrs "+inputdata.studentgroup[i].teacherid[j]);
+			for(int j=0;j<ip_obj.studentgroup[i].nosubject;j++){
+				System.out.println(ip_obj.studentgroup[i].subject[j]+" "+ip_obj.studentgroup[i].hours[j]+" hrs "+ip_obj.studentgroup[i].teacherid[j]);
 			}
 			System.out.println("");
 		}

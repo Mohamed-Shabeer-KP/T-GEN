@@ -36,7 +36,9 @@ public class SchedulerMain{
                 obj=object;
                 
 		//printing input data (on console for testing)
-		Utility.printInputData(ip_type,obj);
+		Utility util_obj=new Utility();
+                        
+                util_obj.printInputData(ip_type,obj);
 		
 		//generating slots
 		new TimeTable();
