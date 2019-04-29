@@ -9,9 +9,9 @@ public class StudentGroup {
 	public int[] hours;
 	
 	public StudentGroup() {
-		subject=new String[10];
-		hours=new int[10];
-		teacherid=new int[10];
+		subject=new String[20];
+		hours=new int[20];
+		teacherid=new int[20];
 	}
 	
 	public int getId() {

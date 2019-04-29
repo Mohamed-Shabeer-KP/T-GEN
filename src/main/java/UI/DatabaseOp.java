@@ -698,7 +698,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_teachpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(add_teach, javax.swing.GroupLayout.PREFERRED_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(add_teach, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                 .addGap(37, 37, 37))
         );
         add_teachpanelLayout.setVerticalGroup(
@@ -1101,16 +1101,13 @@ public class DatabaseOp extends javax.swing.JFrame {
         remove_teachpanelLayout.setHorizontalGroup(
             remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(remove_teachpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(27, 27, 27)
                 .addGroup(remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(remove_teachpanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel11)
-                        .addGap(47, 47, 47)
-                        .addComponent(cb_remove_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(remove_teachpanelLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jButton12)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addComponent(jButton12)
+                    .addComponent(cb_remove_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         remove_teachpanelLayout.setVerticalGroup(
             remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1119,9 +1116,9 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(remove_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(cb_remove_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
+                .addGap(55, 55, 55)
                 .addComponent(jButton12)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         jLayeredPane3.setLayer(remove_studpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1166,7 +1163,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE)
+            .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("          REMOVE                   ", jPanel6);

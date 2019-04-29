@@ -170,10 +170,11 @@ else if(ip_type==1)
             {
                 studentgroup[i] = new StudentGroup();
                 studentgroup[i].id = i;
-                studentgroup[i].nosubject =    Integer.parseInt((String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjectno").getValue());
-                studentgroup[i].name =    String.valueOf( dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("name").getValue());
+                studentgroup[i].nosubject =Integer.parseInt((String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjectno").getValue());
+                studentgroup[i].name =String.valueOf( dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("name").getValue());
                 
-                for(int j=0;j<studentgroup[i].nosubject;j++)
+                int sub_no=studentgroup[i].nosubject;
+                for(int j=0;j<sub_no;j++)
                 {
                     studentgroup[i].subject[j]  = (String) dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("name").getValue();
                     studentgroup[i].hours[j]   = Integer.parseInt((String)  dataSnapshot.child("studentgroup").child("studentgroup:"+(i+1)).child("subjects").child("subject:"+(j+1)).child("hours").getValue());
