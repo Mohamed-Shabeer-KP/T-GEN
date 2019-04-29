@@ -2,6 +2,7 @@ package operations;
 
 
 
+import UI.ProgressOptionpane;
 import UI.TimeTableDisplay;
 import UI.TimeTable_Table;
 import java.io.*;
@@ -175,7 +176,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 	                
  
 	//printing final timetable
-	public void printTimeTable(JPanel p) throws FileNotFoundException, InterruptedException, Throwable{
+	public void printTimeTable(JPanel p,ProgressOptionpane object) throws FileNotFoundException, InterruptedException, Throwable{
             
             
             TimeTable_Table table_obj =new TimeTable_Table();
@@ -219,7 +220,7 @@ public class Chromosome implements Comparable<Chromosome>,Serializable{
 			
 			}
                 
-        table_obj.createGUI(p,sg_name,subject,days,hours);	
+        table_obj.createGUI(p,sg_name,subject,days,hours,object);	
 		}
 
 	}

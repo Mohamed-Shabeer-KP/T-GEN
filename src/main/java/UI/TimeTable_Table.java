@@ -45,7 +45,7 @@ public class TimeTable_Table extends JFrame{
     DefaultTableModel tableModel;
    
 
-    public  void createGUI(JPanel p,String sg_name ,ArrayList list,int day,int hour) throws FileNotFoundException, InterruptedException {
+    public  void createGUI(JPanel p,String sg_name ,ArrayList list,int day,int hour,ProgressOptionpane object) throws FileNotFoundException, InterruptedException {
    
         int h = hour;
         int d = day;
@@ -98,10 +98,12 @@ public class TimeTable_Table extends JFrame{
         tableModel.addRow((Object[]) sub_obj[i]);
         }
         
+        object.setfitness(1);
         p.add(l_sg);
         p.add(panel); 
         p.revalidate();
         p.repaint();
+        
     }
     
 

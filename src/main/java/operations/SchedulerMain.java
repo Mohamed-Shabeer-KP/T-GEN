@@ -113,11 +113,11 @@ public class SchedulerMain{
 			
 			//if chromosome with fitness 1 found
 			if(i<populationsize){
-				obj.setfitness(1);
+				
 				System.out.println("****************************************************************************************");
-				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
+    				System.out.println("\n\nSuitable Timetable has been generated in the "+i+"th Chromosome of "+(nogenerations+2)+" generation with fitness 1.");
 				System.out.println("\nGenerated Timetable is:");
-				son.printTimeTable(disp_panel);
+				son.printTimeTable(disp_panel,obj);
 				finalson=son;				
                                 break;
 				
@@ -223,7 +223,8 @@ public class SchedulerMain{
 		System.out.println("Chromosome no. "+(populationsize/10+1)+" :"+list.get(populationsize/10+1).getFitness()+"\n");
 		System.out.println("Chromosome no. "+(populationsize)+" :"+list.get(populationsize/5+1).getFitness()+"\n");
 		System.out.println("Most fit chromosome from this generation has fitness = "+list.get(0).getFitness()+"\n");
-
+                
+          if(list.get(0).getFitness()!=1)
           obj.setfitness(list.get(0).getFitness());
 
 	}

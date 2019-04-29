@@ -49,6 +49,7 @@ import javax.swing.border.LineBorder;
 import operations.inputdata;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -170,6 +171,14 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(50, 50, 50));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), new java.awt.Color(0, 0, 0)));
@@ -1449,6 +1458,16 @@ public class DatabaseOp extends javax.swing.JFrame {
     private void cb_view_sgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_view_sgActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_view_sgActionPerformed
+
+    private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowIconified
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        ImageIcon icon = new ImageIcon("./res/icon.png");
+        this.setIconImage(icon.getImage());       
+    }//GEN-LAST:event_formWindowOpened
   
     /**
      * @param args the command line arguments
