@@ -475,8 +475,8 @@ public class DatabaseOp extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(4, 4, 4)
-                    .addComponent(p_view_teacher, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
-                    .addGap(5, 5, 5)))
+                    .addComponent(p_view_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(29, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("         VIEW                      ", jPanel2);

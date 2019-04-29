@@ -82,6 +82,7 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         b_print = new javax.swing.JButton();
         sp_display = new javax.swing.JScrollPane();
         p_display = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -192,6 +193,10 @@ public class TimeTableDisplay extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\moham\\Desktop\\bg.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        p_display.add(jLabel2);
+
         sp_display.setViewportView(p_display);
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -223,7 +228,7 @@ public class TimeTableDisplay extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sp_display, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addComponent(sp_display, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -623,6 +628,7 @@ finally{
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
