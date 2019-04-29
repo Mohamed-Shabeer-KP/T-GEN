@@ -145,6 +145,14 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         b_file.setMaximumSize(new java.awt.Dimension(150, 25));
         b_file.setMinimumSize(new java.awt.Dimension(150, 25));
         b_file.setPreferredSize(new java.awt.Dimension(150, 25));
+        b_file.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b_fileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b_fileMouseExited(evt);
+            }
+        });
         b_file.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_fileActionPerformed(evt);
@@ -193,9 +201,11 @@ public class TimeTableDisplay extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
+        p_display.setPreferredSize(new java.awt.Dimension(980, 610));
+
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\moham\\Desktop\\bg.png")); // NOI18N
-        jLabel2.setText("jLabel2");
         p_display.add(jLabel2);
+        jLabel2.setVisible(false);
 
         sp_display.setViewportView(p_display);
 
@@ -369,6 +379,14 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     fileSaver();
     threadPrint();
     }//GEN-LAST:event_b_printActionPerformed
+
+    private void b_fileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_fileMouseEntered
+       jLabel2.setVisible(true);
+    }//GEN-LAST:event_b_fileMouseEntered
+
+    private void b_fileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_fileMouseExited
+         jLabel2.setVisible(false);
+    }//GEN-LAST:event_b_fileMouseExited
 
     public void threadGenFile()
     {              
