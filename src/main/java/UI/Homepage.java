@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -160,6 +161,8 @@ public class Homepage extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         threadCheckInternet();
+        ImageIcon icon = new ImageIcon("./res/icon.jpg");
+        this.setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowOpened
 
     private void b_data_opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_data_opActionPerformed
@@ -273,7 +276,7 @@ public class Homepage extends javax.swing.JFrame {
     }
         public static void initfirebase() throws FileNotFoundException
     {
-                   File f = new File("./src/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
+                   File f = new File("./res/t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 // FileInputStream serviceAccount = new FileInputStream("C:\\Users\\moham\\Documents\\NetBeansProjects\\T-GEN\\src\\t-gen-007-firebase-adminsdk-eno5f-c15f92dde6.json");
                 FileInputStream serviceAccount = new FileInputStream(f);
                 FirebaseOptions options = null;
