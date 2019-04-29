@@ -201,8 +201,6 @@ public class TimeTableDisplay extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        p_display.setPreferredSize(new java.awt.Dimension(980, 610));
-
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\moham\\Desktop\\bg.png")); // NOI18N
         p_display.add(jLabel2);
         jLabel2.setVisible(false);
@@ -381,11 +379,11 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     }//GEN-LAST:event_b_printActionPerformed
 
     private void b_fileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_fileMouseEntered
-       jLabel2.setVisible(true);
+        jLabel2.setVisible(true);
     }//GEN-LAST:event_b_fileMouseEntered
 
     private void b_fileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_fileMouseExited
-         jLabel2.setVisible(false);
+        jLabel2.setVisible(false);
     }//GEN-LAST:event_b_fileMouseExited
 
     public void threadGenFile()
