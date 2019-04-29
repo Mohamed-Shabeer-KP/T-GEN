@@ -116,11 +116,10 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         add_studpanel = new javax.swing.JPanel();
         add_stud = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         cb_no_subjects = new javax.swing.JComboBox<>();
         b_submit_sg = new javax.swing.JButton();
         b_reset_sg = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         t_std_grp_name = new javax.swing.JTextField();
         add_teachpanel = new javax.swing.JPanel();
@@ -128,7 +127,6 @@ public class DatabaseOp extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         t_teacher_name = new javax.swing.JTextField();
         cb_add_subject = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -506,13 +504,6 @@ public class DatabaseOp extends javax.swing.JFrame {
 
         add_stud.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel8.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("No of subjects");
-
-        jLabel19.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 153));
-
         cb_no_subjects.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
 
         b_submit_sg.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -533,21 +524,27 @@ public class DatabaseOp extends javax.swing.JFrame {
         });
         b_reset_sg.setVisible(false);
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("no subjects");
+
         javax.swing.GroupLayout add_studLayout = new javax.swing.GroupLayout(add_stud);
         add_stud.setLayout(add_studLayout);
         add_studLayout.setHorizontalGroup(
             add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_studLayout.createSequentialGroup()
-                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(add_studLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(add_studLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
-                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
+                        .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_studLayout.createSequentialGroup()
                         .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))))
@@ -555,16 +552,11 @@ public class DatabaseOp extends javax.swing.JFrame {
         add_studLayout.setVerticalGroup(
             add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_studLayout.createSequentialGroup()
-                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(add_studLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(add_studLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_no_subjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(add_studLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_submit_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_reset_sg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -638,9 +630,6 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 204));
-
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Subject");
@@ -666,13 +655,10 @@ public class DatabaseOp extends javax.swing.JFrame {
                     .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, add_teachLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(add_teachLayout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addComponent(jButton7)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         add_teachLayout.setVerticalGroup(
             add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -681,9 +667,7 @@ public class DatabaseOp extends javax.swing.JFrame {
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(t_teacher_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addGroup(add_teachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_add_subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -698,7 +682,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             add_teachpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(add_teachpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(add_teach, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(add_teach, javax.swing.GroupLayout.PREFERRED_SIZE, 277, Short.MAX_VALUE)
                 .addGap(37, 37, 37))
         );
         add_teachpanelLayout.setVerticalGroup(
@@ -1163,7 +1147,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+            .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("          REMOVE                   ", jPanel6);
@@ -1416,13 +1400,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_b_submit_view_sgActionPerformed
 
     private void focuslost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_focuslost
-       if(t_std_grp_name.getText().trim().isEmpty())
-       {
-           jLabel19.setText("Student Group name is empty");
-       }
-       else
-          jLabel19.setText(""); 
-       
+
     }//GEN-LAST:event_focuslost
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -1440,12 +1418,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_t_view_hpdActionPerformed
 
     private void t_teacher_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_teacher_nameFocusLost
-        if(t_teacher_name.getText().trim().isEmpty())
-       {
-           jLabel13.setText("Student Group name is empty");
-       }
-       else
-          jLabel13.setText(""); 
+
     }//GEN-LAST:event_t_teacher_nameFocusLost
 
     private void insert_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_panelMouseClicked
@@ -1462,7 +1435,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void t_std_grp_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_t_std_grp_nameFocusGained
-       jLabel19.setText("");
+    
     }//GEN-LAST:event_t_std_grp_nameFocusGained
 
     private void cb_add_subjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_add_subjectActionPerformed
@@ -2181,14 +2154,14 @@ public class DatabaseOp extends javax.swing.JFrame {
                         sg_sub_list.add(dataSnapshot.child("studentgroup").child("studentgroup:"+i).child("subjects").child("subject:"+j).child("name").getValue().toString());
                         }
                         
-                        for(int i=1;i<=teacher_count;i++)
+                      /* for(int i=1;i<=teacher_count;i++)
                         teacher_sub_list.add(dataSnapshot.child("teacher").child("teacher:"+i).child("subject").getValue().toString());
                         
                         sg_sub_list.removeAll(teacher_sub_list);
                         
                         Set<String> set = new HashSet<>(sg_sub_list);
                         sg_sub_list.clear();
-                        sg_sub_list.addAll(set);
+                        sg_sub_list.addAll(set);*/
                         
                         for(int h=0;h<sg_sub_list.size();h++)
                         cb_add_subject.addItem((String) sg_sub_list.get(h));
@@ -2744,20 +2717,15 @@ flag=0;
          
          if((t_std_grp_name.getText().trim().isEmpty())&&(!(t_std_grp_name.getText().contains(" "))))
          {
-             jLabel19.setText("Student Group name is Empty");
            JOptionPane.showMessageDialog(null, "Please Enter a valid Student Group Name");
            return -1;
          }
          else if ((!matcher.matches()))
          {
-              
-                     jLabel19.setText("Student Group name is Invalid");
                      JOptionPane.showMessageDialog(null, "Please Enter a valid Student Group Name");
                return -1;
          }
          
-         else 
-         jLabel19.setText(" ");
          
          return 0;
     }
@@ -2770,28 +2738,14 @@ flag=0;
          
          if(t_teacher_name.getText().trim().isEmpty())
          {
-             jLabel13.setText("Teacher name is Empty");
            JOptionPane.showMessageDialog(null, "Please Enter a valid Teacher Name");
            return -1;
          }
-         else if ((!matcher.matches()))
-             
+         else if ((!matcher.matches()))     
             {
-                  if(t_teacher_name.getText().contains(" "))
-                    {
-                         jLabel13.setText(" ");
-                      
-                    }
-                  else
-                  {
-                        jLabel13.setText("Teacher name is Invalid");
                         JOptionPane.showMessageDialog(null, "Please Enter a valid Teacher Name");
-                        return -1;
-                  }  
+                        return -1;               
             }
-         
-         else
-          jLabel13.setText(" ");
          
          return 0;
     }
@@ -2844,12 +2798,10 @@ flag=0;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
