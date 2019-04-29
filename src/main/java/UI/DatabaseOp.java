@@ -1173,7 +1173,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("T-GEN");
 

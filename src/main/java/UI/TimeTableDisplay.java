@@ -17,6 +17,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -38,6 +39,8 @@ import operations.Chromosome;
 import operations.SchedulerMain;
 import operations.inputdata;
 import java.io.FileOutputStream;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -101,6 +104,14 @@ public class TimeTableDisplay extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 mouse_pressed(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -259,7 +270,7 @@ public class TimeTableDisplay extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("T-GEN");
 
@@ -385,6 +396,19 @@ public class TimeTableDisplay extends javax.swing.JFrame {
     private void b_fileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_fileMouseExited
         jLabel2.setVisible(false);
     }//GEN-LAST:event_b_fileMouseExited
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       try {
+           Image i = ImageIO.read(getClass().getResource("/"));
+           setIconImage(i);
+       } catch (IOException ex) {
+           Logger.getLogger(TimeTableDisplay.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_formWindowOpened
 
     public void threadGenFile()
     {              

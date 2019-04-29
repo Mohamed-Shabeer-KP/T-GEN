@@ -161,7 +161,7 @@ public class Homepage extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         threadCheckInternet();
-        ImageIcon icon = new ImageIcon("./res/icon.jpg");
+        ImageIcon icon = new ImageIcon("./res/icon.png");
         this.setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowOpened
 
