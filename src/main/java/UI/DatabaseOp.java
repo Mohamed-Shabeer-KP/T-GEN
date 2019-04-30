@@ -1378,7 +1378,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        sp_view_sg.setVisible(false);
+        sp_view_sg.setVisible(false); 
         threadGenViewDPWUI();
         jLayeredPane4.setVisible(true);
         viewstudent_panel.setVisible(false);
