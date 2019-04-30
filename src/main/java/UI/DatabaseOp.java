@@ -209,7 +209,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setPreferredSize(new java.awt.Dimension(230, 440));
 
-        jButton15.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton15.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton15.setText("View Student group");
         jButton15.setPreferredSize(new java.awt.Dimension(127, 35));
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +218,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton16.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton16.setText("View Teachers");
         jButton16.setPreferredSize(new java.awt.Dimension(102, 35));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +227,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton17.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton17.setText("View Days per Week ");
         jButton17.setPreferredSize(new java.awt.Dimension(137, 35));
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jButton18.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton18.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton18.setText("View Hours per Day");
         jButton18.setPreferredSize(new java.awt.Dimension(129, 35));
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -252,11 +252,11 @@ public class DatabaseOp extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,7 +748,7 @@ public class DatabaseOp extends javax.swing.JFrame {
         jPanel4.setRequestFocusEnabled(false);
         jPanel4.setVerifyInputWhenFocusTarget(false);
 
-        jButton5.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton5.setText("Add Teachers");
         jButton5.setPreferredSize(new java.awt.Dimension(96, 35));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -757,7 +757,7 @@ public class DatabaseOp extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton4.setText("Add Student Group");
         jButton4.setPreferredSize(new java.awt.Dimension(123, 35));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -1378,7 +1378,7 @@ public class DatabaseOp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-
+        sp_view_sg.setVisible(false);
         threadGenViewDPWUI();
         jLayeredPane4.setVisible(true);
         viewstudent_panel.setVisible(false);
