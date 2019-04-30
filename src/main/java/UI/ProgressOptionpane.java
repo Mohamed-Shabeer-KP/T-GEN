@@ -58,7 +58,12 @@ public class ProgressOptionpane {
 
                     l_timer.setText("<html><b><center>" + "Progress : " + perc + "%" + "</center></b><br/>" + "Time Elapsed " + min + " minutes and " + sec + " seconds" + "</html>");
                     timeCounter++;
-                } else {
+                } 
+                else if(min==30)
+                {
+                 JOptionPane.showMessageDialog(null, "Not Possible To Generate Time-Table");
+                }
+                else {
                     ((Timer) e.getSource()).stop();
                     Window win = SwingUtilities.getWindowAncestor(l_timer);
                     win.setVisible(false);
