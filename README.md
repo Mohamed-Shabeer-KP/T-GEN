@@ -10,5 +10,5 @@ T-Gen is a Windows application which is used for generating time-table for educa
 * Clone the project from github 
 * **RUN**
 #### Team
-* @logan126x
+* @Github/logan126x
 
