@@ -9,7 +9,7 @@ T-Gen is a Windows application which is used for generating time-table for educa
 ```
 * Install gradle support plugin 
 * Clone the project from github 
-* **RUN**
+* RUN
 ```
 #### Team
 * @logan126x
