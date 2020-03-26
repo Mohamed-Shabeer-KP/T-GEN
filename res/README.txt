@@ -1,0 +1,1 @@
+Get the firebase credentials from the firebase project settings
